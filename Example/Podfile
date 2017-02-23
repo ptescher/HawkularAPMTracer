@@ -1,0 +1,6 @@
+use_frameworks!
+target 'HawkularAPMTracer_Tests' do
+  pod 'HawkularAPMTracer', :path => '../'
+  
+  
+end
