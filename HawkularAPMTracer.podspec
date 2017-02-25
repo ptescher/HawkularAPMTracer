@@ -9,34 +9,25 @@
 Pod::Spec.new do |s|
   s.name             = 'HawkularAPMTracer'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of HawkularAPMTracer.'
+  s.summary          = 'Opentracing compatible tracer with a Hawkular APM recorder'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Allows any opentracing compatible frameworks to record traces to Hawkular APM.
+See http://www.hawkular.org/hawkular-apm/ for more info.
                        DESC
 
   s.homepage         = 'https://github.com/pat2man/HawkularAPMTracer'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'pat2man' => 'pat2man@gmail.com' }
   s.source           = { :git => 'https://github.com/pat2man/HawkularAPMTracer.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.social_media_url = 'https://twitter.com/pat2man'
 
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'HawkularAPMTracer/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'HawkularAPMTracer' => ['HawkularAPMTracer/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.public_header_files = 'HawkularAPMTracer/Classes/**/*.h'
+  s.frameworks = 'Foundation'
+  s.dependency 'opentracing'
 end

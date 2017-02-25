@@ -13,6 +13,8 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		D30EFCB41E5FA87E00697EDA /* APMURLSessionTaskTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = D30EFCB31E5FA87E00697EDA /* APMURLSessionTaskTracker.m */; };
+		D30EFCB71E5FAAC200697EDA /* APMURLSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D30EFCB61E5FAAC200697EDA /* APMURLSessionDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,11 +28,27 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		89E753B57917CA572DA3B702 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		89E753B57917CA572DA3B702 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9A3DDFE4EADF29AB4D4003B5 /* Pods-HawkularAPMTracer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HawkularAPMTracer_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HawkularAPMTracer_Tests/Pods-HawkularAPMTracer_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		BD11538D873BAF5B51460B7A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		BD11538D873BAF5B51460B7A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		CD85364A5AFC12695A9CDD04 /* Pods-HawkularAPMTracer_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HawkularAPMTracer_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HawkularAPMTracer_Tests/Pods-HawkularAPMTracer_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		F3E946442F05F139A6BAAE80 /* HawkularAPMTracer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = HawkularAPMTracer.podspec; path = ../HawkularAPMTracer.podspec; sourceTree = "<group>"; };
+		D30EFCB21E5FA87E00697EDA /* APMURLSessionTaskTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APMURLSessionTaskTracker.h; sourceTree = "<group>"; };
+		D30EFCB31E5FA87E00697EDA /* APMURLSessionTaskTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMURLSessionTaskTracker.m; sourceTree = "<group>"; };
+		D30EFCB51E5FAAC200697EDA /* APMURLSessionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APMURLSessionDelegate.h; sourceTree = "<group>"; };
+		D30EFCB61E5FAAC200697EDA /* APMURLSessionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMURLSessionDelegate.m; sourceTree = "<group>"; };
+		D32B32011E5F735B00D42862 /* APMNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APMNode.h; sourceTree = "<group>"; };
+		D32B32021E5F735B00D42862 /* APMNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMNode.m; sourceTree = "<group>"; };
+		D32B32031E5F735B00D42862 /* APMRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APMRecorder.h; sourceTree = "<group>"; };
+		D32B32041E5F735B00D42862 /* APMRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMRecorder.m; sourceTree = "<group>"; };
+		D32B32051E5F735B00D42862 /* APMSpan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APMSpan.h; sourceTree = "<group>"; };
+		D32B32061E5F735B00D42862 /* APMSpan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMSpan.m; sourceTree = "<group>"; };
+		D32B32071E5F735B00D42862 /* APMSpanContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APMSpanContext.h; sourceTree = "<group>"; };
+		D32B32081E5F735B00D42862 /* APMSpanContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMSpanContext.m; sourceTree = "<group>"; };
+		D32B32091E5F735B00D42862 /* APMTrace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APMTrace.h; sourceTree = "<group>"; };
+		D32B320A1E5F735B00D42862 /* APMTrace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMTrace.m; sourceTree = "<group>"; };
+		D32B320B1E5F735B00D42862 /* APMTracer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APMTracer.h; sourceTree = "<group>"; };
+		D32B320C1E5F735B00D42862 /* APMTracer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMTracer.m; sourceTree = "<group>"; };
+		F3E946442F05F139A6BAAE80 /* HawkularAPMTracer.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = HawkularAPMTracer.podspec; path = ../HawkularAPMTracer.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +69,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				D32B31F81E5F734200D42862 /* HawkularAPMTracer */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
@@ -108,6 +127,46 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		D32B31F81E5F734200D42862 /* HawkularAPMTracer */ = {
+			isa = PBXGroup;
+			children = (
+				D32B31F91E5F734200D42862 /* Assets */,
+				D32B31FB1E5F734200D42862 /* Classes */,
+			);
+			name = HawkularAPMTracer;
+			path = ../HawkularAPMTracer;
+			sourceTree = "<group>";
+		};
+		D32B31F91E5F734200D42862 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		D32B31FB1E5F734200D42862 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D32B32011E5F735B00D42862 /* APMNode.h */,
+				D32B32021E5F735B00D42862 /* APMNode.m */,
+				D32B32031E5F735B00D42862 /* APMRecorder.h */,
+				D32B32041E5F735B00D42862 /* APMRecorder.m */,
+				D32B32051E5F735B00D42862 /* APMSpan.h */,
+				D32B32061E5F735B00D42862 /* APMSpan.m */,
+				D32B32071E5F735B00D42862 /* APMSpanContext.h */,
+				D32B32081E5F735B00D42862 /* APMSpanContext.m */,
+				D32B32091E5F735B00D42862 /* APMTrace.h */,
+				D32B320A1E5F735B00D42862 /* APMTrace.m */,
+				D32B320B1E5F735B00D42862 /* APMTracer.h */,
+				D32B320C1E5F735B00D42862 /* APMTracer.m */,
+				D30EFCB51E5FAAC200697EDA /* APMURLSessionDelegate.h */,
+				D30EFCB61E5FAAC200697EDA /* APMURLSessionDelegate.m */,
+				D30EFCB21E5FA87E00697EDA /* APMURLSessionTaskTracker.h */,
+				D30EFCB31E5FA87E00697EDA /* APMURLSessionTaskTracker.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		FC3AA049A57B5D2B82F107F7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,7 +206,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = APM;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = pat2man;
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
@@ -238,6 +297,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5BC195388D20070C39A /* Tests.m in Sources */,
+				D30EFCB41E5FA87E00697EDA /* APMURLSessionTaskTracker.m in Sources */,
+				D30EFCB71E5FAAC200697EDA /* APMURLSessionDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,14 +329,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -308,13 +374,18 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -346,7 +417,6 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HawkularAPMTracer_Example.app/HawkularAPMTracer_Example";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -365,7 +435,6 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HawkularAPMTracer_Example.app/HawkularAPMTracer_Example";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;

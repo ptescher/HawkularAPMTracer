@@ -1,0 +1,29 @@
+{
+  "name": "HawkularAPMTracer",
+  "version": "0.1.0",
+  "summary": "A short description of HawkularAPMTracer.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/pat2man/HawkularAPMTracer",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "pat2man": "pat2man@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/pat2man/HawkularAPMTracer.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "HawkularAPMTracer/Classes/**/*",
+  "public_header_files": "Pod/Classes/**/*.h",
+  "frameworks": "Foundation",
+  "dependencies": {
+    "opentracing": [
+
+    ]
+  }
+}
