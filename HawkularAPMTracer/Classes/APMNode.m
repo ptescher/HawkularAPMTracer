@@ -45,6 +45,7 @@
 - (NSDictionary *)propertyDictionary {
     NSMutableDictionary *propertyDictionary = [NSMutableDictionary new];
     propertyDictionary[@"name"] = self.name;
+    propertyDictionary[@"type"] = self.type;
     propertyDictionary[@"value"] = self.number ?: self.value;
     return [propertyDictionary copy];
 }

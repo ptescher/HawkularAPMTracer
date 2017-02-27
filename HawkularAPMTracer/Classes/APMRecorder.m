@@ -16,12 +16,13 @@
 @property (strong, nonatomic, nonnull) NSURLSession *urlSession;
 @property (strong, nonatomic, nonnull) NSURL *baseURL;
 @property (weak, nonatomic, nullable) NSTimer *sendTimer;
+@property (nonatomic) NSTimeInterval timeoutInterval;
 
 @end
 
 @implementation APMRecorder
 
-- (instancetype)initWithURL:(NSURL *)baseURL flushInterval:(NSTimeInterval)flushInterval {
+- (instancetype)initWithURL:(NSURL *)baseURL flushInterval:(NSTimeInterval)flushInterval timeoutInterval:(NSTimeInterval)timeoutInterval {
     self = [super init];
     if (self) {
         self.sendTimer = [NSTimer scheduledTimerWithTimeInterval:flushInterval repeats:YES block:^(NSTimer * _Nonnull timer) {
@@ -31,6 +32,7 @@
         self.baseURL = baseURL;
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         self.urlSession = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
+        self.timeoutInterval = timeoutInterval;
     }
     return self;
 }
@@ -66,6 +68,7 @@
     request.HTTPMethod = @"POST";
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request addValue:basicAuth forHTTPHeaderField:@"Authorization"];
+    request.timeoutInterval = self.timeoutInterval;
 
     NSError *error = nil;
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:traces options:0 error:&error];

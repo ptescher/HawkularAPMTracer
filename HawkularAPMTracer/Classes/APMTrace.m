@@ -26,14 +26,14 @@
 
 @implementation APMTrace
 
-- (instancetype)initWithTraceID:(NSString* _Nonnull)traceID {
+- (instancetype)initWithTraceID:(NSString* _Nonnull)traceID spanID:(NSString*)spanID {
     self = [super init];
     if (self) {
         self.rootNodes = [NSMutableArray<APMNode*> new];
         self.orphanedNodes = [NSMutableArray<APMNode*> new];
         self.traceID = traceID;
         self.isFinished = false;
-        self.fragmendID = [APMSpan generateID];
+        self.fragmendID = spanID;
     }
     return self;
 }

@@ -23,9 +23,15 @@
     self = [super init];
     if (self) {
         self.startTime = startTime;
-        self.traceID = parentContext.traceID ?: [APMSpan generateID];
-        self.spanID = [APMSpan generateID];
-        self.parentContext = parentContext;
+        if (parentContext == nil) {
+            NSString *spanID = [APMSpan generateID];
+            self.traceID = spanID;
+            self.spanID = spanID;
+        } else {
+            self.parentContext = parentContext;
+            self.traceID = parentContext.traceID;
+            self.spanID = [APMSpan generateID];
+        }
     }
     return self;
 }
@@ -39,7 +45,7 @@
 }
 
 - (APMTrace *)generateTrace {
-    APMTrace *trace = [[APMTrace alloc] initWithTraceID:self.traceID];
+    APMTrace *trace = [[APMTrace alloc] initWithTraceID:self.traceID spanID:self.spanID];
     _trace = trace;
     return trace;
 }

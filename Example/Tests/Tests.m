@@ -24,7 +24,7 @@
 - (void)setUp {
     [super setUp];
 
-    NSURL *baseURL = [NSURL URLWithString:@"http://hawkular-apm-riff-production.apps.outtherelabs.com/hawkular/apm/"];
+    NSURL *baseURL = [NSURL URLWithString:@"http://localhost:54676/hawkular/apm/"];
     [APMTracer setup:baseURL flushInterval:1.0];
 }
 
@@ -43,20 +43,22 @@
         NSData *body = request.OHHTTPStubs_HTTPBody;
         NSArray *traces = [NSJSONSerialization JSONObjectWithData:body options:NSJSONReadingAllowFragments error:nil];
         XCTAssert(traces.count > 0);
-        NSLog(@"Got traces: %@", traces);
         NSError *error = [NSError errorWithDomain:@"com.outtherelabs.hawkularapmtracer" code:500 userInfo:nil];
         return [OHHTTPStubsResponse responseWithError:error];
     }];
 }
 
 - (void)testSpanSending {
-    id<OTSpan> testSpan = [[OTGlobal sharedTracer] startSpan:@"Test Span" childOf:nil tags:@{@"test-tag": @"test-value"} startTime:[NSDate dateWithTimeIntervalSinceNow:-10.0]];
-    [testSpan setTag:@"node.componentType" value:@"Test"];
-    [testSpan logEvent:@"Test Event"];
+    NSDictionary *carrier = @{@"HWKAPMID": @5};
+    id<OTSpanContext> parentContext = [[OTGlobal sharedTracer] extractWithFormat:@"text_map" carrier:carrier];
+    NSDictionary *tags = @{@"foo": @"bar", @"service": @"test-service", @"test.type": @"xctest"};
+    id<OTSpan> testSpan = [[OTGlobal sharedTracer] startSpan:@"root" childOf:parentContext tags:tags startTime:[NSDate date]];
+    [testSpan setTag:@"node.endpointType" value:@"HTTP"];
+    [testSpan setTag:@"node.type" value:@"Consumer"];
 
     [self stubFragmentEndpointAndExpectResponse];
 
-    [testSpan finish];
+    [testSpan finishWithTime:[NSDate dateWithTimeIntervalSinceNow:0.201]];
 
     [self waitForExpectationsWithTimeout:20.0 handler:^(NSError * _Nullable error) {
         XCTAssertNil(error);

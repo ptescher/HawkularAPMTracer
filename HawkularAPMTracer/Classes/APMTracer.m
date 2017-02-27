@@ -30,7 +30,7 @@
 - (instancetype)initWithAPMURL:(NSURL*)apmURL flushInterval:(NSTimeInterval)flushInterval {
     self = [super init];
     if (self) {
-        self.recorder = [[APMRecorder alloc] initWithURL:apmURL flushInterval:flushInterval];
+        self.recorder = [[APMRecorder alloc] initWithURL:apmURL flushInterval:flushInterval timeoutInterval:10];
     }
     return self;
 }

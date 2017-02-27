@@ -21,7 +21,7 @@
         NSInteger statusCode = ((NSHTTPURLResponse*)task.response).statusCode;
         tags[@"http.status_code"] = @(statusCode);
     }
-    tags[@"service"] = [NSBundle mainBundle].infoDictionary[@"CFBundleName"];
+    tags[@"service"] = [NSBundle mainBundle].infoDictionary[@"CFBundleName"] ?: @"unknown-app";
     tags[@"buildStamp"] = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
     return [tags copy];
 }
@@ -30,7 +30,7 @@
     NSParameterAssert(task.originalRequest);
     id<OTSpanContext> parentContext = [[OTGlobal sharedTracer] extractWithFormat:OTFormatHTTPHeaders carrier:task.originalRequest.allHTTPHeaderFields];
 
-    id<OTSpan> metricsSpan = [[OTGlobal sharedTracer] startSpan:@"Request" childOf:parentContext tags:[self tagsFromTask:task] startTime:metrics.taskInterval.startDate];
+    id<OTSpan> metricsSpan = [[OTGlobal sharedTracer] startSpan:task.originalRequest.HTTPMethod childOf:parentContext tags:[self tagsFromTask:task] startTime:metrics.taskInterval.startDate];
     [metricsSpan setTag:@"node.type" value:@"Producer"];
     [metricsSpan setTag:@"node.endpointType" value:task.originalRequest.URL.scheme.uppercaseString];
 
@@ -72,10 +72,7 @@
         [self trackConnectionMetrics:metrics tags:tags parentContext:span.context];
     }
     if (metrics.requestStartDate != nil) {
-        [self trackRequestMetrics:metrics tags:tags parentContext:span.context];
-    }
-    if (metrics.responseStartDate != nil) {
-        [self trackResponseMetrics:metrics tags:tags parentContext:span.context];
+        [self trackHTTPMetrics:metrics tags:tags parentContext:span.context];
     }
 
     [span log:@"Fetch Start" timestamp:metrics.fetchStartDate payload:nil];
@@ -106,6 +103,20 @@
     [span setTag:@"node.componentType" value:@"TLS"];
     [span finishWithTime:metrics.secureConnectionEndDate];
 }
+
++ (void)trackHTTPMetrics:(NSURLSessionTaskTransactionMetrics*)metrics tags:(NSDictionary*)tags parentContext:(id<OTSpanContext>)parentContext {
+    id<OTSpan> span = [[OTGlobal sharedTracer] startSpan:@"HTTP" childOf:parentContext tags:tags startTime:metrics.requestStartDate];
+    [span setTag:@"node.type" value:@"Component"];
+    [span setTag:@"node.componentType" value:@"HTTP"];
+    if (metrics.requestStartDate != nil) {
+        [self trackRequestMetrics:metrics tags:tags parentContext:span.context];
+    }
+    if (metrics.responseStartDate != nil) {
+        [self trackResponseMetrics:metrics tags:tags parentContext:span.context];
+    }
+    [span finishWithTime:metrics.responseEndDate];
+}
+
 
 + (void)trackRequestMetrics:(NSURLSessionTaskTransactionMetrics*)metrics tags:(NSDictionary*)tags parentContext:(id<OTSpanContext>)parentContext {
     id<OTSpan> span = [[OTGlobal sharedTracer] startSpan:@"Request" childOf:parentContext tags:tags startTime:metrics.requestStartDate];
