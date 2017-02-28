@@ -19,7 +19,6 @@
 @property (strong, nonatomic, nullable) NSString *hostAddress;
 @property (readonly, nullable) NSDate *timestamp;
 @property (strong, nonatomic, nullable) NSString *traceID;
-@property (strong, nonatomic, nullable) NSString *transaction;
 @property (nonatomic) bool isFinished;
 
 @end
