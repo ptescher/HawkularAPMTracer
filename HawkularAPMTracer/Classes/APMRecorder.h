@@ -12,7 +12,7 @@
 @class APMTrace;
 @interface APMRecorder : NSObject
 
-- (nonnull instancetype)initWithURL:(NSURL* _Nonnull)baseURL flushInterval:(NSTimeInterval)flushInterval timeoutInterval:(NSTimeInterval)timeoutInterval;
+- (instancetype)initWithURL:(NSURL *)baseURL credential:(NSURLCredential*)credential flushInterval:(NSTimeInterval)flushInterval timeoutInterval:(NSTimeInterval)timeoutInterval;
 - (BOOL)addTrace:(APMTrace* _Nonnull)trace error:(NSError * _Nullable __autoreleasing *)outError;
 
 @end

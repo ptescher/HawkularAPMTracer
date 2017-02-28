@@ -30,19 +30,31 @@
     NSParameterAssert(task.originalRequest);
     id<OTSpanContext> parentContext = [[OTGlobal sharedTracer] extractWithFormat:OTFormatHTTPHeaders carrier:task.originalRequest.allHTTPHeaderFields];
 
-    id<OTSpan> metricsSpan = [[OTGlobal sharedTracer] startSpan:task.originalRequest.HTTPMethod childOf:parentContext tags:[self tagsFromTask:task] startTime:metrics.taskInterval.startDate];
-    [metricsSpan setTag:@"node.type" value:@"Producer"];
-    [metricsSpan setTag:@"node.endpointType" value:task.originalRequest.URL.scheme.uppercaseString];
+    if (parentContext == nil) {
+        return;
+    }
+
+    id<OTSpan> metricsSpan = [[OTGlobal sharedTracer] startSpan:@"Task Metrics" childOf:parentContext tags:[self tagsFromTask:task] startTime:metrics.taskInterval.startDate];
 
     for (NSURLSessionTaskTransactionMetrics *metric in metrics.transactionMetrics) {
         [self trackMetrics:metric tags:[self tagsFromTask:task] parentContext:metricsSpan.context];
     }
 
     [metricsSpan finishWithTime:metrics.taskInterval.endDate];
+
+    NSMutableDictionary *carrier = [NSMutableDictionary new];
+    carrier[@"tags"] = [self tagsFromTask:task];
+    carrier[@"operationName"] = task.originalRequest.HTTPMethod;
+    carrier[@"startTime"] = metrics.taskInterval.startDate;
+    carrier[@"finishTime"] = metrics.taskInterval.endDate;
+    carrier[@"node.type"] = @"Producer";
+    carrier[@"node.endpointType"] = task.originalRequest.URL.scheme.uppercaseString;
+
+    [[OTGlobal sharedTracer] inject:parentContext format:OTFormatHTTPHeaders carrier:carrier];
 }
 
 + (void)trackMetrics:(NSURLSessionTaskTransactionMetrics*)metrics tags:(NSDictionary*)tags parentContext:(id<OTSpanContext>)parentContext {
-    id<OTSpan> span = [[OTGlobal sharedTracer] startSpan:@"Metrics" childOf:parentContext tags:tags startTime:metrics.fetchStartDate];
+    id<OTSpan> span = [[OTGlobal sharedTracer] startSpan:@"Transaction Metrics" childOf:parentContext tags:tags startTime:metrics.fetchStartDate];
 
     [span setTag:@"network.protocol.name" value:metrics.networkProtocolName];
     [span setTag:@"connection.refused" boolValue:metrics.reusedConnection];
@@ -105,7 +117,7 @@
 }
 
 + (void)trackHTTPMetrics:(NSURLSessionTaskTransactionMetrics*)metrics tags:(NSDictionary*)tags parentContext:(id<OTSpanContext>)parentContext {
-    id<OTSpan> span = [[OTGlobal sharedTracer] startSpan:@"HTTP" childOf:parentContext tags:tags startTime:metrics.requestStartDate];
+    id<OTSpan> span = [[OTGlobal sharedTracer] startSpan:@"Protocol" childOf:parentContext tags:tags startTime:metrics.requestStartDate];
     [span setTag:@"node.type" value:@"Component"];
     [span setTag:@"node.componentType" value:@"HTTP"];
     if (metrics.requestStartDate != nil) {

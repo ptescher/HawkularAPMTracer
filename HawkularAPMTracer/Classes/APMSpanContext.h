@@ -14,13 +14,10 @@
 
 @property (readonly, nonnull) NSString *traceID;
 @property (readonly, nonnull) NSString *spanID;
-@property (strong, nonatomic, nonnull) NSDate *startTime;
-@property (strong, nonatomic, nullable) NSDate *finishTime;
 @property (strong, nonatomic, nullable) APMSpanContext *parentContext;
 @property (strong, nonatomic, nullable) APMTrace *trace;
 
-- (instancetype)initWithStartTime:(NSDate *)startTime parentContext:(APMSpanContext*)parentContext;
-
-- (void)addCarrierToTrace:(NSDictionary* _Nonnull)carrier type:(NSString*)type;
+- (nonnull instancetype)initWithTraceID:(NSString* _Nonnull)traceID spanID:(NSString* _Nonnull)spanID;
+- (nonnull instancetype)initWithParentContext:(APMSpanContext* _Nullable)parentContext;
 
 @end

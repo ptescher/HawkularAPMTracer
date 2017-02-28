@@ -53,10 +53,10 @@
     return [traceDictionary copy];
 }
 
-- (void)addNodeWithSpanContext:(APMSpanContext*)spanContext carrier:(NSDictionary*)carrier type:(NSString*)type {
+- (void)addNodeWithSpanContext:(APMSpanContext*)spanContext carrier:(NSDictionary*)carrier type:(NSString*)type startTime:(NSDate* _Nonnull)startTime finishTime:(NSDate* _Nullable)finishTime {
     APMNode *node = [[APMNode alloc] initWithSpanContext:spanContext type:type];
-    node.timestamp = spanContext.startTime;
-    node.duration = [spanContext.finishTime timeIntervalSinceDate:spanContext.startTime];
+    node.timestamp = startTime;
+    node.duration = [finishTime timeIntervalSinceDate:startTime] ?: 0;
     NSAssert(node.duration >= 0, @"Duration must be positive");
     node.operation = carrier[@"operationName"];
 
@@ -126,6 +126,7 @@
 
     if (spanContext.parentContext == nil) {
         [self.rootNodes addObject:node];
+        self.isFinished = true;
     } else {
         APMNode *parentNode = [self findNodeWithContext:spanContext.parentContext inNodes:self.rootNodes];
         if (parentNode == nil) {

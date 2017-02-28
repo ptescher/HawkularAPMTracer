@@ -22,15 +22,15 @@
 
 @implementation APMTracer
 
-+ (void)setup:(NSURL *)apmURL flushInterval:(NSTimeInterval)flushInterval {
-    APMTracer *tracer = [[APMTracer alloc] initWithAPMURL:apmURL flushInterval: flushInterval];
++ (void)setup:(NSURL *)apmURL credential:(NSURLCredential* _Nonnull)credential flushInterval:(NSTimeInterval)flushInterval {
+    APMTracer *tracer = [[APMTracer alloc] initWithAPMURL:apmURL credential:credential flushInterval: flushInterval];
     [OTGlobal initSharedTracer:tracer];
 }
 
-- (instancetype)initWithAPMURL:(NSURL*)apmURL flushInterval:(NSTimeInterval)flushInterval {
+- (instancetype)initWithAPMURL:(NSURL*)apmURL credential:(NSURLCredential* _Nonnull)credential flushInterval:(NSTimeInterval)flushInterval {
     self = [super init];
     if (self) {
-        self.recorder = [[APMRecorder alloc] initWithURL:apmURL flushInterval:flushInterval timeoutInterval:10];
+        self.recorder = [[APMRecorder alloc] initWithURL:apmURL credential:credential flushInterval:flushInterval timeoutInterval:10];
     }
     return self;
 }
@@ -78,14 +78,15 @@
 - (BOOL)inject:(id<OTSpanContext>)spanContext format:(NSString *)format carrier:(id)carrier error:(NSError * _Nullable __autoreleasing *)outError {
     NSParameterAssert(spanContext);
 
-
     if ([(APMSpanContext*)spanContext isKindOfClass:[APMSpanContext class]]) {
         APMSpanContext *apmSpanContext = (APMSpanContext*)spanContext;
         APMTrace *trace = apmSpanContext.trace;
         NSDictionary *tags = carrier[@"tags"];
         NSString *type = tags[@"node.type"] ?: @"Component";
-        [trace addNodeWithSpanContext:apmSpanContext carrier:carrier type:type];
-        if (apmSpanContext.parentContext == nil) {
+        NSDate *startTime = carrier[@"startTime"];
+        NSDate *finishTime = carrier[@"finishTime"];
+        [trace addNodeWithSpanContext:apmSpanContext carrier:carrier type:type startTime:startTime finishTime:finishTime];
+        if (trace.isFinished) {
             return [self.recorder addTrace:trace error: outError];
         } else {
             return @YES;
@@ -100,6 +101,22 @@
 }
 
 - (id<OTSpanContext>)extractWithFormat:(NSString *)format carrier:(id)carrier error:(NSError * _Nullable __autoreleasing *)outError {
+    if ([format isEqualToString:OTFormatHTTPHeaders]) {
+        NSDictionary *headers = (NSDictionary*)carrier;
+        NSString *traceID = headers[@"X-B3-TraceId"];
+        NSString *spanID = headers[@"X-B3-SpanId"];
+        NSString *sampled = headers[@"X-B3-Sampled"];
+        if ([sampled isEqualToString:@"1"] && traceID != nil && spanID != nil) {
+            APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:spanID];
+            return context;
+        }
+    }
+    if ([format isEqualToString:OTFormatTextMap]) {
+        NSDictionary *headers = (NSDictionary*)carrier;
+        NSString *traceID = headers[@""];
+        NSString *spanID = headers[@"X-B3-SpanId"];
+        NSString *sampled = headers[@"X-B3-Sampled"];
+    }
     return nil;
 }
 

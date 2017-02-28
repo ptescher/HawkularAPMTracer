@@ -25,7 +25,8 @@
     [super setUp];
 
     NSURL *baseURL = [NSURL URLWithString:@"http://localhost:54676/hawkular/apm/"];
-    [APMTracer setup:baseURL flushInterval:1.0];
+    NSURLCredential *credential = [[NSURLCredential alloc] initWithUser:@"admin" password:@"password" persistence:NSURLCredentialPersistenceNone];
+    [APMTracer setup:baseURL credential:credential flushInterval:1.0];
 }
 
 - (void)tearDown {
@@ -66,13 +67,20 @@
 }
 
 - (void)testNSURLMetricsTracking {
+    NSString *traceID = [NSUUID UUID].UUIDString;
     NSURL *testURL = [NSURL URLWithString:@"http://www.apple.com/macbook/"];
+    
+    NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:testURL];
+    [urlRequest setValue:@"1" forHTTPHeaderField:@"X-B3-Sampled"];
+    [urlRequest setValue:traceID forHTTPHeaderField:@"X-B3-TraceId"];
+    [urlRequest setValue:traceID forHTTPHeaderField:@"X-B3-SpanId"];
+    
     APMURLSessionDelegate *delegate = [APMURLSessionDelegate new];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate: delegate delegateQueue:nil];
 
     [self stubFragmentEndpointAndExpectResponse];
 
-    [[session dataTaskWithURL: testURL] resume];
+    [[session dataTaskWithRequest: urlRequest] resume];
 
     [self waitForExpectationsWithTimeout:20.0 handler:^(NSError * _Nullable error) {
         XCTAssertNil(error);

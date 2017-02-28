@@ -19,10 +19,18 @@
 
 @implementation APMSpanContext
 
-- (instancetype)initWithStartTime:(NSDate *)startTime parentContext:(APMSpanContext *)parentContext {
+- (instancetype)initWithTraceID:(NSString *)traceID spanID:(NSString *)spanID {
     self = [super init];
     if (self) {
-        self.startTime = startTime;
+        self.traceID = spanID;
+        self.spanID = spanID;
+    }
+    return self;
+}
+
+- (instancetype)initWithParentContext:(APMSpanContext *)parentContext {
+    self = [super init];
+    if (self) {
         if (parentContext == nil) {
             NSString *spanID = [APMSpan generateID];
             self.traceID = spanID;
@@ -34,10 +42,6 @@
         }
     }
     return self;
-}
-
-- (APMTrace *)addCarrierToTrace:(NSDictionary *)carrier type:(NSString*)type {
-    [self.trace addNodeWithSpanContext:self carrier:carrier type:type];
 }
 
 - (APMTrace *)trace {

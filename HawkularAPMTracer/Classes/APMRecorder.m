@@ -15,6 +15,7 @@
 @property (strong, nonatomic, nonnull) NSMutableArray<NSDictionary*> *tracesToSend;
 @property (strong, nonatomic, nonnull) NSURLSession *urlSession;
 @property (strong, nonatomic, nonnull) NSURL *baseURL;
+@property (strong, nonatomic, nonnull) NSURLCredential *credential;
 @property (weak, nonatomic, nullable) NSTimer *sendTimer;
 @property (nonatomic) NSTimeInterval timeoutInterval;
 
@@ -22,7 +23,7 @@
 
 @implementation APMRecorder
 
-- (instancetype)initWithURL:(NSURL *)baseURL flushInterval:(NSTimeInterval)flushInterval timeoutInterval:(NSTimeInterval)timeoutInterval {
+- (instancetype)initWithURL:(NSURL *)baseURL credential:(NSURLCredential*)credential flushInterval:(NSTimeInterval)flushInterval timeoutInterval:(NSTimeInterval)timeoutInterval {
     self = [super init];
     if (self) {
         self.sendTimer = [NSTimer scheduledTimerWithTimeInterval:flushInterval repeats:YES block:^(NSTimer * _Nonnull timer) {
@@ -60,7 +61,7 @@
 }
 
 - (NSURLRequest*)requestForTraces:(NSArray*)traces {
-    NSString *nameAndPassword = [NSString stringWithFormat:@"%@:%@", @"admin", @"eP11kdsIu8pMwu7QdENVsfA"];
+    NSString *nameAndPassword = [NSString stringWithFormat:@"%@:%@", self.credential.user, self.credential.password];
     NSString *basicAuth = [NSString stringWithFormat:@"Basic %@", [[nameAndPassword dataUsingEncoding:NSASCIIStringEncoding] base64EncodedStringWithOptions:nil]];
     NSURL *requestURL = [NSURL URLWithString:@"/hawkular/apm/traces/fragments" relativeToURL:self.baseURL];
 
