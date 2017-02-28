@@ -113,9 +113,9 @@
     }
     if ([format isEqualToString:OTFormatTextMap]) {
         NSDictionary *headers = (NSDictionary*)carrier;
-        NSString *traceID = headers[@""];
-        NSString *spanID = headers[@"X-B3-SpanId"];
-        NSString *sampled = headers[@"X-B3-Sampled"];
+        NSString *traceID = headers[@"HWKAPMTRACEID"];
+        APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:[APMSpan generateID]];
+        return context;
     }
     return nil;
 }

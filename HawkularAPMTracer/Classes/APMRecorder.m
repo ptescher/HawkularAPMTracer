@@ -34,6 +34,7 @@
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         self.urlSession = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
         self.timeoutInterval = timeoutInterval;
+        self.credential = credential;
     }
     return self;
 }
