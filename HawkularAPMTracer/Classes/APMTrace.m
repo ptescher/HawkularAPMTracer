@@ -106,7 +106,7 @@
                     property.type = @"Boolean";
                     property.value = ((NSNumber*)tags[key]).boolValue ? @"true": @"false";
                     property.number = tags[key];
-                } else if ([type isEqualToString:@"q"]) {
+                } else if ([type isEqualToString:@"q"] || [type isEqualToString:@"d"]) {
                     property.type = @"Number";
                     property.number = tags[key];
                 } else {
