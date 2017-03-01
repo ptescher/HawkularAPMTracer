@@ -50,6 +50,7 @@
 
 - (APMTrace *)generateTrace {
     APMTrace *trace = [[APMTrace alloc] initWithTraceID:self.traceID spanID:self.spanID];
+    trace.transaction = self.transaction;
     _trace = trace;
     return trace;
 }

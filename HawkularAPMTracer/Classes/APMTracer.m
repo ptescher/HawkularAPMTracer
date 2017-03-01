@@ -106,8 +106,10 @@
         NSString *traceID = headers[@"X-B3-TraceId"];
         NSString *spanID = headers[@"X-B3-SpanId"];
         NSString *sampled = headers[@"X-B3-Sampled"];
+        NSString *transaction = headers[@"X-B3-Transaction"];
         if ([sampled isEqualToString:@"1"] && traceID != nil && spanID != nil) {
             APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:spanID];
+            context.transaction = transaction;
             return context;
         }
     }

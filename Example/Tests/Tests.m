@@ -51,7 +51,7 @@
 
 - (void)testSpanSending {
     NSDictionary *carrier = @{@"HWKAPMID": @5};
-    id<OTSpanContext> parentContext = [[OTGlobal sharedTracer] extractWithFormat:@"text_map" carrier:carrier];
+    id<OTSpanContext> parentContext = [[OTGlobal sharedTracer] extractWithFormat:OTFormatTextMap carrier:carrier];
     NSDictionary *tags = @{@"foo": @"bar", @"service": @"test-service", @"test.type": @"xctest"};
     id<OTSpan> testSpan = [[OTGlobal sharedTracer] startSpan:@"root" childOf:parentContext tags:tags startTime:[NSDate date]];
     [testSpan setTag:@"node.endpointType" value:@"HTTP"];
@@ -60,6 +60,7 @@
     [self stubFragmentEndpointAndExpectResponse];
 
     [testSpan finishWithTime:[NSDate dateWithTimeIntervalSinceNow:0.201]];
+    [[OTGlobal sharedTracer] inject:parentContext format:OTFormatTextMap carrier:carrier];
 
     [self waitForExpectationsWithTimeout:20.0 handler:^(NSError * _Nullable error) {
         XCTAssertNil(error);
@@ -74,7 +75,8 @@
     [urlRequest setValue:@"1" forHTTPHeaderField:@"X-B3-Sampled"];
     [urlRequest setValue:traceID forHTTPHeaderField:@"X-B3-TraceId"];
     [urlRequest setValue:traceID forHTTPHeaderField:@"X-B3-SpanId"];
-    
+    [urlRequest setValue:@"Test Transaction" forHTTPHeaderField:@"X-B3-Transaction"];
+
     APMURLSessionDelegate *delegate = [APMURLSessionDelegate new];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate: delegate delegateQueue:nil];
 
