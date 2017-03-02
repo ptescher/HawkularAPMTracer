@@ -11,6 +11,7 @@
 #import "APMRecorder.h"
 #import "APMSpanContext.h"
 #import "APMTrace.h"
+#import "APMNode.h"
 #import <opentracing/OTGlobal.h>
 #import <opentracing/OTReference.h>
 
@@ -82,7 +83,6 @@
 
     if ([(APMSpanContext*)spanContext isKindOfClass:[APMSpanContext class]]) {
         APMSpanContext *apmSpanContext = (APMSpanContext*)spanContext;
-        [self.spanCache setObject:apmSpanContext forKey:apmSpanContext.spanID];
         APMTrace *trace = apmSpanContext.trace;
         NSDictionary *tags = carrier[@"tags"];
         NSString *type = tags[@"node.type"] ?: @"Component";
@@ -90,6 +90,7 @@
         NSDate *finishTime = carrier[@"finishTime"];
         [trace addNodeWithSpanContext:apmSpanContext carrier:carrier type:type startTime:startTime finishTime:finishTime];
         if (trace.isFinished) {
+            [self remoeCachedSpansForTrace: trace];
             return [self.recorder addTrace:trace error: outError];
         } else {
             return @YES;
@@ -101,6 +102,20 @@
 
 - (id<OTSpanContext>)cachedContextWithSpanID:(NSString*)spanID {
     [self.spanCache objectForKey:spanID];
+}
+
+- (void)removeCachedSpansForNode:(APMNode*)node {
+    APMSpanContext *context = node.spanContext;
+    [self.spanCache removeObjectForKey:context.spanID];
+    for (APMNode *node in node.childNodes) {
+        [self removeCachedSpansForNode:node];
+    }
+}
+
+- (void)remoeCachedSpansForTrace:(APMTrace*)trace {
+    for (APMNode *node in trace.rootNodes) {
+        [self removeCachedSpansForNode:node];
+    }
 }
 
 - (id<OTSpanContext>)extractWithFormat:(NSString *)format carrier:(id)carrier {
@@ -115,7 +130,9 @@
         NSString *parentSpanID = headers[@"X-B3-ParentSpanId"];
         NSString *sampled = headers[@"X-B3-Sampled"];
         NSString *transaction = headers[@"X-B3-Transaction"];
-        if ([sampled isEqualToString:@"1"] && traceID != nil && spanID != nil) {
+        if (spanID != nil && [self cachedContextWithSpanID:spanID] != nil) {
+            return [self cachedContextWithSpanID:spanID];
+        } else if ([sampled isEqualToString:@"1"] && traceID != nil && spanID != nil) {
             APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:spanID];
             context.transaction = transaction;
             if (parentSpanID != nil && traceID != nil) {
@@ -125,15 +142,19 @@
                                           }.mutableCopy;
                 parentHeaders[@"X-B3-Sampled"] = sampled;
                 parentHeaders[@"X-B3-Transaction"] = transaction;
-                context.parentContext = [self cachedContextWithSpanID:parentSpanID] ?: [self extractWithFormat:OTFormatHTTPHeaders carrier:parentHeaders error:outError];
+                context.parentContext = [self extractWithFormat:OTFormatHTTPHeaders carrier:parentHeaders error:outError];
             }
+            [self.spanCache setObject:context forKey:spanID];
             return context;
+        } else {
+            return nil;
         }
     }
     if ([format isEqualToString:OTFormatTextMap]) {
         NSDictionary *headers = (NSDictionary*)carrier;
         NSString *traceID = headers[@"HWKAPMTRACEID"];
         APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:[APMSpan generateID]];
+        [self.spanCache setObject:context forKey:context.spanID];
         return context;
     }
     return nil;

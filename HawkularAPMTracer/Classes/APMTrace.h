@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class APMSpan, APMSpanContext;
+@class APMSpan, APMSpanContext, APMNode;
 @interface APMTrace : NSObject
 
 @property (readonly, nonnull) NSDictionary* traceDictionary;
+@property (readonly, nonnull) NSMutableArray<APMNode*> *rootNodes;
 @property (readonly) bool isFinished;
 
 @property (strong, nonatomic, nullable) NSString *transaction;
