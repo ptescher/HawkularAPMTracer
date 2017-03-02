@@ -44,8 +44,8 @@
 		D32B32061E5F735B00D42862 /* APMSpan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMSpan.m; sourceTree = "<group>"; };
 		D32B32071E5F735B00D42862 /* APMSpanContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APMSpanContext.h; sourceTree = "<group>"; };
 		D32B32081E5F735B00D42862 /* APMSpanContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMSpanContext.m; sourceTree = "<group>"; };
-		D32B32091E5F735B00D42862 /* APMTrace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APMTrace.h; sourceTree = "<group>"; };
-		D32B320A1E5F735B00D42862 /* APMTrace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMTrace.m; sourceTree = "<group>"; };
+		D32B32091E5F735B00D42862 /* APMTraceFragment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APMTraceFragment.h; sourceTree = "<group>"; };
+		D32B320A1E5F735B00D42862 /* APMTraceFragment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMTraceFragment.m; sourceTree = "<group>"; };
 		D32B320B1E5F735B00D42862 /* APMTracer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APMTracer.h; sourceTree = "<group>"; };
 		D32B320C1E5F735B00D42862 /* APMTracer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMTracer.m; sourceTree = "<group>"; };
 		F3E946442F05F139A6BAAE80 /* HawkularAPMTracer.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = HawkularAPMTracer.podspec; path = ../HawkularAPMTracer.podspec; sourceTree = "<group>"; };
@@ -155,8 +155,8 @@
 				D32B32061E5F735B00D42862 /* APMSpan.m */,
 				D32B32071E5F735B00D42862 /* APMSpanContext.h */,
 				D32B32081E5F735B00D42862 /* APMSpanContext.m */,
-				D32B32091E5F735B00D42862 /* APMTrace.h */,
-				D32B320A1E5F735B00D42862 /* APMTrace.m */,
+				D32B32091E5F735B00D42862 /* APMTraceFragment.h */,
+				D32B320A1E5F735B00D42862 /* APMTraceFragment.m */,
 				D32B320B1E5F735B00D42862 /* APMTracer.h */,
 				D32B320C1E5F735B00D42862 /* APMTracer.m */,
 				D30EFCB51E5FAAC200697EDA /* APMURLSessionDelegate.h */,

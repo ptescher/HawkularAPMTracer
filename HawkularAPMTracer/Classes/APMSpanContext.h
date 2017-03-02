@@ -15,7 +15,6 @@
 @property (readonly, nonnull) NSString *traceID;
 @property (readonly, nonnull) NSString *spanID;
 @property (strong, nonatomic, nullable) APMSpanContext *parentContext;
-@property (strong, nonatomic, nullable) APMTrace *trace;
 @property (strong, nonatomic, nullable) NSString *transaction;
 
 - (nonnull instancetype)initWithTraceID:(NSString* _Nonnull)traceID spanID:(NSString* _Nonnull)spanID;

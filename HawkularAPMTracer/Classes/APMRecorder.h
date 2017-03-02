@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <opentracing/OTSpanContext.h>
 
-@class APMTrace;
+@class APMTraceFragment;
 @interface APMRecorder : NSObject
 
-- (instancetype)initWithURL:(NSURL *)baseURL credential:(NSURLCredential*)credential flushInterval:(NSTimeInterval)flushInterval timeoutInterval:(NSTimeInterval)timeoutInterval;
-- (BOOL)addTrace:(APMTrace* _Nonnull)trace error:(NSError * _Nullable __autoreleasing *)outError;
+- (nonnull instancetype)initWithURL:(NSURL* _Nonnull)baseURL credential:(NSURLCredential* _Nonnull)credential flushInterval:(NSTimeInterval)flushInterval timeoutInterval:(NSTimeInterval)timeoutInterval;
+- (BOOL)addFragment:(APMTraceFragment* _Nonnull)trace error:(NSError * _Nullable __autoreleasing *)outError;
 
 @end

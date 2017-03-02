@@ -7,7 +7,7 @@
 //
 
 #import "APMSpanContext.h"
-#import "APMTrace.h"
+#import "APMTraceFragment.h"
 #import "APMSpan.h"
 
 @interface APMSpanContext ()
@@ -42,17 +42,6 @@
         }
     }
     return self;
-}
-
-- (APMTrace *)trace {
-    return self.parentContext.trace ?: _trace ?: [self generateTrace];
-}
-
-- (APMTrace *)generateTrace {
-    APMTrace *trace = [[APMTrace alloc] initWithTraceID:self.traceID spanID:self.spanID];
-    trace.transaction = self.transaction;
-    _trace = trace;
-    return trace;
 }
 
 @end

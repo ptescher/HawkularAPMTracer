@@ -25,7 +25,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  HawkularAPMTracer: e743ee5ee3d80dcd628d56a1006c37b56e19e241
+  HawkularAPMTracer: ce0ae784edca1f95a1bdb597d63850f4dd0c8959
   OHHTTPStubs: e238cd5b66d8efa51c861db45895de8fe079f4a7
   opentracing: 2c1a1076e2ab26f56189b02dcb1e72cf0b297917
 

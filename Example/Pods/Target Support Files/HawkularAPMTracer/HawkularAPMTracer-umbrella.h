@@ -14,7 +14,7 @@
 #import "APMRecorder.h"
 #import "APMSpan.h"
 #import "APMSpanContext.h"
-#import "APMTrace.h"
+#import "APMTraceFragment.h"
 #import "APMTracer.h"
 #import "APMURLSessionDelegate.h"
 #import "APMURLSessionTaskTracker.h"

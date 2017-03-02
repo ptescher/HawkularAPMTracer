@@ -106,4 +106,66 @@
     [(NSMutableArray*)self.childNodes addObject:node];
 }
 
+- (void)parseCarrier:(NSDictionary *)carrier type:(NSString *)type {
+    self.operation = carrier[@"operationName"];
+
+    NSString *interactionID = carrier[@"interactionID"];
+    if (interactionID != nil) {
+        APMCorrelationIdentifier *interactionIdentifier = [[APMCorrelationIdentifier alloc] initWithScope:@"Interaction" value:interactionID];
+        [self addCorrelationIdentifier:interactionIdentifier];
+    }
+
+    NSDictionary *tags = carrier[@"tags"];
+    for (NSString *key in tags.allKeys) {
+        if ([key isEqualToString:@"node.uri"]) {
+            NSURL *uri = tags[key];
+            self.uri = uri;
+            APMProperty *uriProperty = [APMProperty new];
+            uriProperty.name = @"http.uri";
+            uriProperty.value = uri.path;
+            uriProperty.type = @"Text";
+            [self addProperty:uriProperty];
+            APMProperty *urlProperty = [APMProperty new];
+            urlProperty.name = @"http.url";
+            urlProperty.value = uri.absoluteString;
+            urlProperty.type = @"Text";
+            [self addProperty:urlProperty];
+            APMProperty *pathProperty = [APMProperty new];
+            pathProperty.name = @"http.path";
+            pathProperty.value = uri.path;
+            pathProperty.type = @"Text";
+            [self addProperty:pathProperty];
+        } else if ([key isEqualToString:@"node.operation"]) {
+            self.operation = tags[key];
+        } else if ([key isEqualToString:@"node.endpointType"]) {
+            self.endpointType = tags[key];
+        } else if ([key isEqualToString:@"node.componentType"]) {
+            self.componentType = tags[key];
+        } else if ([key isEqualToString:@"node.type"]) {
+            // node.type = tags[key];
+        } else {
+            APMProperty *property = [APMProperty new];
+            property.name = key;
+            if ([tags[key] isKindOfClass:[NSString class]]) {
+                property.type = @"Text";
+                property.value = tags[key];
+            } else {
+                NSValue *value = tags[key];
+                NSString *type = [NSString stringWithCString:value.objCType encoding:NSUTF8StringEncoding];
+                if ([type isEqualToString:@"c"]) {
+                    property.type = @"Boolean";
+                    property.value = ((NSNumber*)tags[key]).boolValue ? @"true": @"false";
+                    property.number = tags[key];
+                } else if ([type isEqualToString:@"q"] || [type isEqualToString:@"d"]) {
+                    property.type = @"Number";
+                    property.number = tags[key];
+                } else {
+                    NSLog(@"Don't know how to encode %@", type);
+                }
+            }
+            [self addProperty:property];
+        }
+    }
+}
+
 @end

@@ -10,15 +10,17 @@
 #import "APMSpan.h"
 #import "APMRecorder.h"
 #import "APMSpanContext.h"
-#import "APMTrace.h"
+#import "APMTraceFragment.h"
 #import "APMNode.h"
 #import <opentracing/OTGlobal.h>
 #import <opentracing/OTReference.h>
 
 @interface APMTracer ()
 
+@property (strong, nonatomic, nonnull) NSMutableArray *orphanedNodes;
 @property (strong, nonatomic, nonnull) APMRecorder *recorder;
-@property (strong, nonatomic, nonnull) NSCache *spanCache;
+
+- (void)addNodeWithSpanContext:(APMSpanContext*)spanContext carrier:(NSDictionary*)carrier type:(NSString*)type startTime:(NSDate* _Nonnull)startTime finishTime:(NSDate* _Nullable)finishTime;
 
 @end
 
@@ -33,7 +35,7 @@
     self = [super init];
     if (self) {
         self.recorder = [[APMRecorder alloc] initWithURL:apmURL credential:credential flushInterval:flushInterval timeoutInterval:10];
-        self.spanCache = [NSCache new];
+        self.orphanedNodes = [NSMutableArray new];
     }
     return self;
 }
@@ -81,43 +83,53 @@
     return [self inject:spanContext format:format carrier:carrier error: nil];
 }
 
+- (nullable APMNode*)findNodeWithContext:(APMSpanContext*)spanContext inNodes:(NSArray<APMNode*>*)nodes {
+    for (APMNode *node in nodes) {
+        if (node.spanContext == spanContext) {
+            return node;
+        }
+        APMNode *childNode = [self findNodeWithContext:spanContext inNodes:node.childNodes];
+        if (childNode != nil) {
+            return childNode;
+        }
+    }
+    return nil;
+}
+
+- (BOOL)addNodeWithSpanContext:(APMSpanContext *)spanContext carrier:(NSDictionary *)carrier type:(NSString *)type startTime:(NSDate *)startTime finishTime:(NSDate *)finishTime error:(NSError * _Nullable __autoreleasing *)outError {
+    APMNode *node = [[APMNode alloc] initWithSpanContext:spanContext type:type];
+    node.timestamp = startTime;
+    node.duration = [finishTime timeIntervalSinceDate:startTime] ?: 0;
+    NSAssert(node.duration >= 0, @"Duration must be positive");
+    [node parseCarrier:carrier type:type];
+
+    NSArray *children = [self.orphanedNodes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"spanContext.parentContext == %@", spanContext]];
+    for (APMNode *child in children) {
+        [node addChildNode:child];
+        [self.orphanedNodes removeObject:child];
+    }
+
+    if (spanContext.parentContext != nil && [self findNodeWithContext:spanContext.parentContext inNodes:self.orphanedNodes] != nil) {
+        APMNode *parentNode = [self findNodeWithContext:spanContext.parentContext inNodes:self.orphanedNodes];
+        [parentNode addChildNode:node];
+    } else {
+        APMTraceFragment *fragment = [[APMTraceFragment alloc] initWithTraceID:spanContext.traceID spanID:spanContext.spanID];
+        [self.recorder addFragment:fragment error:outError];
+    }
+}
+
 - (BOOL)inject:(id<OTSpanContext>)spanContext format:(NSString *)format carrier:(id)carrier error:(NSError * _Nullable __autoreleasing *)outError {
     NSParameterAssert(spanContext);
 
     if ([(APMSpanContext*)spanContext isKindOfClass:[APMSpanContext class]]) {
         APMSpanContext *apmSpanContext = (APMSpanContext*)spanContext;
-        APMTrace *trace = apmSpanContext.trace;
         NSDictionary *tags = carrier[@"tags"];
         NSString *type = tags[@"node.type"] ?: @"Component";
         NSDate *startTime = carrier[@"startTime"];
         NSDate *finishTime = carrier[@"finishTime"];
-        [trace addNodeWithSpanContext:apmSpanContext carrier:carrier type:type startTime:startTime finishTime:finishTime];
-        if (trace.isFinished) {
-            [self remoeCachedSpansForTrace: trace];
-            return [self.recorder addTrace:trace error: outError];
-        } else {
-            return @YES;
-        }
+        return [self addNodeWithSpanContext:apmSpanContext carrier:carrier type:type startTime:startTime finishTime:finishTime error:outError];
     } else {
         return @NO;
-    }
-}
-
-- (id<OTSpanContext>)cachedContextWithSpanID:(NSString*)spanID {
-    [self.spanCache objectForKey:spanID];
-}
-
-- (void)removeCachedSpansForNode:(APMNode*)node {
-    APMSpanContext *context = node.spanContext;
-    [self.spanCache removeObjectForKey:context.spanID];
-    for (APMNode *node in node.childNodes) {
-        [self removeCachedSpansForNode:node];
-    }
-}
-
-- (void)remoeCachedSpansForTrace:(APMTrace*)trace {
-    for (APMNode *node in trace.rootNodes) {
-        [self removeCachedSpansForNode:node];
     }
 }
 
@@ -125,7 +137,7 @@
     return [self extractWithFormat:format carrier:carrier error:nil];
 }
 
-- (id<OTSpanContext>)extractWithFormat:(NSString *)format carrier:(id)carrier error:(NSError * _Nullable __autoreleasing *)outError {
+- (APMSpanContext*)extractWithFormat:(NSString *)format carrier:(id)carrier error:(NSError * _Nullable __autoreleasing *)outError {
     if ([format isEqualToString:OTFormatHTTPHeaders] && [carrier isKindOfClass:[NSDictionary class]]) {
         NSDictionary *headers = (NSDictionary*)carrier;
         NSString *traceID = headers[@"X-B3-TraceId"];
@@ -133,9 +145,7 @@
         NSString *parentSpanID = headers[@"X-B3-ParentSpanId"];
         NSString *sampled = headers[@"X-B3-Sampled"];
         NSString *transaction = headers[@"X-B3-Transaction"];
-        if (spanID != nil && [self cachedContextWithSpanID:spanID] != nil) {
-            return [self cachedContextWithSpanID:spanID];
-        } else if ([sampled isEqualToString:@"1"] && traceID != nil && spanID != nil) {
+        if (traceID != nil && spanID != nil) {
             APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:spanID];
             context.transaction = transaction;
             if (parentSpanID != nil && traceID != nil) {
@@ -147,7 +157,6 @@
                 parentHeaders[@"X-B3-Transaction"] = transaction;
                 context.parentContext = [self extractWithFormat:OTFormatHTTPHeaders carrier:parentHeaders error:outError];
             }
-            [self.spanCache setObject:context forKey:spanID];
             return context;
         } else {
             return nil;
@@ -157,7 +166,6 @@
         NSDictionary *headers = (NSDictionary*)carrier;
         NSString *traceID = headers[@"HWKAPMTRACEID"];
         APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:[APMSpan generateID]];
-        [self.spanCache setObject:context forKey:context.spanID];
         return context;
     }
     return nil;

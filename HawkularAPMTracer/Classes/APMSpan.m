@@ -10,7 +10,7 @@
 #import "APMTracer.h"
 #import "APMSpanContext.h"
 #import "APMRecorder.h"
-#import "APMTrace.h"
+#import "APMTraceFragment.h"
 #import <opentracing/OTReference.h>
 
 @interface APMSpan ()
@@ -69,9 +69,6 @@
     carrier[@"operationName"] = self.operationName;
     carrier[@"startTime"] = self.startTime;
     carrier[@"finishTime"] = finishTime;
-    if (self.tags[@"transaction"] != nil) {
-        self.context.trace.transaction = self.tags[@"transaction"];
-    }
 
     [self.tracer inject:self.context format:self.format carrier:carrier error:nil];
 }

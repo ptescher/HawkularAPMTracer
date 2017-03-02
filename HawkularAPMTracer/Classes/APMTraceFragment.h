@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class APMSpan, APMSpanContext, APMNode;
-@interface APMTrace : NSObject
+@interface APMTraceFragment : NSObject
 
 @property (readonly, nonnull) NSDictionary* traceDictionary;
 @property (readonly, nonnull) NSMutableArray<APMNode*> *rootNodes;
@@ -19,6 +19,5 @@
 
 - (instancetype)initWithTraceID:(NSString* _Nonnull)traceID spanID:(NSString* _Nonnull)spanID;
 
-- (void)addNodeWithSpanContext:(APMSpanContext*)spanContext carrier:(NSDictionary*)carrier type:(NSString*)type startTime:(NSDate* _Nonnull)startTime finishTime:(NSDate* _Nullable)finishTime;
 
 @end

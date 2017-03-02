@@ -7,12 +7,12 @@
 //
 
 #import "APMRecorder.h"
-#import "APMTrace.h"
+#import "APMTraceFragment.h"
 #import "APMSpanContext.h"
 
 @interface APMRecorder ()
 
-@property (strong, nonatomic, nonnull) NSMutableArray<NSDictionary*> *tracesToSend;
+@property (strong, nonatomic, nonnull) NSMutableArray<NSDictionary*> *fragmentsToSend;
 @property (strong, nonatomic, nonnull) NSURLSession *urlSession;
 @property (strong, nonatomic, nonnull) NSURL *baseURL;
 @property (strong, nonatomic, nonnull) NSURLCredential *credential;
@@ -29,7 +29,7 @@
         self.sendTimer = [NSTimer scheduledTimerWithTimeInterval:flushInterval repeats:YES block:^(NSTimer * _Nonnull timer) {
             [self send];
         }];
-        self.tracesToSend = [NSMutableArray new];
+        self.fragmentsToSend = [NSMutableArray new];
         self.baseURL = baseURL;
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         self.urlSession = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
@@ -45,10 +45,10 @@
 
 
 - (void)send {
-    NSArray *traces = [self.tracesToSend copy];
+    NSArray *traces = [self.fragmentsToSend copy];
 
     if (traces.count > 0) {
-        [self.tracesToSend removeAllObjects];
+        [self.fragmentsToSend removeAllObjects];
         NSURLRequest *request = [self requestForTraces:traces];
         NSURLSessionTask *task = [self.urlSession dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             if (error != nil) {
@@ -79,10 +79,10 @@
     return request;
 }
 
-- (BOOL)addTrace:(APMTrace * _Nonnull)trace error:(NSError *__autoreleasing  _Nullable *)outError {
-    NSParameterAssert(trace);
-    if (![self.tracesToSend containsObject:trace]) {
-        [self.tracesToSend addObject:trace.traceDictionary];
+- (BOOL)addFragment:(APMTraceFragment * _Nonnull)fragment error:(NSError *__autoreleasing  _Nullable *)outError {
+    NSParameterAssert(fragment);
+    if (![self.fragmentsToSend containsObject:fragment]) {
+        [self.fragmentsToSend addObject:fragment.traceDictionary];
     }
 }
 

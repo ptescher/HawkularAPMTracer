@@ -41,6 +41,7 @@
 @property (strong, nonatomic, nullable) NSString *componentType;
 
 - (nonnull instancetype)initWithSpanContext:(APMSpanContext* _Nonnull)spanContext type:(NSString* _Nonnull)type;
+- (void)parseCarrier:(NSDictionary*)carrier type:(NSString*)type;
 
 - (void)addProperty:(APMProperty* _Nonnull)property;
 - (void)addCorrelationIdentifier:(APMCorrelationIdentifier* _Nonnull)correlationIdentifier;
