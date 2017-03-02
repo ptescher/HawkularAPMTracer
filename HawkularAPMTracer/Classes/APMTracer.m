@@ -58,6 +58,9 @@
                 childOf:(id<OTSpanContext>)parent
                    tags:(NSDictionary *)tags
               startTime:(NSDate *)startTime {
+    if (parent == nil) {
+        return [self startSpan:operationName references:nil tags:tags startTime:startTime];
+    }
     return [self startSpan:operationName references:@[[OTReference childOf:parent]] tags:tags startTime:startTime];
 }
 
@@ -123,7 +126,7 @@
 }
 
 - (id<OTSpanContext>)extractWithFormat:(NSString *)format carrier:(id)carrier error:(NSError * _Nullable __autoreleasing *)outError {
-    if ([format isEqualToString:OTFormatHTTPHeaders]) {
+    if ([format isEqualToString:OTFormatHTTPHeaders] && [carrier isKindOfClass:[NSDictionary class]]) {
         NSDictionary *headers = (NSDictionary*)carrier;
         NSString *traceID = headers[@"X-B3-TraceId"];
         NSString *spanID = headers[@"X-B3-SpanId"];
@@ -150,7 +153,7 @@
             return nil;
         }
     }
-    if ([format isEqualToString:OTFormatTextMap]) {
+    if ([format isEqualToString:OTFormatTextMap] && [carrier isKindOfClass:[NSDictionary class]]) {
         NSDictionary *headers = (NSDictionary*)carrier;
         NSString *traceID = headers[@"HWKAPMTRACEID"];
         APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:[APMSpan generateID]];

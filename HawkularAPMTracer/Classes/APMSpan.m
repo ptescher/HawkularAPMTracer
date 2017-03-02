@@ -43,7 +43,10 @@
         APMSpanContext *parentContext = nil;
         for (OTReference *reference in references) {
             if (reference != nil && ([reference.type isEqualToString:OTReferenceChildOf] || [reference.type isEqualToString:OTReferenceFollowsFrom])) {
-                parentContext = (id<OTSpanContext>)reference.referencedContext;
+                NSAssert([((id)reference.referencedContext) class] == [APMSpanContext class], @"Parent should be an APMSpanContext");
+                if ([((id)reference.referencedContext) class] == [APMSpanContext class]) {
+                    parentContext = (APMSpanContext*)reference.referencedContext;
+                }
             }
         }
         self.context = [[APMSpanContext alloc] initWithParentContext:parentContext];

@@ -31,14 +31,14 @@
 - (instancetype)initWithParentContext:(APMSpanContext *)parentContext {
     self = [super init];
     if (self) {
-        if (parentContext == nil) {
-            NSString *spanID = [APMSpan generateID];
-            self.traceID = spanID;
-            self.spanID = spanID;
-        } else {
-            self.parentContext = parentContext;
+        NSString *spanID = [APMSpan generateID];
+        self.spanID = spanID;
+        self.parentContext = parentContext;
+
+        if (parentContext != nil) {
             self.traceID = parentContext.traceID;
-            self.spanID = [APMSpan generateID];
+        } else {
+            self.traceID = spanID;
         }
     }
     return self;
