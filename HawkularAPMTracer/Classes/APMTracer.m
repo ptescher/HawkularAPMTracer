@@ -143,8 +143,15 @@
 - (APMSpanContext*)extractWithFormat:(NSString *)format carrier:(id)carrier error:(NSError * _Nullable __autoreleasing *)outError {
     if ([format isEqualToString:OTFormatHTTPHeaders] && [carrier isKindOfClass:[NSDictionary class]]) {
         NSDictionary *headers = (NSDictionary*)carrier;
-        NSString *traceID = headers[@"X-B3-TraceId"];
         NSString *spanID = headers[@"X-B3-SpanId"];
+
+        for (APMSpanContext *context in self.unfinishedSpanContexts) {
+            if ([context.spanID isEqualToString:spanID]) {
+                return context;
+            }
+        }
+
+        NSString *traceID = headers[@"X-B3-TraceId"];
         NSString *parentSpanID = headers[@"X-B3-ParentSpanId"];
         NSString *sampled = headers[@"X-B3-Sampled"];
         NSString *transaction = headers[@"X-B3-Transaction"];
