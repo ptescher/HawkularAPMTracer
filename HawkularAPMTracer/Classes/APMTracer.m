@@ -65,6 +65,9 @@
     if (parent == nil) {
         return [self startSpan:operationName references:nil tags:tags startTime:startTime];
     }
+    if ([(id)parent isMemberOfClass:[APMSpanContext class]]) {
+        [self.unfinishedSpanContexts addObject:parent];
+    }
     return [self startSpan:operationName references:@[[OTReference childOf:parent]] tags:tags startTime:startTime];
 }
 
@@ -155,6 +158,7 @@
         NSString *parentSpanID = headers[@"X-B3-ParentSpanId"];
         NSString *sampled = headers[@"X-B3-Sampled"];
         NSString *transaction = headers[@"X-B3-Transaction"];
+        
         if (traceID != nil && spanID != nil) {
             APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:spanID];
             context.transaction = transaction;
