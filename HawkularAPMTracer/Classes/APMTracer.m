@@ -17,6 +17,7 @@
 @interface APMTracer ()
 
 @property (strong, nonatomic, nonnull) APMRecorder *recorder;
+@property (strong, nonatomic, nonnull) NSCache *spanCache;
 
 @end
 
@@ -31,6 +32,7 @@
     self = [super init];
     if (self) {
         self.recorder = [[APMRecorder alloc] initWithURL:apmURL credential:credential flushInterval:flushInterval timeoutInterval:10];
+        self.spanCache = [NSCache new];
     }
     return self;
 }
@@ -80,6 +82,7 @@
 
     if ([(APMSpanContext*)spanContext isKindOfClass:[APMSpanContext class]]) {
         APMSpanContext *apmSpanContext = (APMSpanContext*)spanContext;
+        [self.spanCache setObject:apmSpanContext forKey:apmSpanContext.spanID];
         APMTrace *trace = apmSpanContext.trace;
         NSDictionary *tags = carrier[@"tags"];
         NSString *type = tags[@"node.type"] ?: @"Component";
@@ -96,6 +99,10 @@
     }
 }
 
+- (id<OTSpanContext>)cachedContextWithSpanID:(NSString*)spanID {
+    [self.spanCache objectForKey:spanID];
+}
+
 - (id<OTSpanContext>)extractWithFormat:(NSString *)format carrier:(id)carrier {
     return [self extractWithFormat:format carrier:carrier error:nil];
 }
@@ -105,11 +112,21 @@
         NSDictionary *headers = (NSDictionary*)carrier;
         NSString *traceID = headers[@"X-B3-TraceId"];
         NSString *spanID = headers[@"X-B3-SpanId"];
+        NSString *parentSpanID = headers[@"X-B3-ParentSpanId"];
         NSString *sampled = headers[@"X-B3-Sampled"];
         NSString *transaction = headers[@"X-B3-Transaction"];
         if ([sampled isEqualToString:@"1"] && traceID != nil && spanID != nil) {
             APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:spanID];
             context.transaction = transaction;
+            if (parentSpanID != nil) {
+                NSDictionary *parentHeaders = @{
+                                          @"X-B3-TraceId": traceID,
+                                          @"X-B3-SpanId": parentSpanID,
+                                          @"X-B3-Sampled": sampled,
+                                          @"X-B3-Transaction": transaction
+                                          };
+                context.parentContext = [self cachedContextWithSpanID:parentSpanID] ?: [self extractWithFormat:OTFormatHTTPHeaders carrier:parentHeaders error:outError];
+            }
             return context;
         }
     }
