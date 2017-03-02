@@ -160,7 +160,6 @@
                 parentHeaders[@"X-B3-Transaction"] = transaction;
                 context.parentContext = [self extractWithFormat:OTFormatHTTPHeaders carrier:parentHeaders error:outError];
             }
-            [self.unfinishedSpanContexts addObject:context];
             return context;
         } else {
             return nil;
@@ -170,7 +169,6 @@
         NSDictionary *headers = (NSDictionary*)carrier;
         NSString *traceID = headers[@"HWKAPMTRACEID"];
         APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:[APMSpan generateID]];
-        [self.unfinishedSpanContexts addObject:context];
         return context;
     }
     return nil;
