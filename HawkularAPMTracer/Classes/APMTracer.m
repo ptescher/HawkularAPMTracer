@@ -118,13 +118,13 @@
         if ([sampled isEqualToString:@"1"] && traceID != nil && spanID != nil) {
             APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:spanID];
             context.transaction = transaction;
-            if (parentSpanID != nil) {
-                NSDictionary *parentHeaders = @{
+            if (parentSpanID != nil && traceID != nil) {
+                NSMutableDictionary *parentHeaders = @{
                                           @"X-B3-TraceId": traceID,
                                           @"X-B3-SpanId": parentSpanID,
-                                          @"X-B3-Sampled": sampled,
-                                          @"X-B3-Transaction": transaction
-                                          };
+                                          }.mutableCopy;
+                parentHeaders[@"X-B3-Sampled"] = sampled;
+                parentHeaders[@"X-B3-Transaction"] = transaction;
                 context.parentContext = [self cachedContextWithSpanID:parentSpanID] ?: [self extractWithFormat:OTFormatHTTPHeaders carrier:parentHeaders error:outError];
             }
             return context;
