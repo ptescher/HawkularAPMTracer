@@ -17,7 +17,8 @@
 
 @interface APMTracer ()
 
-@property (strong, nonatomic, nonnull) NSMutableArray *orphanedNodes;
+@property (strong, nonatomic, nonnull) NSMutableSet *orphanedNodes;
+@property (strong, nonatomic, nonnull) NSMutableSet *unfinishedSpanContexts;
 @property (strong, nonatomic, nonnull) APMRecorder *recorder;
 
 - (void)addNodeWithSpanContext:(APMSpanContext*)spanContext carrier:(NSDictionary*)carrier type:(NSString*)type startTime:(NSDate* _Nonnull)startTime finishTime:(NSDate* _Nullable)finishTime;
@@ -35,7 +36,8 @@
     self = [super init];
     if (self) {
         self.recorder = [[APMRecorder alloc] initWithURL:apmURL credential:credential flushInterval:flushInterval timeoutInterval:10];
-        self.orphanedNodes = [NSMutableArray new];
+        self.orphanedNodes = [NSMutableSet new];
+        self.unfinishedSpanContexts = [NSMutableSet new];
     }
     return self;
 }
@@ -76,6 +78,7 @@
     for (NSString *key in tags.allKeys) {
         [span setTag:key value:tags[key]];
     }
+    [self.unfinishedSpanContexts addObject:span.context];
     return span;
 }
 
@@ -103,16 +106,13 @@
     NSAssert(node.duration >= 0, @"Duration must be positive");
     [node parseCarrier:carrier type:type];
 
-    NSArray *children = [self.orphanedNodes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"spanContext.parentContext == %@", spanContext]];
+    NSSet *children = [self.orphanedNodes filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"spanContext.parentContext == %@", spanContext]];
     for (APMNode *child in children) {
         [node addChildNode:child];
         [self.orphanedNodes removeObject:child];
     }
 
-    if (spanContext.parentContext != nil && [self findNodeWithContext:spanContext.parentContext inNodes:self.orphanedNodes] != nil) {
-        APMNode *parentNode = [self findNodeWithContext:spanContext.parentContext inNodes:self.orphanedNodes];
-        [parentNode addChildNode:node];
-    } else {
+    if (spanContext.parentContext == nil || ![self.unfinishedSpanContexts containsObject:spanContext.parentContext]) {
         APMTraceFragment *fragment = [[APMTraceFragment alloc] initWithTraceID:spanContext.traceID spanID:spanContext.spanID];
         [fragment addNode:node];
         [self.recorder addFragment:fragment error:outError];
@@ -124,6 +124,7 @@
 
     if ([(APMSpanContext*)spanContext isKindOfClass:[APMSpanContext class]]) {
         APMSpanContext *apmSpanContext = (APMSpanContext*)spanContext;
+        [self.unfinishedSpanContexts removeObject:apmSpanContext];
         NSDictionary *tags = carrier[@"tags"];
         NSString *type = tags[@"node.type"] ?: @"Component";
         NSDate *startTime = carrier[@"startTime"];
@@ -158,6 +159,7 @@
                 parentHeaders[@"X-B3-Transaction"] = transaction;
                 context.parentContext = [self extractWithFormat:OTFormatHTTPHeaders carrier:parentHeaders error:outError];
             }
+            [self.unfinishedSpanContexts addObject:context];
             return context;
         } else {
             return nil;
@@ -167,6 +169,7 @@
         NSDictionary *headers = (NSDictionary*)carrier;
         NSString *traceID = headers[@"HWKAPMTRACEID"];
         APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:[APMSpan generateID]];
+        [self.unfinishedSpanContexts addObject:context];
         return context;
     }
     return nil;
