@@ -13,8 +13,8 @@
 
 @interface APMTraceFragment ()
 
-@property (strong, nonatomic, nonnull) NSMutableArray<APMNode*> *nodes;
 @property (strong, nonatomic, nonnull) NSString *fragmendID;
+@property (strong, nonatomic, nonnull) APMNode *rootNode;
 @property (strong, nonatomic, nullable) NSString *hostAddress;
 @property (readonly, nullable) NSDate *timestamp;
 @property (strong, nonatomic, nullable) NSString *traceID;
@@ -24,34 +24,30 @@
 
 @implementation APMTraceFragment
 
-- (instancetype)initWithTraceID:(NSString* _Nonnull)traceID spanID:(NSString*)spanID {
+- (instancetype)initWithTraceID:(NSString* _Nonnull)traceID spanID:(NSString*)spanID rootNode:(APMNode *)node {
     self = [super init];
     if (self) {
-        self.nodes = [NSMutableArray<APMNode*> new];
         self.traceID = traceID;
         self.isFinished = false;
         self.fragmendID = spanID;
+        self.rootNode = node;
     }
     return self;
 }
 
 - (NSDate *)timestamp {
-    return [self.nodes valueForKeyPath:@"@min.timestamp"];
+    return self.rootNode.timestamp;
 }
 
 - (NSDictionary *)traceDictionary {
     NSMutableDictionary *traceDictionary = [[NSMutableDictionary alloc] initWithCapacity:7];
     traceDictionary[@"fragmentId"] = self.fragmendID;
     traceDictionary[@"hostAddress"] = self.hostAddress;
-    traceDictionary[@"nodes"] = [self.nodes valueForKeyPath:@"@unionOfObjects.nodeDictionary"];
+    traceDictionary[@"nodes"] = @[self.rootNode.nodeDictionary];
     traceDictionary[@"timestamp"] = self.timestamp == nil ? nil : [NSNumber numberWithLong: [self.timestamp timeIntervalSince1970] * 1000000];
     traceDictionary[@"traceId"] = self.traceID;
-    traceDictionary[@"transaction"] = self.transaction;
+    traceDictionary[@"transaction"] = self.rootNode.spanContext.transaction;
     return [traceDictionary copy];
-}
-
-- (void)addNode:(APMNode *)node {
-    [self.nodes addObject:node];
 }
 
 @end

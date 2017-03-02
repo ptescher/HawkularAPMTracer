@@ -113,8 +113,7 @@
     }
 
     if (spanContext.parentContext == nil || ![self.unfinishedSpanContexts containsObject:spanContext.parentContext]) {
-        APMTraceFragment *fragment = [[APMTraceFragment alloc] initWithTraceID:spanContext.traceID spanID:spanContext.spanID];
-        [fragment addNode:node];
+        APMTraceFragment *fragment = [[APMTraceFragment alloc] initWithTraceID:spanContext.traceID spanID:spanContext.spanID rootNode: node];
         [self.recorder addFragment:fragment error:outError];
     } else {
         [self.orphanedNodes addObject:node];
