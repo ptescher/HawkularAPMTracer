@@ -12,12 +12,12 @@
 @interface APMTraceFragment : NSObject
 
 @property (readonly, nonnull) NSDictionary* traceDictionary;
-@property (readonly, nonnull) NSMutableArray<APMNode*> *rootNodes;
+@property (readonly, nonnull) NSMutableArray<APMNode*> *nodes;
 @property (readonly) bool isFinished;
 
 @property (strong, nonatomic, nullable) NSString *transaction;
 
 - (instancetype)initWithTraceID:(NSString* _Nonnull)traceID spanID:(NSString* _Nonnull)spanID;
-
+- (void)addNode:(APMNode * _Nonnull)node;
 
 @end

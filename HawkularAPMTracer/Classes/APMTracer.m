@@ -114,6 +114,7 @@
         [parentNode addChildNode:node];
     } else {
         APMTraceFragment *fragment = [[APMTraceFragment alloc] initWithTraceID:spanContext.traceID spanID:spanContext.spanID];
+        [fragment addNode:node];
         [self.recorder addFragment:fragment error:outError];
     }
 }
