@@ -14,7 +14,6 @@
 @interface APMTraceFragment ()
 
 @property (strong, nonatomic, nonnull) NSMutableArray<APMNode*> *nodes;
-@property (strong, nonatomic, nonnull) NSMutableArray<APMNode*> *orphanedNodes;
 @property (strong, nonatomic, nonnull) NSString *fragmendID;
 @property (strong, nonatomic, nullable) NSString *hostAddress;
 @property (readonly, nullable) NSDate *timestamp;
@@ -29,7 +28,6 @@
     self = [super init];
     if (self) {
         self.nodes = [NSMutableArray<APMNode*> new];
-        self.orphanedNodes = [NSMutableArray<APMNode*> new];
         self.traceID = traceID;
         self.isFinished = false;
         self.fragmendID = spanID;
