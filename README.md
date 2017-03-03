@@ -20,6 +20,16 @@ it, simply add the following line to your Podfile:
 pod "HawkularAPMTracer"
 ```
 
+## Usage
+
+Initialize the shared tracer. It will register itself with OTGlobal:
+
+```swift
+APMTracer.setup(AppDelegate.appEnviroment.tracingURL, credential: AppDelegate.appEnviroment.tracingURLCredential, flushInterval: 10)
+```
+
+Normal OpenTracing commands should work. If you want track NSURLSession tasks you can set the delegate to an instance of `APMURLSessionDelegate`.
+
 ## Author
 
 pat2man, pat2man@gmail.com
