@@ -14,6 +14,6 @@
 @property (readonly, nonnull) NSDictionary* traceDictionary;
 @property (readonly) bool isFinished;
 
-- (instancetype)initWithTraceID:(NSString* _Nonnull)traceID spanID:(NSString* _Nonnull)spanID rootNode:(APMNode*)node;
+- (nonnull instancetype)initWithTraceID:(nonnull NSString *)traceID spanID:(nonnull NSString *)spanID rootNode:(nonnull APMNode *)node;
 
 @end

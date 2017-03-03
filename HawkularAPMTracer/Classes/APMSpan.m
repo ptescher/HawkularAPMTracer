@@ -73,12 +73,22 @@
     [self.tracer inject:self.context format:self.format carrier:carrier error:nil];
 }
 
+- (void)log:(NSDictionary<NSString *,NSObject *> *)fields {
+    [self log:fields timestamp:nil];
+}
+
 - (void)logEvent:(NSString *)eventName {
     [self logEvent:eventName payload:nil];
 }
 
 - (void)logEvent:(NSString *)eventName payload:(NSObject *)payload {
     [self log:eventName timestamp:[NSDate new] payload:payload];
+}
+
+- (void)log:(NSDictionary<NSString *,NSObject *> *)fields timestamp:(NSDate *)timestamp {
+    for (NSString *key in fields.allKeys) {
+        [self log:key timestamp: timestamp payload:fields[key]];
+    }
 }
 
 - (void)log:(NSString *)eventName timestamp:(NSDate *)timestamp payload:(NSObject *)payload {
@@ -103,6 +113,16 @@
 
 - (void)setTag:(NSString *)key numberValue:(NSNumber *)value {
     self.tags[key] = value;
+}
+
+- (id<OTSpan>)setBaggageItem:(NSString *)key value:(NSString *)value {
+    NSLog(@"Not yet implemented");
+    return nil;
+}
+
+- (NSString *)getBaggageItem:(NSString *)key {
+    NSLog(@"Not yet implemented");
+    return nil;
 }
 
 @end

@@ -21,8 +21,6 @@
 @property (strong, nonatomic, nonnull) NSMutableSet *unfinishedSpanContexts;
 @property (strong, nonatomic, nonnull) APMRecorder *recorder;
 
-- (void)addNodeWithSpanContext:(APMSpanContext*)spanContext carrier:(NSDictionary*)carrier type:(NSString*)type startTime:(NSDate* _Nonnull)startTime finishTime:(NSDate* _Nullable)finishTime;
-
 @end
 
 @implementation APMTracer
@@ -117,10 +115,11 @@
 
     if (spanContext.parentContext == nil || ![self.unfinishedSpanContexts containsObject:spanContext.parentContext]) {
         APMTraceFragment *fragment = [[APMTraceFragment alloc] initWithTraceID:spanContext.traceID spanID:spanContext.spanID rootNode: node];
-        [self.recorder addFragment:fragment error:outError];
-    } else {
-        [self.orphanedNodes addObject:node];
+        return [self.recorder addFragment:fragment error:outError];
     }
+
+    [self.orphanedNodes addObject:node];
+    return YES;
 }
 
 - (BOOL)inject:(id<OTSpanContext>)spanContext format:(NSString *)format carrier:(id)carrier error:(NSError * _Nullable __autoreleasing *)outError {
@@ -134,9 +133,9 @@
         NSDate *startTime = carrier[@"startTime"];
         NSDate *finishTime = carrier[@"finishTime"];
         return [self addNodeWithSpanContext:apmSpanContext carrier:carrier type:type startTime:startTime finishTime:finishTime error:outError];
-    } else {
-        return @NO;
     }
+
+    return NO;
 }
 
 - (id<OTSpanContext>)extractWithFormat:(NSString *)format carrier:(id)carrier {
@@ -169,7 +168,11 @@
                                           }.mutableCopy;
                 parentHeaders[@"X-B3-Sampled"] = sampled;
                 parentHeaders[@"X-B3-Transaction"] = transaction;
-                context.parentContext = [self extractWithFormat:OTFormatHTTPHeaders carrier:parentHeaders error:outError];
+
+                id<OTSpanContext> parentContext = [self extractWithFormat:OTFormatHTTPHeaders carrier:parentHeaders error:outError];
+                if ([(id)parentContext isMemberOfClass:[APMSpanContext class]]) {
+                    context.parentContext = (APMSpanContext*)parentContext;
+                }
             }
             return context;
         } else {

@@ -12,7 +12,7 @@
 @class APMTraceFragment;
 @interface APMRecorder : NSObject
 
-- (nonnull instancetype)initWithURL:(NSURL* _Nonnull)baseURL credential:(NSURLCredential* _Nonnull)credential flushInterval:(NSTimeInterval)flushInterval timeoutInterval:(NSTimeInterval)timeoutInterval;
-- (BOOL)addFragment:(APMTraceFragment* _Nonnull)trace error:(NSError * _Nullable __autoreleasing *)outError;
+- (nonnull instancetype)initWithURL:(nonnull NSURL*)baseURL credential:(nonnull NSURLCredential*)credential flushInterval:(NSTimeInterval)flushInterval timeoutInterval:(NSTimeInterval)timeoutInterval;
+- (BOOL)addFragment:(nonnull APMTraceFragment*)trace error:(NSError * __autoreleasing  __nullable * __nullable)outError;
 
 @end
