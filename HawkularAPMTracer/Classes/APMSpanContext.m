@@ -44,4 +44,8 @@
     return self;
 }
 
+- (void)forEachBaggageItem:(BOOL (^)(NSString * _Nonnull, NSString * _Nonnull))callback {
+    NSLog(@"Not implemented");
+}
+
 @end
