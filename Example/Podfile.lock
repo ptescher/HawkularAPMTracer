@@ -1,5 +1,5 @@
 PODS:
-  - HawkularAPMTracer (0.1.0):
+  - HawkularAPMTracer (0.1.2):
     - opentracing
   - OHHTTPStubs (5.2.3):
     - OHHTTPStubs/Default (= 5.2.3)
@@ -25,7 +25,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  HawkularAPMTracer: ce0ae784edca1f95a1bdb597d63850f4dd0c8959
+  HawkularAPMTracer: 5babaf353dae2a718a1217be41f16ca9775358a5
   OHHTTPStubs: e238cd5b66d8efa51c861db45895de8fe079f4a7
   opentracing: 2c1a1076e2ab26f56189b02dcb1e72cf0b297917
 

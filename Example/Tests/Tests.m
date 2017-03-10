@@ -72,10 +72,10 @@
     NSURL *testURL = [NSURL URLWithString:@"http://www.apple.com/macbook/"];
     
     NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:testURL];
-    [urlRequest setValue:@"1" forHTTPHeaderField:@"X-B3-Sampled"];
-    [urlRequest setValue:traceID forHTTPHeaderField:@"X-B3-TraceId"];
-    [urlRequest setValue:traceID forHTTPHeaderField:@"X-B3-SpanId"];
-    [urlRequest setValue:@"Test Transaction" forHTTPHeaderField:@"X-B3-Transaction"];
+    [urlRequest setValue:@"All" forHTTPHeaderField:@"HWKAPMLEVEL"];
+    [urlRequest setValue:traceID forHTTPHeaderField:@"HWKAPMTRACEID"];
+    [urlRequest setValue:traceID forHTTPHeaderField:@"HWKAPMID"];
+    [urlRequest setValue:@"Test Transaction" forHTTPHeaderField:@"HWKAPMTXN"];
 
     APMURLSessionDelegate *delegate = [APMURLSessionDelegate new];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate: delegate delegateQueue:nil];
