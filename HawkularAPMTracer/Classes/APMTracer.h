@@ -16,5 +16,6 @@
 @property (readonly, nonnull) APMRecorder *recorder;
 
 + (void)setup:(NSURL* _Nonnull)apmURL credential:(NSURLCredential* _Nonnull)credential flushInterval:(NSTimeInterval)flushInterval;
+- (void)flush;
 
 @end
