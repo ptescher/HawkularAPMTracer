@@ -149,7 +149,7 @@
 - (APMSpanContext*)extractWithFormat:(NSString *)format carrier:(id)carrier error:(NSError * _Nullable __autoreleasing *)outError {
     if ([format isEqualToString:OTFormatHTTPHeaders] && [carrier isKindOfClass:[NSDictionary class]]) {
         NSDictionary *headers = (NSDictionary*)carrier;
-        NSString *spanID = headers[@"X-B3-SpanId"];
+        NSString *spanID = headers[@"HWKAPMID"];
 
         for (APMSpanContext *context in self.unfinishedSpanContexts) {
             if ([context.spanID isEqualToString:spanID]) {
@@ -157,21 +157,21 @@
             }
         }
 
-        NSString *traceID = headers[@"X-B3-TraceId"];
+        NSString *traceID = headers[@"HWKAPMTRACEID"];
         NSString *parentSpanID = headers[@"X-B3-ParentSpanId"];
-        NSString *sampled = headers[@"X-B3-Sampled"];
-        NSString *transaction = headers[@"X-B3-Transaction"];
+        NSString *sampled = headers[@"HWKAPMLEVEL"];
+        NSString *transaction = headers[@"HWKAPMTXN"];
         
         if (traceID != nil && spanID != nil) {
             APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:spanID];
             context.transaction = transaction;
             if (parentSpanID != nil && traceID != nil) {
                 NSMutableDictionary *parentHeaders = @{
-                                          @"X-B3-TraceId": traceID,
-                                          @"X-B3-SpanId": parentSpanID,
+                                          @"HWKAPMTRACEID": traceID,
+                                          @"HWKAPMID": parentSpanID,
                                           }.mutableCopy;
-                parentHeaders[@"X-B3-Sampled"] = sampled;
-                parentHeaders[@"X-B3-Transaction"] = transaction;
+                parentHeaders[@"HWKAPMLEVEL"] = sampled;
+                parentHeaders[@"HWKAPMTXN"] = transaction;
 
                 id<OTSpanContext> parentContext = [self extractWithFormat:OTFormatHTTPHeaders carrier:parentHeaders error:outError];
                 if ([(id)parentContext isMemberOfClass:[APMSpanContext class]]) {
