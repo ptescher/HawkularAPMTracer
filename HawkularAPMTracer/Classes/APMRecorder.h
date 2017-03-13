@@ -14,5 +14,6 @@
 
 - (nonnull instancetype)initWithURL:(nonnull NSURL*)baseURL credential:(nonnull NSURLCredential*)credential flushInterval:(NSTimeInterval)flushInterval timeoutInterval:(NSTimeInterval)timeoutInterval;
 - (BOOL)addFragment:(nonnull APMTraceFragment*)trace error:(NSError * __autoreleasing  __nullable * __nullable)outError;
+- (void)send;
 
 @end

@@ -30,6 +30,10 @@
     [OTGlobal initSharedTracer:tracer];
 }
 
+- (void)flush {
+    [self.recorder send];
+}
+
 - (instancetype)initWithAPMURL:(NSURL*)apmURL credential:(NSURLCredential* _Nonnull)credential flushInterval:(NSTimeInterval)flushInterval {
     self = [super init];
     if (self) {
