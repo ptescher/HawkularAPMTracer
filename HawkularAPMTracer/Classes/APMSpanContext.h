@@ -14,13 +14,13 @@
 
 @property (readonly, nonnull) NSString *traceID;
 @property (readonly, nonnull) NSString *spanID;
-@property (readonly, nonnull) NSString *interactionID;
+@property (strong, nonatomic, nullable) NSString *interactionID;
 @property (strong, nonatomic, nonnull) NSString *level;
 @property (nonatomic) BOOL hasBeenInjected;
 @property (strong, nonatomic, nullable) APMSpanContext *parentContext;
 @property (strong, nonatomic, nullable) NSString *transaction;
 
-- (nonnull instancetype)initWithTraceID:(NSString* _Nonnull)traceID interactionID:(NSString* _Nonnull)interactioNID;
+- (nonnull instancetype)initWithTraceID:(NSString* _Nonnull)traceID spanID:(NSString* _Nonnull)spanID;
 - (nonnull instancetype)initWithParentContext:(APMSpanContext* _Nullable)parentContext;
 
 @end
