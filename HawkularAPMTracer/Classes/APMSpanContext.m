@@ -33,14 +33,15 @@
 - (instancetype)initWithParentContext:(APMSpanContext *)parentContext {
     self = [super init];
     if (self) {
-        NSString *spanID = [APMSpan generateID];
-        self.spanID = spanID;
+        self.spanID = [APMSpan generateID];
         self.parentContext = parentContext;
 
         if (parentContext != nil) {
             self.traceID = parentContext.traceID;
+            self.interactionID = parentContext.interactionID;
         } else {
-            self.traceID = spanID;
+            self.traceID = self.spanID;
+            self.interactionID = self.spanID;
         }
 
         NSString *defaultLevel = @"All";
