@@ -24,12 +24,12 @@
 
 @implementation APMTraceFragment
 
-- (instancetype)initWithTraceID:(NSString* _Nonnull)traceID spanID:(NSString*)spanID rootNode:(APMNode *)node {
+- (instancetype)initWithTraceID:(NSString* _Nonnull)traceID fragmendID:(NSString*)fragmendID rootNode:(APMNode *)node {
     self = [super init];
     if (self) {
         self.traceID = traceID;
         self.isFinished = false;
-        self.fragmendID = spanID;
+        self.fragmendID = fragmendID;
         self.rootNode = node;
     }
     return self;

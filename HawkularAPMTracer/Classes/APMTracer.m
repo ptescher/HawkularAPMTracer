@@ -99,7 +99,7 @@
 
     if ([format isEqualToString:OTFormatHTTPHeaders] && [carrier isKindOfClass:[NSMutableDictionary class]]) {
         NSMutableDictionary *headers = (NSMutableDictionary*)carrier;
-        headers[@"HWKAPMID"] = apmSpanContext.spanID; // TODO: Node relative IDs
+        headers[@"HWKAPMID"] = apmSpanContext.interactionID;
         headers[@"HWKAPMTRACEID"] = apmSpanContext.traceID;
         headers[@"HWKAPMLEVEL"] = apmSpanContext.level;
         headers[@"HWKAPMTXN"] = apmSpanContext.transaction;
@@ -113,40 +113,16 @@
 }
 
 - (APMSpanContext*)extractWithFormat:(NSString *)format carrier:(id)carrier error:(NSError * _Nullable __autoreleasing *)outError {
-    if ([format isEqualToString:OTFormatHTTPHeaders] && [carrier isKindOfClass:[NSDictionary class]]) {
+    if (([format isEqualToString:OTFormatHTTPHeaders] || [format isEqualToString:OTFormatTextMap]) && [carrier isKindOfClass:[NSDictionary class]]) {
         NSDictionary *headers = (NSDictionary*)carrier;
-        NSString *spanID = headers[@"HWKAPMID"];
 
-        for (APMSpanContext *context in self.recorder.unfinishedSpanContexts) {
-            if ([context.spanID isEqualToString:spanID]) {
-                return context;
-            }
-        }
-
+        NSString *interactionID = headers[@"HWKAPMID"];
         NSString *traceID = headers[@"HWKAPMTRACEID"];
-        NSString *parentSpanID = headers[@"HWKAPMPARENTID"];
         NSString *level = headers[@"HWKAPMLEVEL"];
         NSString *transaction = headers[@"HWKAPMTXN"];
 
-        APMSpanContext *parentContext = nil;
-
-        if (parentSpanID != nil && traceID != nil) {
-            NSMutableDictionary *parentHeaders = @{
-                                                   @"HWKAPMTRACEID": traceID,
-                                                   @"HWKAPMID": parentSpanID,
-                                                   }.mutableCopy;
-            parentHeaders[@"HWKAPMLEVEL"] = level;
-            parentHeaders[@"HWKAPMTXN"] = transaction;
-
-            id<OTSpanContext> parentContext = [self extractWithFormat:OTFormatHTTPHeaders carrier:parentHeaders error:outError];
-            if ([(id)parentContext isMemberOfClass:[APMSpanContext class]]) {
-                parentContext = (APMSpanContext*)parentContext;
-            }
-        }
-
-        if (traceID != nil && spanID != nil) {
-            APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:spanID];
-            context.parentContext = parentContext;
+        if (traceID != nil) {
+            APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID interactionID:interactionID];
             context.transaction = transaction;
             context.level = level;
             return context;
@@ -154,12 +130,7 @@
             return nil;
         }
     }
-    if ([format isEqualToString:OTFormatTextMap] && [carrier isKindOfClass:[NSDictionary class]]) {
-        NSDictionary *headers = (NSDictionary*)carrier;
-        NSString *traceID = headers[@"HWKAPMTRACEID"];
-        APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:[APMSpan generateID]];
-        return context;
-    }
+
     return nil;
 }
 

@@ -137,12 +137,6 @@
             self.operation = tags[key];
         } else if ([key isEqualToString:@"node.componentType"]) {
             self.componentType = tags[key];
-        } else if ([key isEqualToString:@"interactionID"]) {
-            NSString *interactionID = tags[key];
-            if (interactionID != nil) {
-                APMCorrelationIdentifier *interactionIdentifier = [[APMCorrelationIdentifier alloc] initWithScope:@"Interaction" value:interactionID];
-                [self addCorrelationIdentifier:interactionIdentifier];
-            }
         } else {
             APMProperty *property = [APMProperty new];
             property.name = key;

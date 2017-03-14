@@ -14,16 +14,18 @@
 
 @property (strong, nonatomic, nonnull) NSString *traceID;
 @property (strong, nonatomic, nonnull) NSString *spanID;
+@property (strong, nonatomic, nonnull) NSString *interactionID;
 
 @end
 
 @implementation APMSpanContext
 
-- (instancetype)initWithTraceID:(NSString *)traceID spanID:(NSString *)spanID {
+- (instancetype)initWithTraceID:(NSString *)traceID interactionID:(NSString *)interactionID {
     self = [super init];
     if (self) {
-        self.traceID = spanID;
-        self.spanID = spanID;
+        self.traceID = traceID;
+        self.interactionID = interactionID;
+        self.spanID = [APMSpan generateID];
     }
     return self;
 }

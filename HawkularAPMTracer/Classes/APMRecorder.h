@@ -16,7 +16,7 @@
 
 - (nonnull instancetype)initWithURL:(nonnull NSURL*)baseURL credential:(nonnull NSURLCredential*)credential flushInterval:(NSTimeInterval)flushInterval timeoutInterval:(NSTimeInterval)timeoutInterval;
 
-- (BOOL)addNodeForSpan:(APMSpan *)span;
+- (BOOL)addNodeForSpan:(nonnull APMSpan *)span;
 
 - (void)send;
 
