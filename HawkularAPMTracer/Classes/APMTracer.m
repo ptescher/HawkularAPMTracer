@@ -87,6 +87,17 @@
     return [self inject:spanContext format:format carrier:carrier error: nil];
 }
 
+- (NSString*)relativeSpanIDForSpanContext:(APMSpanContext*)spanContext {
+    // TODO: Figure out how to do the whole fragmentID:index:index thing
+    // For now just find the parent who will generate the fragment ID and use its span ID
+
+    if (spanContext.parentContext != nil && [self.recorder.unfinishedSpanContexts containsObject:spanContext.parentContext]) {
+        return [self relativeSpanIDForSpanContext:spanContext];
+    }
+
+    return spanContext.spanID;
+}
+
 - (BOOL)inject:(id<OTSpanContext>)spanContext format:(NSString *)format carrier:(id)carrier error:(NSError * _Nullable __autoreleasing *)outError {
     NSParameterAssert(spanContext);
 
@@ -99,7 +110,7 @@
 
     if ([format isEqualToString:OTFormatHTTPHeaders] && [carrier isKindOfClass:[NSMutableDictionary class]]) {
         NSMutableDictionary *headers = (NSMutableDictionary*)carrier;
-        headers[@"HWKAPMID"] = apmSpanContext.interactionID;
+        headers[@"HWKAPMID"] = [self relativeSpanIDForSpanContext:apmSpanContext];
         headers[@"HWKAPMTRACEID"] = apmSpanContext.traceID;
         headers[@"HWKAPMLEVEL"] = apmSpanContext.level;
         headers[@"HWKAPMTXN"] = apmSpanContext.transaction;
@@ -116,13 +127,13 @@
     if (([format isEqualToString:OTFormatHTTPHeaders] || [format isEqualToString:OTFormatTextMap]) && [carrier isKindOfClass:[NSDictionary class]]) {
         NSDictionary *headers = (NSDictionary*)carrier;
 
-        NSString *interactionID = headers[@"HWKAPMID"];
+        NSString *spanID = headers[@"HWKAPMID"];
         NSString *traceID = headers[@"HWKAPMTRACEID"];
         NSString *level = headers[@"HWKAPMLEVEL"];
         NSString *transaction = headers[@"HWKAPMTXN"];
 
         if (traceID != nil) {
-            APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID interactionID:interactionID];
+            APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:spanID];
             context.transaction = transaction;
             context.level = level;
             return context;
