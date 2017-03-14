@@ -65,11 +65,11 @@
 
 @implementation APMNode
 
-- (instancetype)initWithSpanContext:(APMSpanContext *)spanContext type:(NSString *)type {
+- (instancetype)initWithSpanContext:(APMSpanContext *)spanContext {
     self = [super init];
     if (self) {
         self.spanContext = spanContext;
-        self.type = type;
+        self.type = spanContext.hasBeenInjected ? @"Producer" : @"Component";
         self.correlationIDs = [NSMutableArray<APMCorrelationIdentifier*> new];
         self.issues = [NSArray<APMIssue*> new];
         self.childNodes = [NSMutableArray<APMNode*> new];
@@ -88,8 +88,11 @@
     nodeDictionary[@"properties"] = self.properties.count > 0 ? [self.properties valueForKeyPath:@"@unionOfObjects.propertyDictionary"] : nil;
     nodeDictionary[@"timestamp"] = self.timestamp == nil ? nil : [NSNumber numberWithLong: [self.timestamp timeIntervalSince1970] * 1000000];
     nodeDictionary[@"type"] = self.type;
-    nodeDictionary[@"endpointType"] = self.endpointType;
-    nodeDictionary[@"componentType"] = self.componentType;
+    if ([self.type isEqualToString:@"Component"]) {
+        nodeDictionary[@"componentType"] = self.componentType;
+    } else {
+        nodeDictionary[@"endpointType"] = self.endpointType;
+    }
     nodeDictionary[@"uri"] = self.uri.path;
     return [nodeDictionary copy];
 }
@@ -106,20 +109,15 @@
     [(NSMutableArray*)self.childNodes addObject:node];
 }
 
-- (void)parseCarrier:(NSDictionary *)carrier type:(NSString *)type {
-    self.operation = carrier[@"operationName"];
-
-    NSString *interactionID = carrier[@"interactionID"];
-    if (interactionID != nil) {
-        APMCorrelationIdentifier *interactionIdentifier = [[APMCorrelationIdentifier alloc] initWithScope:@"Interaction" value:interactionID];
-        [self addCorrelationIdentifier:interactionIdentifier];
-    }
-
-    NSDictionary *tags = carrier[@"tags"];
+- (void)parseTags:(NSDictionary *)tags {
     for (NSString *key in tags.allKeys) {
-        if ([key isEqualToString:@"node.uri"]) {
-            NSURL *uri = tags[key];
+        if ([key isEqualToString:@"http.url"]) {
+            NSString *uriString = tags[key];
+            NSURL *uri = [NSURL URLWithString:uriString];
             self.uri = uri;
+            self.endpointType = uri.scheme;
+            self.type = @"Producer";
+
             APMProperty *uriProperty = [APMProperty new];
             uriProperty.name = @"http.uri";
             uriProperty.value = uri.path;
@@ -137,12 +135,14 @@
             [self addProperty:pathProperty];
         } else if ([key isEqualToString:@"node.operation"]) {
             self.operation = tags[key];
-        } else if ([key isEqualToString:@"node.endpointType"]) {
-            self.endpointType = tags[key];
         } else if ([key isEqualToString:@"node.componentType"]) {
             self.componentType = tags[key];
-        } else if ([key isEqualToString:@"node.type"]) {
-            // node.type = tags[key];
+        } else if ([key isEqualToString:@"interactionID"]) {
+            NSString *interactionID = tags[key];
+            if (interactionID != nil) {
+                APMCorrelationIdentifier *interactionIdentifier = [[APMCorrelationIdentifier alloc] initWithScope:@"Interaction" value:interactionID];
+                [self addCorrelationIdentifier:interactionIdentifier];
+            }
         } else {
             APMProperty *property = [APMProperty new];
             property.name = key;

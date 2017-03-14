@@ -18,6 +18,7 @@
 #import "APMTracer.h"
 #import "APMURLSessionDelegate.h"
 #import "APMURLSessionTaskTracker.h"
+#import "NSMutableURLRequest+APMTracing.h"
 
 FOUNDATION_EXPORT double HawkularAPMTracerVersionNumber;
 FOUNDATION_EXPORT const unsigned char HawkularAPMTracerVersionString[];

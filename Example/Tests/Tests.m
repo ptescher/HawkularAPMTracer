@@ -9,6 +9,7 @@
 @import XCTest;
 #import <HawkularAPMTracer/APMURLSessionDelegate.h>
 #import <HawkularAPMTracer/APMTracer.h>
+#import <HawkularAPMTracer/NSMutableURLRequest+APMTracing.h>
 #import <opentracing/OTGlobal.h>
 #import <opentracing/OTSpan.h>
 #import <OHHTTPStubs/OHHTTPStubs.h>
@@ -26,7 +27,7 @@
 
     NSURL *baseURL = [NSURL URLWithString:@"http://localhost:54676/hawkular/apm/"];
     NSURLCredential *credential = [[NSURLCredential alloc] initWithUser:@"admin" password:@"password" persistence:NSURLCredentialPersistenceNone];
-    [APMTracer setup:baseURL credential:credential flushInterval:1.0];
+    [APMTracer setup:baseURL credential:credential flushInterval:2.0];
 }
 
 - (void)tearDown {
@@ -50,17 +51,12 @@
 }
 
 - (void)testSpanSending {
-    NSDictionary *carrier = @{@"HWKAPMID": @5};
-    id<OTSpanContext> parentContext = [[OTGlobal sharedTracer] extractWithFormat:OTFormatTextMap carrier:carrier];
-    NSDictionary *tags = @{@"foo": @"bar", @"service": @"test-service", @"test.type": @"xctest"};
-    id<OTSpan> testSpan = [[OTGlobal sharedTracer] startSpan:@"root" childOf:parentContext tags:tags startTime:[NSDate date]];
-    [testSpan setTag:@"node.endpointType" value:@"HTTP"];
-    [testSpan setTag:@"node.type" value:@"Consumer"];
+    NSDictionary *tags = @{@"foo": @"bar", @"service": @"test-service", @"test.type": @"xctest", @"node.endpointType": @"HTTP"};
+    id<OTSpan> testSpan = [[OTGlobal sharedTracer] startSpan:@"root" childOf:nil tags:tags startTime:[NSDate date]];
 
     [self stubFragmentEndpointAndExpectResponse];
 
     [testSpan finishWithTime:[NSDate dateWithTimeIntervalSinceNow:0.201]];
-    [[OTGlobal sharedTracer] inject:parentContext format:OTFormatTextMap carrier:carrier];
 
     [self waitForExpectationsWithTimeout:20.0 handler:^(NSError * _Nullable error) {
         XCTAssertNil(error);
@@ -68,21 +64,21 @@
 }
 
 - (void)testNSURLMetricsTracking {
-    NSString *traceID = [NSUUID UUID].UUIDString;
     NSURL *testURL = [NSURL URLWithString:@"http://www.apple.com/macbook/"];
-    
-    NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:testURL];
-    [urlRequest setValue:@"All" forHTTPHeaderField:@"HWKAPMLEVEL"];
-    [urlRequest setValue:traceID forHTTPHeaderField:@"HWKAPMTRACEID"];
-    [urlRequest setValue:traceID forHTTPHeaderField:@"HWKAPMID"];
-    [urlRequest setValue:@"Test Transaction" forHTTPHeaderField:@"HWKAPMTXN"];
 
     APMURLSessionDelegate *delegate = [APMURLSessionDelegate new];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate: delegate delegateQueue:nil];
 
+    NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:testURL];
+    id<OTSpan> testSpan = [urlRequest startSpanWithParentContext:nil];
+
     [self stubFragmentEndpointAndExpectResponse];
 
-    [[session dataTaskWithRequest: urlRequest] resume];
+    NSURLSessionTask *task = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        [testSpan finish];
+    }];
+
+    [task resume];
 
     [self waitForExpectationsWithTimeout:20.0 handler:^(NSError * _Nullable error) {
         XCTAssertNil(error);

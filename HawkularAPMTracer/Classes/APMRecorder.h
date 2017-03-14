@@ -9,11 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <opentracing/OTSpanContext.h>
 
-@class APMTraceFragment;
+@class APMTraceFragment, APMSpan;
 @interface APMRecorder : NSObject
 
+@property (readonly, nonnull) NSMutableSet *unfinishedSpanContexts;
+
 - (nonnull instancetype)initWithURL:(nonnull NSURL*)baseURL credential:(nonnull NSURLCredential*)credential flushInterval:(NSTimeInterval)flushInterval timeoutInterval:(NSTimeInterval)timeoutInterval;
-- (BOOL)addFragment:(nonnull APMTraceFragment*)trace error:(NSError * __autoreleasing  __nullable * __nullable)outError;
+
+- (BOOL)addNodeForSpan:(APMSpan *)span;
+
 - (void)send;
 
 @end

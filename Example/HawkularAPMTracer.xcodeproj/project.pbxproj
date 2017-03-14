@@ -15,6 +15,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		D30EFCB41E5FA87E00697EDA /* APMURLSessionTaskTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = D30EFCB31E5FA87E00697EDA /* APMURLSessionTaskTracker.m */; };
 		D30EFCB71E5FAAC200697EDA /* APMURLSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D30EFCB61E5FAAC200697EDA /* APMURLSessionDelegate.m */; };
+		D3BD60801E787DA400BA3914 /* NSMutableURLRequest+APMTracing.m in Sources */ = {isa = PBXBuildFile; fileRef = D3BD607F1E787DA400BA3914 /* NSMutableURLRequest+APMTracing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,8 @@
 		D32B320A1E5F735B00D42862 /* APMTraceFragment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMTraceFragment.m; sourceTree = "<group>"; };
 		D32B320B1E5F735B00D42862 /* APMTracer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APMTracer.h; sourceTree = "<group>"; };
 		D32B320C1E5F735B00D42862 /* APMTracer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMTracer.m; sourceTree = "<group>"; };
+		D3BD607E1E787DA400BA3914 /* NSMutableURLRequest+APMTracing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+APMTracing.h"; sourceTree = "<group>"; };
+		D3BD607F1E787DA400BA3914 /* NSMutableURLRequest+APMTracing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+APMTracing.m"; sourceTree = "<group>"; };
 		F3E946442F05F139A6BAAE80 /* HawkularAPMTracer.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = HawkularAPMTracer.podspec; path = ../HawkularAPMTracer.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +166,8 @@
 				D30EFCB61E5FAAC200697EDA /* APMURLSessionDelegate.m */,
 				D30EFCB21E5FA87E00697EDA /* APMURLSessionTaskTracker.h */,
 				D30EFCB31E5FA87E00697EDA /* APMURLSessionTaskTracker.m */,
+				D3BD607E1E787DA400BA3914 /* NSMutableURLRequest+APMTracing.h */,
+				D3BD607F1E787DA400BA3914 /* NSMutableURLRequest+APMTracing.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 			files = (
 				6003F5BC195388D20070C39A /* Tests.m in Sources */,
 				D30EFCB41E5FA87E00697EDA /* APMURLSessionTaskTracker.m in Sources */,
+				D3BD60801E787DA400BA3914 /* NSMutableURLRequest+APMTracing.m in Sources */,
 				D30EFCB71E5FAAC200697EDA /* APMURLSessionDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
