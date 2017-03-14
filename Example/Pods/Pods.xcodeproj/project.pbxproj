@@ -7,84 +7,86 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07379C6786F40A8E322FDDF5583BA523 /* OTNoop.m in Sources */ = {isa = PBXBuildFile; fileRef = B324E835136F2C44D59254C35C51D356 /* OTNoop.m */; };
-		0882AD591E58DB847D1F0E3A2C26B955 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A6CFDAFEBED2AAEA3F471ED5063A32 /* Foundation.framework */; };
-		157662C7DF4EFE5E5C076B4C88361EE5 /* APMSpan.m in Sources */ = {isa = PBXBuildFile; fileRef = F8884F3FB95214B5CDB7237F5D8C39F4 /* APMSpan.m */; };
-		1801DA0AE97C09B369E38A64F33E4B98 /* APMTracer.h in Headers */ = {isa = PBXBuildFile; fileRef = 15B68B163BA3D41D9D0E2610EB414DB1 /* APMTracer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		182EA138C857A64959EEF327D321CDCF /* HawkularAPMTracer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BC89D9682F4899005C533F5B2E7DE3 /* HawkularAPMTracer-dummy.m */; };
-		1C5350403CD489C1F4973E8DC26296D9 /* APMNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3956F6E617A27BBBE988BB9B54B33DC6 /* APMNode.m */; };
+		0163F318000EBC675BB4CDEA0B9DEC41 /* APMNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB29286F34E803F6F97888743E55EEC /* APMNode.m */; };
+		0ABF405459C2AF5ADB63DAD68706555B /* APMSpan.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA01095B52B8C713D513237E8C540FE /* APMSpan.m */; };
+		168B78CFADB1A91F4F92E8CFE1BCE181 /* NSMutableURLRequest+APMTracing.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B21036F960F71190AB28EDF435C6B38 /* NSMutableURLRequest+APMTracing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C64932FA286C76276A32A4BC4F3C6DE /* OHHTTPStubs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A41F14D8E4D194AA404B2BB175A16DE /* OHHTTPStubs-dummy.m */; };
-		1F8D8B801EF94788DF7A636FEA86F156 /* APMTraceFragment.h in Headers */ = {isa = PBXBuildFile; fileRef = 58E1C64E44674D7AE91525295E9FBFE4 /* APMTraceFragment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2266B1711108977E2D2A2F49258352E0 /* APMTracer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2EC3F0AD93E8C4E45F6DF1A877F407 /* APMTracer.m */; };
-		2529A74439D411EEB034EFD8C7A6EBEC /* opentracing-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2E1473C11AE66C8C8B67F0A4E3B419 /* opentracing-dummy.m */; };
 		2828C5A8C3FF12A877F8243078BFE26F /* OHHTTPStubsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 15D8E9D57B619D330243D27B4894C50D /* OHHTTPStubsResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		29FEC958E1016915C344A481F00B103C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A6CFDAFEBED2AAEA3F471ED5063A32 /* Foundation.framework */; };
 		3084191BDC83456B1401C24DB3AACF8F /* OHHTTPStubsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDF65BBF986B4F5AB48C2C6E078ACE /* OHHTTPStubsResponse.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		429932A858C05A98EB03B7F2D1C9EA9F /* HawkularAPMTracer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0704F27D7D6D9AF6BAF7F92DC0B75BDA /* HawkularAPMTracer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4241EEE517F4F7732F6E8D98E02547D3 /* APMURLSessionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD959FE8FF748B6CF7EBE7713C32C8C /* APMURLSessionDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4347787047A59BB2A5174A6AE3C86201 /* OTReference.h in Headers */ = {isa = PBXBuildFile; fileRef = 223502EDAD53573411741BDAFFBC7C84 /* OTReference.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43A9703A4BEDF7EBCE1236A8F3F8358A /* OHHTTPStubsMethodSwizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = A260C6D19C8FE85D22B3BFF89A9A6156 /* OHHTTPStubsMethodSwizzling.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		4C6B6ED70282CDE9F2BBAD83B25E545E /* opentracing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B0A0794E15505C947870A426900E5B /* opentracing.framework */; };
+		46DC0F1CB5308B67152B69A30720B406 /* opentracing-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2E1473C11AE66C8C8B67F0A4E3B419 /* opentracing-dummy.m */; };
+		47BA398476FFA4B28CF13D49C28D356C /* APMTraceFragment.m in Sources */ = {isa = PBXBuildFile; fileRef = EED61D59B0B2C843762A08A26E772C7E /* APMTraceFragment.m */; };
+		4EA122DB47E4F1AC12179CBDE61F7568 /* APMTracer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6CE4F9A5C1832DC8734B7398466CC /* APMTracer.m */; };
+		5053839A63F8C3997B4690E661DE920D /* APMURLSessionTaskTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 9980585DDAEC9A4D07B57E5379C44942 /* APMURLSessionTaskTracker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5158F2BCE4C8D2AC0B510A1ACC9F6764 /* HawkularAPMTracer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BC89D9682F4899005C533F5B2E7DE3 /* HawkularAPMTracer-dummy.m */; };
+		51D7C4D43EDB6E02EC361CF1F1BC23A3 /* OTNoop.m in Sources */ = {isa = PBXBuildFile; fileRef = B324E835136F2C44D59254C35C51D356 /* OTNoop.m */; };
+		572F31B4E93E42A35AB50ADF0C9D69BD /* OTReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 0809E76E371D04A6F2CC01B490CE7CBB /* OTReference.m */; };
 		57BEF5452B8ABD57683D286244C7FC94 /* OHHTTPStubsResponse+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = C97BCBDBCFE1C56AD41EF77A3B859D29 /* OHHTTPStubsResponse+JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E6A81B2B61388A673645B73A4EB93EE /* APMRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3584234C98846249CD9E2FB9D553B0A0 /* APMRecorder.m */; };
-		60D7A02F818F76502A3AC007ADEABA20 /* OTNoop.h in Headers */ = {isa = PBXBuildFile; fileRef = E9B2F14806A8A9EC930579F2E97A5794 /* OTNoop.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		58C4D5E6E19122DF9AC208D34B2E6B05 /* APMSpanContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D455E48C9BEB9C28423E00B7D4059C6 /* APMSpanContext.m */; };
+		5E1B7B075E81EA0FD2CFEF883D0EDFBD /* OTSpan.h in Headers */ = {isa = PBXBuildFile; fileRef = F07FE56D66B8F3A89A74C7FC030A5D50 /* OTSpan.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6102353EBAE58A877F0A5120B279EE0D /* OTNoop.h in Headers */ = {isa = PBXBuildFile; fileRef = E9B2F14806A8A9EC930579F2E97A5794 /* OTNoop.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63B6506A7CD7AA70460DB74F1247BC2A /* APMTracer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB1B78BDF2A68952CA9032CC9EF6528 /* APMTracer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64C91FFBDEDD820655E28F38024FEE22 /* OHHTTPStubsResponse+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BCB6CA94FD2D671E9171CB385EEAAF /* OHHTTPStubsResponse+JSON.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		688D3F9D50428EC2B0CECEB6B9649756 /* OTGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A10B65DCCCECB191D9B637F9CEDBDB7 /* OTGlobal.m */; };
+		7008D423B863739550594D7B4FFFD424 /* APMURLSessionTaskTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = B76CC8B2D320681F9BA5E5CE722E4EE0 /* APMURLSessionTaskTracker.m */; };
 		762AF7BEB049380770CC0291793F08BB /* Pods-HawkularAPMTracer_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABE987BE800FBE65A7EA3D3EB4D5A /* Pods-HawkularAPMTracer_Tests-dummy.m */; };
 		7AF863D60D5AF3B59EF70B0E8EDBF1A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A6CFDAFEBED2AAEA3F471ED5063A32 /* Foundation.framework */; };
+		7B1A1C45179B9C3E98AEB87205DC4658 /* OTTracer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA69E388FF787BB6747572B27A95E944 /* OTTracer.m */; };
+		7DD278E23381CA2D7217F497A2C2649A /* APMRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 25B4FE9BA429CA319FA45A40A2DBF785 /* APMRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7FDD4CA495F8D20099B890F49E0859B5 /* NSMutableURLRequest+APMTracing.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FC0C99199AEEDD8B0A73B8E13059D3 /* NSMutableURLRequest+APMTracing.m */; };
 		83A37634F48394BD93F108582501A4C4 /* OHPathHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 215380EBDE5255AC92FAA322A18D07E7 /* OHPathHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B6821E05113645DB009E6249B4CB591 /* OTVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 72897B6594756880A7C1F4A9A7BED494 /* OTVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8C443212D41F03C3F35E97B73A87917A /* APMSpan.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B8B246372E9F86DB0862B7C6D93C351 /* APMSpan.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8F0140EE437E4F1D8B752DAF479E97F4 /* OTSpanContext.h in Headers */ = {isa = PBXBuildFile; fileRef = BD24BDB18F5CC05D5823B2B11FA1B848 /* OTSpanContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9235169636BD2AC841154ED95021CA27 /* APMSpanContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4175AC030E780D7FB59860DB4C59ED4C /* APMSpanContext.m */; };
+		8A4D01B097A738B1CCA9BEB9F734E3AB /* APMSpan.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A3303A0F63E6E4873B38F934D9C93AD /* APMSpan.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8CC88A2B38759BC8D7C9827A0A3B7518 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A6CFDAFEBED2AAEA3F471ED5063A32 /* Foundation.framework */; };
+		8D0A5C979C47B863303C91B72F717E94 /* OpenTracing-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = B753A8B0A839CE107C5B85DF6CE0320F /* OpenTracing-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F26517946A7B5AFE47476EBE02441D3 /* opentracing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B0A0794E15505C947870A426900E5B /* opentracing.framework */; };
 		9890E6D0FDF36E4CA8ACA675C86FC6D2 /* OHHTTPStubsMethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CD9338BC201D7E7613FEA80504B2BF /* OHHTTPStubsMethodSwizzling.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		9B41A015CC8B2ADF4463332E76633197 /* APMURLSessionTaskTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B5A9EDD3DF016E52275BB50260E2F6 /* APMURLSessionTaskTracker.m */; };
 		A0A2186A1786188B449AEB083BBB7891 /* OHHTTPStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = A08608765D932FD991EED0C9F6D9C519 /* OHHTTPStubs.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A68ED37D20158F7DA6AE70250CE937B2 /* OTGlobal.h in Headers */ = {isa = PBXBuildFile; fileRef = 59D778B8807B5C8D5FE0700F3A48F0A9 /* OTGlobal.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A974D46B07B7E1DDAE03CC470BF24B14 /* OTSpan.h in Headers */ = {isa = PBXBuildFile; fileRef = F07FE56D66B8F3A89A74C7FC030A5D50 /* OTSpan.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A956649A64858CB5EABD3104BF108A23 /* HawkularAPMTracer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0704F27D7D6D9AF6BAF7F92DC0B75BDA /* HawkularAPMTracer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB9616F3E52E764A8DEB080D9055F46C /* Pods-HawkularAPMTracer_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F4A04EFEC6CF200ECFE128BF7425031B /* Pods-HawkularAPMTracer_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B031B0E990EE216026282C246502166E /* APMURLSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 859B70543A67C7263E5E3E7EA742D21D /* APMURLSessionDelegate.m */; };
-		B6849E6AF128FC7D689749ADAF4C436F /* OpenTracing-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = B753A8B0A839CE107C5B85DF6CE0320F /* OpenTracing-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B46A4DDB8D7B83F86EAC25E90E191E2F /* OTTracer.h in Headers */ = {isa = PBXBuildFile; fileRef = 01AD58583902828EE2A4D5D0E0161138 /* OTTracer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B5CCF58A41B77A034EF2E88DACE68A82 /* OTVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 72897B6594756880A7C1F4A9A7BED494 /* OTVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B71274CE2E5707A2AD5688829FE616D0 /* OHHTTPStubs-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 16038250D3791263716F30FEAF1F6919 /* OHHTTPStubs-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAC2ED24719F4F9C3F7BDD3F29C3F3C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A6CFDAFEBED2AAEA3F471ED5063A32 /* Foundation.framework */; };
-		BCF62EFE455F9D8AEFCAAD4CC20F2187 /* APMSpanContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 4271057FDE0FB3EFA4EBDAD465DBF0A2 /* APMSpanContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BF7B97628687A907F05AAC52D88AD121 /* OTReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 0809E76E371D04A6F2CC01B490CE7CBB /* OTReference.m */; };
+		C125C18D35B2917A8CC9BBF28811C91C /* OTSpanContext.h in Headers */ = {isa = PBXBuildFile; fileRef = BD24BDB18F5CC05D5823B2B11FA1B848 /* OTSpanContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5081EE8A20421426E0EF8E58BBEB0E8 /* APMRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = B3356E2490540051DE3256804FE1DC30 /* APMRecorder.m */; };
 		C5ED19E01DFC9993E0C9AB6C85ACAB1D /* NSURLRequest+HTTPBodyTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B68E686EEBE4C233F21F3DA32B43432 /* NSURLRequest+HTTPBodyTesting.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C72C57092CD22CC6275D5E94BE8A0C93 /* APMNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 3481FD552A71A11D8560625C2C525C8C /* APMNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C86DFF71F80F40AD1FEAF1B4824A4E1F /* Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F2B7C155C2A00A3953B8C6B6050EA58 /* Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA306BDBD477DE20CD0836C7F5F0BF4B /* OHPathHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDDA08D0140D70575E5CDC534FC41B6 /* OHPathHelpers.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		D06655905EB690BD8ADE27D2BFC5827F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB6552F7FC01D5E1C67315CFEFB589E /* CFNetwork.framework */; };
-		D13AA45856F589D11825B782AF43681B /* opentracing-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BF5B7F72752B6C7B97C63FE8D62DFD5A /* opentracing-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D76C7BD8993DCA89B994276C33D6C730 /* APMURLSessionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF249DDCDC59F11C8D39DD121D6B952 /* APMURLSessionDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D7FAECE3BF3D3059FEFEF3D9E2432B50 /* APMSpanContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 4512C7A02ABBEFB60473001DCCCFFE1E /* APMSpanContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DB5E3F8616FA15C9D3D3F77D5D896AB0 /* APMNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B90DE1D3DA354552DD4106B9D2240B3 /* APMNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC3BE4B3C6C098A5B9B063DB25FCDF8B /* NSURLRequest+HTTPBodyTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C340E107A4422646FE1C89E084D7E4 /* NSURLRequest+HTTPBodyTesting.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		E051B949D969BCE0CD553D323D63977E /* OHHTTPStubs.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B72C24D1D01F880833D385FAF4A01D /* OHHTTPStubs.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		E85B12103B8E856F35A519F711EC780E /* APMURLSessionTaskTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 65444B02F38684BCE475DD04CCF8EFA1 /* APMURLSessionTaskTracker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EA390C2FEC03FDB974540D454DC97CAB /* OTTracer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA69E388FF787BB6747572B27A95E944 /* OTTracer.m */; };
-		EF2735EB0C0BAA2137FB1DCE390F4453 /* OTReference.h in Headers */ = {isa = PBXBuildFile; fileRef = 223502EDAD53573411741BDAFFBC7C84 /* OTReference.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F4319B484CFAE942506A6CC59D62365C /* APMRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = E575E7FF2122BDFF00EA7236805BB85A /* APMRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F6764644ED4C9A01AA81805F033EB988 /* OTTracer.h in Headers */ = {isa = PBXBuildFile; fileRef = 01AD58583902828EE2A4D5D0E0161138 /* OTTracer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F9FCDF03A1B723DD4F8F79F9842A1AC5 /* APMTraceFragment.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F21D7F51ED13021CAA4F35D6753870 /* APMTraceFragment.m */; };
-		FBFEE7965CF1B5A02617791179F16CBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A6CFDAFEBED2AAEA3F471ED5063A32 /* Foundation.framework */; };
+		E2C7D0E80F0C4DA7F1AC131CE7AEDD07 /* APMURLSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF8FDB7F5DA51A300EF360E2D3B8B8E /* APMURLSessionDelegate.m */; };
+		E9DBB6CB46AEB73E44ADBDFA414D5C2E /* OTGlobal.h in Headers */ = {isa = PBXBuildFile; fileRef = 59D778B8807B5C8D5FE0700F3A48F0A9 /* OTGlobal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC3D5F3D03B384CE848F2080C722478D /* OTGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A10B65DCCCECB191D9B637F9CEDBDB7 /* OTGlobal.m */; };
+		EDDE31811E69744111D7FADA28092933 /* APMTraceFragment.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5009C3984FB3F93B46973F1C8252E6 /* APMTraceFragment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FABD761AB2294E8585456326C30A35C9 /* opentracing-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BF5B7F72752B6C7B97C63FE8D62DFD5A /* opentracing-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FFE0D1C890897CF1AE34EC147C84BA2C /* OHHTTPStubs+NSURLSessionConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC547C986422275A0A05BA037C12C84 /* OHHTTPStubs+NSURLSessionConfiguration.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2C7DCD77F4A952C32018D4863880CBA3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0216ABA2A3B5BD6876AD147AF4D7F20B;
-			remoteInfo = opentracing;
-		};
 		6E8F0DCDE26DA02552A8D9BD7953FD79 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DEAAE508E23E17AF016E72D40AE26AF7;
+			remoteGlobalIDString = 79D92652EA34E49F83150F3E23263466;
 			remoteInfo = HawkularAPMTracer;
 		};
 		7955B84C7424B4C1FAC6F7BA8552BBB9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0216ABA2A3B5BD6876AD147AF4D7F20B;
+			remoteGlobalIDString = 0D08C6C2F47EA671CF1A9B2AB3B4B3BF;
+			remoteInfo = opentracing;
+		};
+		CFF905A9B59325045DBECD122292017A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D08C6C2F47EA671CF1A9B2AB3B4B3BF;
 			remoteInfo = opentracing;
 		};
 		E54E86C802D655A3025DFEAC82CACD5C /* PBXContainerItemProxy */ = {
@@ -101,43 +103,42 @@
 		0704F27D7D6D9AF6BAF7F92DC0B75BDA /* HawkularAPMTracer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HawkularAPMTracer-umbrella.h"; sourceTree = "<group>"; };
 		07B71228A3F2E003DACCAA1D14BCDFF4 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OHHTTPStubs.framework; path = OHHTTPStubs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0809E76E371D04A6F2CC01B490CE7CBB /* OTReference.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OTReference.m; path = Pod/Classes/OTReference.m; sourceTree = "<group>"; };
-		0A2EC3F0AD93E8C4E45F6DF1A877F407 /* APMTracer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMTracer.m; sourceTree = "<group>"; };
 		0A41F14D8E4D194AA404B2BB175A16DE /* OHHTTPStubs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OHHTTPStubs-dummy.m"; sourceTree = "<group>"; };
+		0CF8FDB7F5DA51A300EF360E2D3B8B8E /* APMURLSessionDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMURLSessionDelegate.m; sourceTree = "<group>"; };
+		0DB1B78BDF2A68952CA9032CC9EF6528 /* APMTracer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMTracer.h; sourceTree = "<group>"; };
 		0DDDA08D0140D70575E5CDC534FC41B6 /* OHPathHelpers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OHPathHelpers.m; path = OHHTTPStubs/Sources/OHPathHelpers/OHPathHelpers.m; sourceTree = "<group>"; };
 		12B0A0794E15505C947870A426900E5B /* opentracing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = opentracing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		15B68B163BA3D41D9D0E2610EB414DB1 /* APMTracer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMTracer.h; sourceTree = "<group>"; };
 		15D8E9D57B619D330243D27B4894C50D /* OHHTTPStubsResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OHHTTPStubsResponse.h; path = OHHTTPStubs/Sources/OHHTTPStubsResponse.h; sourceTree = "<group>"; };
 		16038250D3791263716F30FEAF1F6919 /* OHHTTPStubs-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubs-umbrella.h"; sourceTree = "<group>"; };
 		19CD9338BC201D7E7613FEA80504B2BF /* OHHTTPStubsMethodSwizzling.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OHHTTPStubsMethodSwizzling.m; path = OHHTTPStubs/Sources/NSURLSession/OHHTTPStubsMethodSwizzling.m; sourceTree = "<group>"; };
-		1EF249DDCDC59F11C8D39DD121D6B952 /* APMURLSessionDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMURLSessionDelegate.h; sourceTree = "<group>"; };
 		1F2B7C155C2A00A3953B8C6B6050EA58 /* Compatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Compatibility.h; path = OHHTTPStubs/Sources/Compatibility.h; sourceTree = "<group>"; };
 		215380EBDE5255AC92FAA322A18D07E7 /* OHPathHelpers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OHPathHelpers.h; path = OHHTTPStubs/Sources/OHPathHelpers/OHPathHelpers.h; sourceTree = "<group>"; };
 		223502EDAD53573411741BDAFFBC7C84 /* OTReference.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTReference.h; path = Pod/Classes/OTReference.h; sourceTree = "<group>"; };
+		25B4FE9BA429CA319FA45A40A2DBF785 /* APMRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMRecorder.h; sourceTree = "<group>"; };
 		2976324D9D66F96047FEB972A53E0BEA /* Pods_HawkularAPMTracer_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HawkularAPMTracer_Tests.framework; path = "Pods-HawkularAPMTracer_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3481FD552A71A11D8560625C2C525C8C /* APMNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMNode.h; sourceTree = "<group>"; };
-		3584234C98846249CD9E2FB9D553B0A0 /* APMRecorder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMRecorder.m; sourceTree = "<group>"; };
-		3956F6E617A27BBBE988BB9B54B33DC6 /* APMNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMNode.m; sourceTree = "<group>"; };
+		2FB29286F34E803F6F97888743E55EEC /* APMNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMNode.m; sourceTree = "<group>"; };
 		3A10B65DCCCECB191D9B637F9CEDBDB7 /* OTGlobal.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OTGlobal.m; path = Pod/Classes/OTGlobal.m; sourceTree = "<group>"; };
 		3B68E686EEBE4C233F21F3DA32B43432 /* NSURLRequest+HTTPBodyTesting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLRequest+HTTPBodyTesting.h"; path = "OHHTTPStubs/Sources/NSURLSession/NSURLRequest+HTTPBodyTesting.h"; sourceTree = "<group>"; };
+		3D455E48C9BEB9C28423E00B7D4059C6 /* APMSpanContext.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMSpanContext.m; sourceTree = "<group>"; };
 		3D9357E0D8369AE6AF27510566BCBE48 /* Pods-HawkularAPMTracer_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HawkularAPMTracer_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		4175AC030E780D7FB59860DB4C59ED4C /* APMSpanContext.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMSpanContext.m; sourceTree = "<group>"; };
-		4271057FDE0FB3EFA4EBDAD465DBF0A2 /* APMSpanContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMSpanContext.h; sourceTree = "<group>"; };
+		4512C7A02ABBEFB60473001DCCCFFE1E /* APMSpanContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMSpanContext.h; sourceTree = "<group>"; };
+		4A3303A0F63E6E4873B38F934D9C93AD /* APMSpan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMSpan.h; sourceTree = "<group>"; };
 		4E618E768167843F4C653708F3BD8D60 /* Pods-HawkularAPMTracer_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-HawkularAPMTracer_Tests.modulemap"; sourceTree = "<group>"; };
 		527EFA7F9F244989CBD090C4B93B3780 /* HawkularAPMTracer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = HawkularAPMTracer.modulemap; sourceTree = "<group>"; };
 		544B0ABEFEEFD7F20EC24505ABCC7468 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		58E1C64E44674D7AE91525295E9FBFE4 /* APMTraceFragment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMTraceFragment.h; sourceTree = "<group>"; };
 		59D778B8807B5C8D5FE0700F3A48F0A9 /* OTGlobal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTGlobal.h; path = Pod/Classes/OTGlobal.h; sourceTree = "<group>"; };
-		65444B02F38684BCE475DD04CCF8EFA1 /* APMURLSessionTaskTracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMURLSessionTaskTracker.h; sourceTree = "<group>"; };
+		5B21036F960F71190AB28EDF435C6B38 /* NSMutableURLRequest+APMTracing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+APMTracing.h"; sourceTree = "<group>"; };
 		69A6CFDAFEBED2AAEA3F471ED5063A32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		72897B6594756880A7C1F4A9A7BED494 /* OTVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTVersion.h; path = Pod/Classes/OTVersion.h; sourceTree = "<group>"; };
 		746D8E87A90629A7E462C5B7EC478B40 /* OHHTTPStubs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OHHTTPStubs.xcconfig; sourceTree = "<group>"; };
+		7AD959FE8FF748B6CF7EBE7713C32C8C /* APMURLSessionDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMURLSessionDelegate.h; sourceTree = "<group>"; };
 		7E49EAFD3575BD179CFF5A9CF5FE8002 /* opentracing.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = opentracing.modulemap; sourceTree = "<group>"; };
 		8572C307CFB150CC87C3FE18681AEB96 /* HawkularAPMTracer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HawkularAPMTracer.xcconfig; sourceTree = "<group>"; };
-		859B70543A67C7263E5E3E7EA742D21D /* APMURLSessionDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMURLSessionDelegate.m; sourceTree = "<group>"; };
-		8B8B246372E9F86DB0862B7C6D93C351 /* APMSpan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMSpan.h; sourceTree = "<group>"; };
+		8B90DE1D3DA354552DD4106B9D2240B3 /* APMNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMNode.h; sourceTree = "<group>"; };
+		8BA6CE4F9A5C1832DC8734B7398466CC /* APMTracer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMTracer.m; sourceTree = "<group>"; };
 		8DB6552F7FC01D5E1C67315CFEFB589E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
-		91B5A9EDD3DF016E52275BB50260E2F6 /* APMURLSessionTaskTracker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMURLSessionTaskTracker.m; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9980585DDAEC9A4D07B57E5379C44942 /* APMURLSessionTaskTracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMURLSessionTaskTracker.h; sourceTree = "<group>"; };
 		9BEDF65BBF986B4F5AB48C2C6E078ACE /* OHHTTPStubsResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OHHTTPStubsResponse.m; path = OHHTTPStubs/Sources/OHHTTPStubsResponse.m; sourceTree = "<group>"; };
 		9D648C5BA575746D9EC34E52689352AF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0243850346DFF37BB0B229C5F3F6828 /* Pods-HawkularAPMTracer_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HawkularAPMTracer_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -147,8 +148,11 @@
 		A260C6D19C8FE85D22B3BFF89A9A6156 /* OHHTTPStubsMethodSwizzling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OHHTTPStubsMethodSwizzling.h; path = OHHTTPStubs/Sources/NSURLSession/OHHTTPStubsMethodSwizzling.h; sourceTree = "<group>"; };
 		A8BABE987BE800FBE65A7EA3D3EB4D5A /* Pods-HawkularAPMTracer_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HawkularAPMTracer_Tests-dummy.m"; sourceTree = "<group>"; };
 		AA69E388FF787BB6747572B27A95E944 /* OTTracer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OTTracer.m; path = Pod/Classes/OTTracer.m; sourceTree = "<group>"; };
+		AB5009C3984FB3F93B46973F1C8252E6 /* APMTraceFragment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMTraceFragment.h; sourceTree = "<group>"; };
 		B324E835136F2C44D59254C35C51D356 /* OTNoop.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OTNoop.m; path = Pod/Classes/OTNoop.m; sourceTree = "<group>"; };
+		B3356E2490540051DE3256804FE1DC30 /* APMRecorder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMRecorder.m; sourceTree = "<group>"; };
 		B753A8B0A839CE107C5B85DF6CE0320F /* OpenTracing-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OpenTracing-Bridging-Header.h"; path = "Pod/Classes/OpenTracing-Bridging-Header.h"; sourceTree = "<group>"; };
+		B76CC8B2D320681F9BA5E5CE722E4EE0 /* APMURLSessionTaskTracker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMURLSessionTaskTracker.m; sourceTree = "<group>"; };
 		B7C340E107A4422646FE1C89E084D7E4 /* NSURLRequest+HTTPBodyTesting.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLRequest+HTTPBodyTesting.m"; path = "OHHTTPStubs/Sources/NSURLSession/NSURLRequest+HTTPBodyTesting.m"; sourceTree = "<group>"; };
 		BD24BDB18F5CC05D5823B2B11FA1B848 /* OTSpanContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTSpanContext.h; path = Pod/Classes/OTSpanContext.h; sourceTree = "<group>"; };
 		BDC547C986422275A0A05BA037C12C84 /* OHHTTPStubs+NSURLSessionConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OHHTTPStubs+NSURLSessionConfiguration.m"; path = "OHHTTPStubs/Sources/NSURLSession/OHHTTPStubs+NSURLSessionConfiguration.m"; sourceTree = "<group>"; };
@@ -158,40 +162,32 @@
 		C97BCBDBCFE1C56AD41EF77A3B859D29 /* OHHTTPStubsResponse+JSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OHHTTPStubsResponse+JSON.h"; path = "OHHTTPStubs/Sources/JSON/OHHTTPStubsResponse+JSON.h"; sourceTree = "<group>"; };
 		CE20670D0CF17F659FFC58352445AD5F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D09050E8DBF764928951DED90914B8A8 /* opentracing.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = opentracing.xcconfig; sourceTree = "<group>"; };
-		D2F21D7F51ED13021CAA4F35D6753870 /* APMTraceFragment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMTraceFragment.m; sourceTree = "<group>"; };
 		D5A8CBADCB53A7308342A5535E4C331E /* HawkularAPMTracer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HawkularAPMTracer.framework; path = HawkularAPMTracer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B72C24D1D01F880833D385FAF4A01D /* OHHTTPStubs.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OHHTTPStubs.m; path = OHHTTPStubs/Sources/OHHTTPStubs.m; sourceTree = "<group>"; };
 		D7BCB6CA94FD2D671E9171CB385EEAAF /* OHHTTPStubsResponse+JSON.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OHHTTPStubsResponse+JSON.m"; path = "OHHTTPStubs/Sources/JSON/OHHTTPStubsResponse+JSON.m"; sourceTree = "<group>"; };
+		DCA01095B52B8C713D513237E8C540FE /* APMSpan.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMSpan.m; sourceTree = "<group>"; };
 		E0DC6BFC9D855F5EA52C8EA4A28EBCC2 /* Pods-HawkularAPMTracer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HawkularAPMTracer_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E11918A5A0A3C8AFD32EF209BE607AD4 /* Pods-HawkularAPMTracer_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HawkularAPMTracer_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		E575E7FF2122BDFF00EA7236805BB85A /* APMRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMRecorder.h; sourceTree = "<group>"; };
+		E3FC0C99199AEEDD8B0A73B8E13059D3 /* NSMutableURLRequest+APMTracing.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+APMTracing.m"; sourceTree = "<group>"; };
 		E6A9DFD5BD1EB80BCC82923AEB9B883A /* OHHTTPStubs-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubs-prefix.pch"; sourceTree = "<group>"; };
 		E9B2F14806A8A9EC930579F2E97A5794 /* OTNoop.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTNoop.h; path = Pod/Classes/OTNoop.h; sourceTree = "<group>"; };
 		EC812D267CA897E73AA043FF2AFC3CC9 /* HawkularAPMTracer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HawkularAPMTracer-prefix.pch"; sourceTree = "<group>"; };
+		EED61D59B0B2C843762A08A26E772C7E /* APMTraceFragment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMTraceFragment.m; sourceTree = "<group>"; };
 		F07FE56D66B8F3A89A74C7FC030A5D50 /* OTSpan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTSpan.h; path = Pod/Classes/OTSpan.h; sourceTree = "<group>"; };
 		F25C47371EFCE282B846A0AA76E2A1F2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4A04EFEC6CF200ECFE128BF7425031B /* Pods-HawkularAPMTracer_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HawkularAPMTracer_Tests-umbrella.h"; sourceTree = "<group>"; };
 		F63351AC7688E915468C286E86FE2C0A /* opentracing-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "opentracing-prefix.pch"; sourceTree = "<group>"; };
-		F8884F3FB95214B5CDB7237F5D8C39F4 /* APMSpan.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMSpan.m; sourceTree = "<group>"; };
 		FA2E1473C11AE66C8C8B67F0A4E3B419 /* opentracing-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "opentracing-dummy.m"; sourceTree = "<group>"; };
 		FF499583B3D606AD7905B8D19BB55933 /* Pods-HawkularAPMTracer_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HawkularAPMTracer_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5D000CAE0914AAE4AD0D3C7A9F4D70E8 /* Frameworks */ = {
+		432C98831F754327F5F66B1928BDD245 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0882AD591E58DB847D1F0E3A2C26B955 /* Foundation.framework in Frameworks */,
-				4C6B6ED70282CDE9F2BBAD83B25E545E /* opentracing.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B03DB8AAFBD5900B8CA598AFD9F0C2B7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FBFEE7965CF1B5A02617791179F16CBA /* Foundation.framework in Frameworks */,
+				29FEC958E1016915C344A481F00B103C /* Foundation.framework in Frameworks */,
+				8F26517946A7B5AFE47476EBE02441D3 /* opentracing.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +205,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAC2ED24719F4F9C3F7BDD3F29C3F3C1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB692E14BBF605AF06325020DF745601 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CC88A2B38759BC8D7C9827A0A3B7518 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +236,15 @@
 			name = JSON;
 			sourceTree = "<group>";
 		};
+		1716886CCB0E921C2D58CA657E2A59BA /* HawkularAPMTracer */ = {
+			isa = PBXGroup;
+			children = (
+				28F57C212E02F288CFAE7551836AD750 /* Classes */,
+			);
+			name = HawkularAPMTracer;
+			path = HawkularAPMTracer;
+			sourceTree = "<group>";
+		};
 		24DE1F16B5812196D3AA5EEA76AE5DF3 /* Pods-HawkularAPMTracer_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +261,32 @@
 			);
 			name = "Pods-HawkularAPMTracer_Tests";
 			path = "Target Support Files/Pods-HawkularAPMTracer_Tests";
+			sourceTree = "<group>";
+		};
+		28F57C212E02F288CFAE7551836AD750 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8B90DE1D3DA354552DD4106B9D2240B3 /* APMNode.h */,
+				2FB29286F34E803F6F97888743E55EEC /* APMNode.m */,
+				25B4FE9BA429CA319FA45A40A2DBF785 /* APMRecorder.h */,
+				B3356E2490540051DE3256804FE1DC30 /* APMRecorder.m */,
+				4A3303A0F63E6E4873B38F934D9C93AD /* APMSpan.h */,
+				DCA01095B52B8C713D513237E8C540FE /* APMSpan.m */,
+				4512C7A02ABBEFB60473001DCCCFFE1E /* APMSpanContext.h */,
+				3D455E48C9BEB9C28423E00B7D4059C6 /* APMSpanContext.m */,
+				AB5009C3984FB3F93B46973F1C8252E6 /* APMTraceFragment.h */,
+				EED61D59B0B2C843762A08A26E772C7E /* APMTraceFragment.m */,
+				0DB1B78BDF2A68952CA9032CC9EF6528 /* APMTracer.h */,
+				8BA6CE4F9A5C1832DC8734B7398466CC /* APMTracer.m */,
+				7AD959FE8FF748B6CF7EBE7713C32C8C /* APMURLSessionDelegate.h */,
+				0CF8FDB7F5DA51A300EF360E2D3B8B8E /* APMURLSessionDelegate.m */,
+				9980585DDAEC9A4D07B57E5379C44942 /* APMURLSessionTaskTracker.h */,
+				B76CC8B2D320681F9BA5E5CE722E4EE0 /* APMURLSessionTaskTracker.m */,
+				5B21036F960F71190AB28EDF435C6B38 /* NSMutableURLRequest+APMTracing.h */,
+				E3FC0C99199AEEDD8B0A73B8E13059D3 /* NSMutableURLRequest+APMTracing.m */,
+			);
+			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		36FA589C404435FD26CEF444C8AF6947 /* Products */ = {
@@ -280,15 +319,6 @@
 			);
 			name = opentracing;
 			path = opentracing;
-			sourceTree = "<group>";
-		};
-		6F3415A9738244B2DDE77161BFF5D23F /* HawkularAPMTracer */ = {
-			isa = PBXGroup;
-			children = (
-				B082712820626952B93F1C2179E98E0E /* Classes */,
-			);
-			name = HawkularAPMTracer;
-			path = HawkularAPMTracer;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -343,35 +373,11 @@
 		A7F4EB2614275ED4C134CA8BDC48137D /* HawkularAPMTracer */ = {
 			isa = PBXGroup;
 			children = (
-				6F3415A9738244B2DDE77161BFF5D23F /* HawkularAPMTracer */,
+				1716886CCB0E921C2D58CA657E2A59BA /* HawkularAPMTracer */,
 				D4FE68917AB1786707AB5FBF772C188F /* Support Files */,
 			);
 			name = HawkularAPMTracer;
 			path = ../..;
-			sourceTree = "<group>";
-		};
-		B082712820626952B93F1C2179E98E0E /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				3481FD552A71A11D8560625C2C525C8C /* APMNode.h */,
-				3956F6E617A27BBBE988BB9B54B33DC6 /* APMNode.m */,
-				E575E7FF2122BDFF00EA7236805BB85A /* APMRecorder.h */,
-				3584234C98846249CD9E2FB9D553B0A0 /* APMRecorder.m */,
-				8B8B246372E9F86DB0862B7C6D93C351 /* APMSpan.h */,
-				F8884F3FB95214B5CDB7237F5D8C39F4 /* APMSpan.m */,
-				4271057FDE0FB3EFA4EBDAD465DBF0A2 /* APMSpanContext.h */,
-				4175AC030E780D7FB59860DB4C59ED4C /* APMSpanContext.m */,
-				58E1C64E44674D7AE91525295E9FBFE4 /* APMTraceFragment.h */,
-				D2F21D7F51ED13021CAA4F35D6753870 /* APMTraceFragment.m */,
-				15B68B163BA3D41D9D0E2610EB414DB1 /* APMTracer.h */,
-				0A2EC3F0AD93E8C4E45F6DF1A877F407 /* APMTracer.m */,
-				1EF249DDCDC59F11C8D39DD121D6B952 /* APMURLSessionDelegate.h */,
-				859B70543A67C7263E5E3E7EA742D21D /* APMURLSessionDelegate.m */,
-				65444B02F38684BCE475DD04CCF8EFA1 /* APMURLSessionTaskTracker.h */,
-				91B5A9EDD3DF016E52275BB50260E2F6 /* APMURLSessionTaskTracker.m */,
-			);
-			name = Classes;
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		B4923855171A43571EE39BA8E9726BD3 /* Pods */ = {
@@ -463,6 +469,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1F913ED7DF5CA7B5B1C98379B50FEB07 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB5E3F8616FA15C9D3D3F77D5D896AB0 /* APMNode.h in Headers */,
+				7DD278E23381CA2D7217F497A2C2649A /* APMRecorder.h in Headers */,
+				8A4D01B097A738B1CCA9BEB9F734E3AB /* APMSpan.h in Headers */,
+				D7FAECE3BF3D3059FEFEF3D9E2432B50 /* APMSpanContext.h in Headers */,
+				EDDE31811E69744111D7FADA28092933 /* APMTraceFragment.h in Headers */,
+				63B6506A7CD7AA70460DB74F1247BC2A /* APMTracer.h in Headers */,
+				4241EEE517F4F7732F6E8D98E02547D3 /* APMURLSessionDelegate.h in Headers */,
+				5053839A63F8C3997B4690E661DE920D /* APMURLSessionTaskTracker.h in Headers */,
+				A956649A64858CB5EABD3104BF108A23 /* HawkularAPMTracer-umbrella.h in Headers */,
+				168B78CFADB1A91F4F92E8CFE1BCE181 /* NSMutableURLRequest+APMTracing.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2BD7DAD655969C1CBE791C6616EA79D0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -478,22 +501,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7FEE41A996E053B9B5998091A7AE9B24 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C72C57092CD22CC6275D5E94BE8A0C93 /* APMNode.h in Headers */,
-				F4319B484CFAE942506A6CC59D62365C /* APMRecorder.h in Headers */,
-				8C443212D41F03C3F35E97B73A87917A /* APMSpan.h in Headers */,
-				BCF62EFE455F9D8AEFCAAD4CC20F2187 /* APMSpanContext.h in Headers */,
-				1F8D8B801EF94788DF7A636FEA86F156 /* APMTraceFragment.h in Headers */,
-				1801DA0AE97C09B369E38A64F33E4B98 /* APMTracer.h in Headers */,
-				D76C7BD8993DCA89B994276C33D6C730 /* APMURLSessionDelegate.h in Headers */,
-				E85B12103B8E856F35A519F711EC780E /* APMURLSessionTaskTracker.h in Headers */,
-				429932A858C05A98EB03B7F2D1C9EA9F /* HawkularAPMTracer-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		ADC37B1504CAD8A621FB499402F209E7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -502,42 +509,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EB90F5EAA92B1F810D7B3B884D41290D /* Headers */ = {
+		F7CA51900DD4CBD1A3BF12340A63D2CD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6849E6AF128FC7D689749ADAF4C436F /* OpenTracing-Bridging-Header.h in Headers */,
-				D13AA45856F589D11825B782AF43681B /* opentracing-umbrella.h in Headers */,
-				A68ED37D20158F7DA6AE70250CE937B2 /* OTGlobal.h in Headers */,
-				60D7A02F818F76502A3AC007ADEABA20 /* OTNoop.h in Headers */,
-				EF2735EB0C0BAA2137FB1DCE390F4453 /* OTReference.h in Headers */,
-				A974D46B07B7E1DDAE03CC470BF24B14 /* OTSpan.h in Headers */,
-				8F0140EE437E4F1D8B752DAF479E97F4 /* OTSpanContext.h in Headers */,
-				F6764644ED4C9A01AA81805F033EB988 /* OTTracer.h in Headers */,
-				8B6821E05113645DB009E6249B4CB591 /* OTVersion.h in Headers */,
+				8D0A5C979C47B863303C91B72F717E94 /* OpenTracing-Bridging-Header.h in Headers */,
+				FABD761AB2294E8585456326C30A35C9 /* opentracing-umbrella.h in Headers */,
+				E9DBB6CB46AEB73E44ADBDFA414D5C2E /* OTGlobal.h in Headers */,
+				6102353EBAE58A877F0A5120B279EE0D /* OTNoop.h in Headers */,
+				4347787047A59BB2A5174A6AE3C86201 /* OTReference.h in Headers */,
+				5E1B7B075E81EA0FD2CFEF883D0EDFBD /* OTSpan.h in Headers */,
+				C125C18D35B2917A8CC9BBF28811C91C /* OTSpanContext.h in Headers */,
+				B46A4DDB8D7B83F86EAC25E90E191E2F /* OTTracer.h in Headers */,
+				B5CCF58A41B77A034EF2E88DACE68A82 /* OTVersion.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0216ABA2A3B5BD6876AD147AF4D7F20B /* opentracing */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 10ADEBD6C21E406BD02720E56D9EA561 /* Build configuration list for PBXNativeTarget "opentracing" */;
-			buildPhases = (
-				2447BB6A6191247F526CD7D1A59E7B89 /* Sources */,
-				B03DB8AAFBD5900B8CA598AFD9F0C2B7 /* Frameworks */,
-				EB90F5EAA92B1F810D7B3B884D41290D /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = opentracing;
-			productName = opentracing;
-			productReference = C5E3051B5FD7D1BCD8CCF7B196B0703D /* opentracing.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		06A23325201207EEE8C22E3551E28E4A /* OHHTTPStubs */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19142A73CC341F046FCCB0FA32840347 /* Build configuration list for PBXNativeTarget "OHHTTPStubs" */;
@@ -553,6 +543,41 @@
 			name = OHHTTPStubs;
 			productName = OHHTTPStubs;
 			productReference = 07B71228A3F2E003DACCAA1D14BCDFF4 /* OHHTTPStubs.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0D08C6C2F47EA671CF1A9B2AB3B4B3BF /* opentracing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A01509DF644AE921310613F3DBF2849 /* Build configuration list for PBXNativeTarget "opentracing" */;
+			buildPhases = (
+				F282916D0B30D6BE8D9D0D59F9B8649A /* Sources */,
+				FB692E14BBF605AF06325020DF745601 /* Frameworks */,
+				F7CA51900DD4CBD1A3BF12340A63D2CD /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = opentracing;
+			productName = opentracing;
+			productReference = C5E3051B5FD7D1BCD8CCF7B196B0703D /* opentracing.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		79D92652EA34E49F83150F3E23263466 /* HawkularAPMTracer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71A22425BEE018155E9CD05D7942ED35 /* Build configuration list for PBXNativeTarget "HawkularAPMTracer" */;
+			buildPhases = (
+				1EFBFBF49259A52200B6D4A0DCE32A1E /* Sources */,
+				432C98831F754327F5F66B1928BDD245 /* Frameworks */,
+				1F913ED7DF5CA7B5B1C98379B50FEB07 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				61B93E1C13092906AA8F28D4D9B83A72 /* PBXTargetDependency */,
+			);
+			name = HawkularAPMTracer;
+			productName = HawkularAPMTracer;
+			productReference = D5A8CBADCB53A7308342A5535E4C331E /* HawkularAPMTracer.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		B1F705472C4A9EBDF284728FF58B5FD9 /* Pods-HawkularAPMTracer_Tests */ = {
@@ -573,24 +598,6 @@
 			name = "Pods-HawkularAPMTracer_Tests";
 			productName = "Pods-HawkularAPMTracer_Tests";
 			productReference = 2976324D9D66F96047FEB972A53E0BEA /* Pods_HawkularAPMTracer_Tests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		DEAAE508E23E17AF016E72D40AE26AF7 /* HawkularAPMTracer */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A0AB70D87924F7D56453CCF64E2936CF /* Build configuration list for PBXNativeTarget "HawkularAPMTracer" */;
-			buildPhases = (
-				FB9FFBE7D48C0113D0713573E8109B01 /* Sources */,
-				5D000CAE0914AAE4AD0D3C7A9F4D70E8 /* Frameworks */,
-				7FEE41A996E053B9B5998091A7AE9B24 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				336A766ADCA736C9FB612D6169CD0A3F /* PBXTargetDependency */,
-			);
-			name = HawkularAPMTracer;
-			productName = HawkularAPMTracer;
-			productReference = D5A8CBADCB53A7308342A5535E4C331E /* HawkularAPMTracer.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -614,9 +621,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DEAAE508E23E17AF016E72D40AE26AF7 /* HawkularAPMTracer */,
+				79D92652EA34E49F83150F3E23263466 /* HawkularAPMTracer */,
 				06A23325201207EEE8C22E3551E28E4A /* OHHTTPStubs */,
-				0216ABA2A3B5BD6876AD147AF4D7F20B /* opentracing */,
+				0D08C6C2F47EA671CF1A9B2AB3B4B3BF /* opentracing */,
 				B1F705472C4A9EBDF284728FF58B5FD9 /* Pods-HawkularAPMTracer_Tests */,
 			);
 		};
@@ -638,15 +645,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2447BB6A6191247F526CD7D1A59E7B89 /* Sources */ = {
+		1EFBFBF49259A52200B6D4A0DCE32A1E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2529A74439D411EEB034EFD8C7A6EBEC /* opentracing-dummy.m in Sources */,
-				688D3F9D50428EC2B0CECEB6B9649756 /* OTGlobal.m in Sources */,
-				07379C6786F40A8E322FDDF5583BA523 /* OTNoop.m in Sources */,
-				BF7B97628687A907F05AAC52D88AD121 /* OTReference.m in Sources */,
-				EA390C2FEC03FDB974540D454DC97CAB /* OTTracer.m in Sources */,
+				0163F318000EBC675BB4CDEA0B9DEC41 /* APMNode.m in Sources */,
+				C5081EE8A20421426E0EF8E58BBEB0E8 /* APMRecorder.m in Sources */,
+				0ABF405459C2AF5ADB63DAD68706555B /* APMSpan.m in Sources */,
+				58C4D5E6E19122DF9AC208D34B2E6B05 /* APMSpanContext.m in Sources */,
+				47BA398476FFA4B28CF13D49C28D356C /* APMTraceFragment.m in Sources */,
+				4EA122DB47E4F1AC12179CBDE61F7568 /* APMTracer.m in Sources */,
+				E2C7D0E80F0C4DA7F1AC131CE7AEDD07 /* APMURLSessionDelegate.m in Sources */,
+				7008D423B863739550594D7B4FFFD424 /* APMURLSessionTaskTracker.m in Sources */,
+				5158F2BCE4C8D2AC0B510A1ACC9F6764 /* HawkularAPMTracer-dummy.m in Sources */,
+				7FDD4CA495F8D20099B890F49E0859B5 /* NSMutableURLRequest+APMTracing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,19 +670,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB9FFBE7D48C0113D0713573E8109B01 /* Sources */ = {
+		F282916D0B30D6BE8D9D0D59F9B8649A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C5350403CD489C1F4973E8DC26296D9 /* APMNode.m in Sources */,
-				5E6A81B2B61388A673645B73A4EB93EE /* APMRecorder.m in Sources */,
-				157662C7DF4EFE5E5C076B4C88361EE5 /* APMSpan.m in Sources */,
-				9235169636BD2AC841154ED95021CA27 /* APMSpanContext.m in Sources */,
-				F9FCDF03A1B723DD4F8F79F9842A1AC5 /* APMTraceFragment.m in Sources */,
-				2266B1711108977E2D2A2F49258352E0 /* APMTracer.m in Sources */,
-				B031B0E990EE216026282C246502166E /* APMURLSessionDelegate.m in Sources */,
-				9B41A015CC8B2ADF4463332E76633197 /* APMURLSessionTaskTracker.m in Sources */,
-				182EA138C857A64959EEF327D321CDCF /* HawkularAPMTracer-dummy.m in Sources */,
+				46DC0F1CB5308B67152B69A30720B406 /* opentracing-dummy.m in Sources */,
+				EC3D5F3D03B384CE848F2080C722478D /* OTGlobal.m in Sources */,
+				51D7C4D43EDB6E02EC361CF1F1BC23A3 /* OTNoop.m in Sources */,
+				572F31B4E93E42A35AB50ADF0C9D69BD /* OTReference.m in Sources */,
+				7B1A1C45179B9C3E98AEB87205DC4658 /* OTTracer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,19 +688,19 @@
 		11406207BD5B2757CE664AACE1B51262 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = HawkularAPMTracer;
-			target = DEAAE508E23E17AF016E72D40AE26AF7 /* HawkularAPMTracer */;
+			target = 79D92652EA34E49F83150F3E23263466 /* HawkularAPMTracer */;
 			targetProxy = 6E8F0DCDE26DA02552A8D9BD7953FD79 /* PBXContainerItemProxy */;
 		};
-		336A766ADCA736C9FB612D6169CD0A3F /* PBXTargetDependency */ = {
+		61B93E1C13092906AA8F28D4D9B83A72 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = opentracing;
-			target = 0216ABA2A3B5BD6876AD147AF4D7F20B /* opentracing */;
-			targetProxy = 2C7DCD77F4A952C32018D4863880CBA3 /* PBXContainerItemProxy */;
+			target = 0D08C6C2F47EA671CF1A9B2AB3B4B3BF /* opentracing */;
+			targetProxy = CFF905A9B59325045DBECD122292017A /* PBXContainerItemProxy */;
 		};
 		A149DBF878981D888A4EC988887284E9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = opentracing;
-			target = 0216ABA2A3B5BD6876AD147AF4D7F20B /* opentracing */;
+			target = 0D08C6C2F47EA671CF1A9B2AB3B4B3BF /* opentracing */;
 			targetProxy = 7955B84C7424B4C1FAC6F7BA8552BBB9 /* PBXContainerItemProxy */;
 		};
 		C1BFC9F02F941F9255CC0FFDA7602340 /* PBXTargetDependency */ = {
@@ -704,6 +712,37 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1D183F68C06739D563582D723B35F851 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D09050E8DBF764928951DED90914B8A8 /* opentracing.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/opentracing/opentracing-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/opentracing/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/opentracing/opentracing.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = opentracing;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		2475A6FA422C961D2CF9C13AF5C559F2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 746D8E87A90629A7E462C5B7EC478B40 /* OHHTTPStubs.xcconfig */;
@@ -735,9 +774,9 @@
 			};
 			name = Release;
 		};
-		79218EA3C263993AD7A71C11EB71501B /* Debug */ = {
+		5203F953E8D89E2367E98C5C109D279C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D09050E8DBF764928951DED90914B8A8 /* opentracing.xcconfig */;
+			baseConfigurationReference = 8572C307CFB150CC87C3FE18681AEB96 /* HawkularAPMTracer.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -750,14 +789,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/opentracing/opentracing-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/opentracing/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/HawkularAPMTracer/HawkularAPMTracer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HawkularAPMTracer/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/opentracing/opentracing.modulemap";
+				MODULEMAP_FILE = "Target Support Files/HawkularAPMTracer/HawkularAPMTracer.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = opentracing;
+				PRODUCT_NAME = HawkularAPMTracer;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -793,37 +832,6 @@
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_HawkularAPMTracer_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		8D2607D088EE86C0858EDB5BAAE2F54D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8572C307CFB150CC87C3FE18681AEB96 /* HawkularAPMTracer.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/HawkularAPMTracer/HawkularAPMTracer-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/HawkularAPMTracer/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/HawkularAPMTracer/HawkularAPMTracer.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = HawkularAPMTracer;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -947,6 +955,68 @@
 			};
 			name = Debug;
 		};
+		A0773B0FBB3DBD74B90FD73CCD03B257 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8572C307CFB150CC87C3FE18681AEB96 /* HawkularAPMTracer.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HawkularAPMTracer/HawkularAPMTracer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HawkularAPMTracer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HawkularAPMTracer/HawkularAPMTracer.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = HawkularAPMTracer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A93A2EDD5FADFCD172BFD87987535FE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D09050E8DBF764928951DED90914B8A8 /* opentracing.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/opentracing/opentracing-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/opentracing/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/opentracing/opentracing.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = opentracing;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		BC0B9362E4FCA95D5F9A81D4E9F4B2ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E0DC6BFC9D855F5EA52C8EA4A28EBCC2 /* Pods-HawkularAPMTracer_Tests.release.xcconfig */;
@@ -982,80 +1052,9 @@
 			};
 			name = Release;
 		};
-		C5908C1ED14948FCF5E29C183CA49B86 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8572C307CFB150CC87C3FE18681AEB96 /* HawkularAPMTracer.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/HawkularAPMTracer/HawkularAPMTracer-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/HawkularAPMTracer/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/HawkularAPMTracer/HawkularAPMTracer.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = HawkularAPMTracer;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		FECD3C271A7AA0A3AFAA1878E893B97E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D09050E8DBF764928951DED90914B8A8 /* opentracing.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/opentracing/opentracing-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/opentracing/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/opentracing/opentracing.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = opentracing;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		10ADEBD6C21E406BD02720E56D9EA561 /* Build configuration list for PBXNativeTarget "opentracing" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				79218EA3C263993AD7A71C11EB71501B /* Debug */,
-				FECD3C271A7AA0A3AFAA1878E893B97E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		19142A73CC341F046FCCB0FA32840347 /* Build configuration list for PBXNativeTarget "OHHTTPStubs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1074,11 +1073,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0AB70D87924F7D56453CCF64E2936CF /* Build configuration list for PBXNativeTarget "HawkularAPMTracer" */ = {
+		3A01509DF644AE921310613F3DBF2849 /* Build configuration list for PBXNativeTarget "opentracing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8D2607D088EE86C0858EDB5BAAE2F54D /* Debug */,
-				C5908C1ED14948FCF5E29C183CA49B86 /* Release */,
+				1D183F68C06739D563582D723B35F851 /* Debug */,
+				A93A2EDD5FADFCD172BFD87987535FE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71A22425BEE018155E9CD05D7942ED35 /* Build configuration list for PBXNativeTarget "HawkularAPMTracer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5203F953E8D89E2367E98C5C109D279C /* Debug */,
+				A0773B0FBB3DBD74B90FD73CCD03B257 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

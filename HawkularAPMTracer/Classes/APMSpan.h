@@ -12,8 +12,12 @@
 @class APMTracer, OTReference;
 @interface APMSpan : NSObject<OTSpan>
 
-- (nonnull instancetype)initWithTracer:(APMTracer* _Nonnull)tracer references:(NSArray<OTReference*> * _Nullable)references startTime:(NSDate * _Nonnull)startTime;
+@property (readonly, nonnull) NSDate *startTime;
+@property (readonly, nullable) NSDate *endTime;
+@property (readonly, nonnull) NSMutableDictionary* tags;
+@property (readonly, nullable) NSString *operationName;
 
+- (nonnull instancetype)initWithTracer:(APMTracer* _Nonnull)tracer references:(NSArray<OTReference*> * _Nullable)references startTime:(NSDate * _Nonnull)startTime;
 + (nonnull NSString*)generateID;
 
 @end

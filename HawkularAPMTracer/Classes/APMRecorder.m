@@ -9,8 +9,13 @@
 #import "APMRecorder.h"
 #import "APMTraceFragment.h"
 #import "APMSpanContext.h"
+#import "APMNode.h"
+#import "APMSpan.h"
 
 @interface APMRecorder () <NSURLSessionDelegate>
+
+@property (strong, nonatomic, nonnull) NSMutableSet *orphanedNodes;
+@property (strong, nonatomic, nonnull) NSMutableSet *unfinishedSpanContexts;
 
 @property (strong, nonatomic, nonnull) NSMutableArray<NSDictionary*> *traceDictionariesToSend;
 @property (strong, nonatomic, nonnull) NSURLSession *urlSession;
@@ -30,6 +35,9 @@
             [self send];
         }];
         self.traceDictionariesToSend = [NSMutableArray<NSDictionary*> new];
+        self.orphanedNodes = [NSMutableSet new];
+        self.unfinishedSpanContexts = [NSMutableSet new];
+
         self.baseURL = baseURL;
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         self.urlSession = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
@@ -81,7 +89,7 @@
     return request;
 }
 
-- (BOOL)addFragment:(APMTraceFragment * _Nonnull)fragment error:(NSError *__autoreleasing  _Nullable *)outError {
+- (BOOL)addFragment:(APMTraceFragment * _Nonnull)fragment {
     NSParameterAssert(fragment);
     NSDictionary *traceDictionary = fragment.traceDictionary;
     if (![self.traceDictionariesToSend containsObject:traceDictionary]) {
@@ -90,5 +98,53 @@
     }
     return NO;
 }
+
+// MARK: - Nodes
+
+- (nullable APMNode*)findNodeWithContext:(APMSpanContext*)spanContext inNodes:(NSArray<APMNode*>*)nodes {
+    for (APMNode *node in nodes) {
+        if (node.spanContext == spanContext) {
+            return node;
+        }
+        APMNode *childNode = [self findNodeWithContext:spanContext inNodes:node.childNodes];
+        if (childNode != nil) {
+            return childNode;
+        }
+    }
+    return nil;
+}
+
+- (BOOL)addNodeForSpan:(APMSpan *)span {
+
+    [self.unfinishedSpanContexts removeObject:span.context];
+
+    APMNode *node = [[APMNode alloc] initWithSpanContext:span.context];
+    node.timestamp = span.startTime;
+    node.duration = [span.endTime timeIntervalSinceDate:span.startTime] ?: 0;
+    NSAssert(node.duration >= 0, @"Duration must be positive");
+    [node parseTags:span.tags];
+
+    node.operation = span.operationName;
+
+    NSSet *children = [self.orphanedNodes filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"spanContext.parentContext == %@", span.context]];
+    for (APMNode *child in children) {
+        [node addChildNode:child];
+        [self.orphanedNodes removeObject:child];
+    }
+
+    APMSpanContext *spanContext = (APMSpanContext*)span.context;
+
+    if (spanContext.parentContext == nil || ![self.unfinishedSpanContexts containsObject:spanContext.parentContext]) {
+        if (![spanContext.level isEqualToString:@"All"]) {
+            return NO;
+        }
+        APMTraceFragment *fragment = [[APMTraceFragment alloc] initWithTraceID:spanContext.traceID spanID:spanContext.spanID rootNode: node];
+        return [self addFragment:fragment];
+    }
+
+    [self.orphanedNodes addObject:node];
+    return YES;
+}
+
 
 @end

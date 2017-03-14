@@ -40,6 +40,12 @@
         } else {
             self.traceID = spanID;
         }
+
+        NSString *defaultLevel = @"All";
+
+        self.level = parentContext.level ?: defaultLevel;
+        self.transaction = parentContext.transaction;
+        self.hasBeenInjected = false;
     }
     return self;
 }

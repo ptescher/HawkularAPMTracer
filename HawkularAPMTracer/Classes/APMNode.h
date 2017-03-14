@@ -40,8 +40,8 @@
 @property (strong, nonatomic, nullable) NSString *endpointType;
 @property (strong, nonatomic, nullable) NSString *componentType;
 
-- (nonnull instancetype)initWithSpanContext:(APMSpanContext* _Nonnull)spanContext type:(NSString* _Nonnull)type;
-- (void)parseCarrier:(nonnull NSDictionary*)carrier type:(nonnull NSString*)type;
+- (nonnull instancetype)initWithSpanContext:(APMSpanContext* _Nonnull)spanContext;
+- (void)parseTags:(nonnull NSDictionary*)tags;
 
 - (void)addProperty:(APMProperty* _Nonnull)property;
 - (void)addCorrelationIdentifier:(APMCorrelationIdentifier* _Nonnull)correlationIdentifier;

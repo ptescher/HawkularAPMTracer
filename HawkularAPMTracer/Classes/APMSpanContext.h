@@ -14,6 +14,8 @@
 
 @property (readonly, nonnull) NSString *traceID;
 @property (readonly, nonnull) NSString *spanID;
+@property (strong, nonatomic, nonnull) NSString *level;
+@property (nonatomic) BOOL hasBeenInjected;
 @property (strong, nonatomic, nullable) APMSpanContext *parentContext;
 @property (strong, nonatomic, nullable) NSString *transaction;
 
