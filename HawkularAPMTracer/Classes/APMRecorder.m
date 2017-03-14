@@ -115,6 +115,7 @@
 }
 
 - (BOOL)addNodeForSpan:(APMSpan *)span {
+    APMSpanContext *spanContext = (APMSpanContext*)span.context;
 
     [self.unfinishedSpanContexts removeObject:span.context];
 
@@ -122,6 +123,12 @@
     node.timestamp = span.startTime;
     node.duration = [span.endTime timeIntervalSinceDate:span.startTime] ?: 0;
     NSAssert(node.duration >= 0, @"Duration must be positive");
+
+    if (spanContext.interactionID != nil) {
+        APMCorrelationIdentifier *interactionIdentifier = [[APMCorrelationIdentifier alloc] initWithScope:@"Interaction" value:spanContext.interactionID];
+        [node addCorrelationIdentifier:interactionIdentifier];
+    }
+
     [node parseTags:span.tags];
 
     node.operation = span.operationName;
@@ -132,13 +139,11 @@
         [self.orphanedNodes removeObject:child];
     }
 
-    APMSpanContext *spanContext = (APMSpanContext*)span.context;
-
     if (spanContext.parentContext == nil || ![self.unfinishedSpanContexts containsObject:spanContext.parentContext]) {
         if (![spanContext.level isEqualToString:@"All"]) {
             return NO;
         }
-        APMTraceFragment *fragment = [[APMTraceFragment alloc] initWithTraceID:spanContext.traceID spanID:spanContext.spanID rootNode: node];
+        APMTraceFragment *fragment = [[APMTraceFragment alloc] initWithTraceID:spanContext.traceID fragmendID:spanContext.spanID rootNode: node];
         return [self addFragment:fragment];
     }
 
