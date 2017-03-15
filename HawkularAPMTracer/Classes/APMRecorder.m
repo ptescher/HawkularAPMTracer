@@ -14,8 +14,8 @@
 
 @interface APMRecorder () <NSURLSessionDelegate>
 
-@property (strong, nonatomic, nonnull) NSMutableSet *orphanedNodes;
-@property (strong, nonatomic, nonnull) NSMutableSet *unfinishedSpanContexts;
+@property (strong, nonatomic, nonnull) NSMutableOrderedSet *orphanedNodes;
+@property (strong, nonatomic, nonnull) NSMutableOrderedSet *unfinishedSpanContexts;
 
 @property (strong, nonatomic, nonnull) NSMutableArray<NSDictionary*> *traceDictionariesToSend;
 @property (strong, nonatomic, nonnull) NSURLSession *urlSession;
@@ -35,8 +35,8 @@
             [self send];
         }];
         self.traceDictionariesToSend = [NSMutableArray<NSDictionary*> new];
-        self.orphanedNodes = [NSMutableSet new];
-        self.unfinishedSpanContexts = [NSMutableSet new];
+        self.orphanedNodes = [NSMutableOrderedSet new];
+        self.unfinishedSpanContexts = [NSMutableOrderedSet new];
 
         self.baseURL = baseURL;
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -133,7 +133,7 @@
 
     node.operation = span.operationName;
 
-    NSSet *children = [self.orphanedNodes filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"spanContext.parentContext == %@", span.context]];
+    NSSet *children = [self.orphanedNodes filteredOrderedSetUsingPredicate:[NSPredicate predicateWithFormat:@"spanContext.parentContext == %@", span.context]];
     for (APMNode *child in children) {
         [node addChildNode:child];
         [self.orphanedNodes removeObject:child];
