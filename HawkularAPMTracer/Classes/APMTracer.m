@@ -88,14 +88,18 @@
 }
 
 - (NSString*)relativeSpanIDForSpanContext:(APMSpanContext*)spanContext {
-    // TODO: Figure out how to do the whole fragmentID:index:index thing
-    // For now just find the parent who will generate the fragment ID and use its span ID
-
-    if (spanContext.parentContext != nil && [self.recorder.unfinishedSpanContexts containsObject:spanContext.parentContext]) {
-        return [self relativeSpanIDForSpanContext:spanContext];
+    if (![self.recorder.unfinishedSpanContexts containsObject:spanContext]) {
+        // We haven't seen this span context so we can't generate a relative span ID
+        return spanContext.spanID;
     }
 
-    return spanContext.spanID;
+    if (spanContext.parentContext != nil && [self.recorder.unfinishedSpanContexts containsObject:spanContext.parentContext]) {
+        // TODO: Figure out how to get this from unfinishedSpanContexts and orphanedNodes
+        return [self relativeSpanIDForSpanContext:spanContext.parentContext];
+    }
+
+    // Assume we are the root span for a fragment
+    return [NSString stringWithFormat: @"%@:0", spanContext.spanID];
 }
 
 - (BOOL)inject:(id<OTSpanContext>)spanContext format:(NSString *)format carrier:(id)carrier error:(NSError * _Nullable __autoreleasing *)outError {

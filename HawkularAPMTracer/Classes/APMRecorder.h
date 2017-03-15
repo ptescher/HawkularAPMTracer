@@ -12,7 +12,7 @@
 @class APMTraceFragment, APMSpan;
 @interface APMRecorder : NSObject
 
-@property (readonly, nonnull) NSMutableSet *unfinishedSpanContexts;
+@property (readonly, nonnull) NSMutableOrderedSet *unfinishedSpanContexts;
 
 - (nonnull instancetype)initWithURL:(nonnull NSURL*)baseURL credential:(nonnull NSURLCredential*)credential flushInterval:(NSTimeInterval)flushInterval timeoutInterval:(NSTimeInterval)timeoutInterval;
 
