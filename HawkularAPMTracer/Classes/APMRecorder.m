@@ -51,8 +51,11 @@
     [self.sendTimer invalidate];
 }
 
-
 - (void)send {
+    [self send:nil];
+}
+
+- (void)send:(void (^)(NSError * _Nullable error))completionHandler {
     NSArray *traces = [self.traceDictionariesToSend copy];
 
     if (traces.count > 0) {
@@ -64,6 +67,7 @@
             } else if (![response isKindOfClass:[NSHTTPURLResponse class]] || ((NSHTTPURLResponse*)response).statusCode != 204 ) {
                 NSLog(@"Got invalid response: %@", response);
             }
+            completionHandler(error);
         }];
         [task resume];
     }

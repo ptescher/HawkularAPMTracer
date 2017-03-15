@@ -19,5 +19,6 @@
 - (BOOL)addNodeForSpan:(nonnull APMSpan *)span;
 
 - (void)send;
+- (void)send:(void (^)(NSError * _Nullable error))completionHandler;
 
 @end
