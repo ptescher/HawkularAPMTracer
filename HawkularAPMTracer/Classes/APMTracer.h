@@ -17,5 +17,6 @@
 
 + (void)setup:(NSURL* _Nonnull)apmURL credential:(NSURLCredential* _Nonnull)credential flushInterval:(NSTimeInterval)flushInterval;
 - (void)flush;
+- (void)flush:(void (^)(NSError * _Nullable error))completionHandler;
 
 @end

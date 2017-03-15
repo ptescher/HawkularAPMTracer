@@ -28,8 +28,12 @@
     [OTGlobal initSharedTracer:tracer];
 }
 
+- (void)flush:(void (^)(NSError * _Nullable))completionHandler {
+    [self.recorder send:completionHandler];
+}
+
 - (void)flush {
-    [self.recorder send];
+    [self flush:nil];
 }
 
 - (instancetype)initWithAPMURL:(NSURL*)apmURL credential:(NSURLCredential* _Nonnull)credential flushInterval:(NSTimeInterval)flushInterval {
