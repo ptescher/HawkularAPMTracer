@@ -1,6 +1,6 @@
 {
   "name": "HawkularAPMTracer",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "summary": "Opentracing compatible tracer with a Hawkular APM recorder",
   "description": "Allows any opentracing compatible frameworks to record traces to Hawkular APM.\nSee http://www.hawkular.org/hawkular-apm/ for more info.",
   "homepage": "https://github.com/pat2man/HawkularAPMTracer",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/pat2man/HawkularAPMTracer.git",
-    "tag": "0.2.6"
+    "tag": "0.2.7"
   },
   "social_media_url": "https://twitter.com/pat2man",
   "platforms": {
