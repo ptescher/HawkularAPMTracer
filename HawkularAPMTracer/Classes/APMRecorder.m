@@ -67,7 +67,9 @@
             } else if (![response isKindOfClass:[NSHTTPURLResponse class]] || ((NSHTTPURLResponse*)response).statusCode != 204 ) {
                 NSLog(@"Got invalid response: %@", response);
             }
-            completionHandler(error);
+            if (completionHandler) {
+                completionHandler(error);
+            }
         }];
         [task resume];
     }
