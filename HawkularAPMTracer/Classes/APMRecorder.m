@@ -72,6 +72,10 @@
             }
         }];
         [task resume];
+    } else {
+        if (completionHandler) {
+            completionHandler(nil);
+        }
     }
 }
 
