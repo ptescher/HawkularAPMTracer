@@ -162,4 +162,8 @@
     }
 }
 
+- (NSString *)debugDescription {
+    return [self nodeDictionary].debugDescription;
+}
+
 @end

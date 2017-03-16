@@ -103,9 +103,10 @@
 }
 
 - (void)setTag:(NSString *)key value:(NSString *)value {
-    self.tags[key] = value;
     if ([key isEqualToString:@"transaction"]) {
         self.context.transaction = value;
+    } else {
+        self.tags[key] = value;
     }
 }
 

@@ -139,6 +139,11 @@
         [node addCorrelationIdentifier:interactionIdentifier];
     }
 
+    if (spanContext.parentContext.nodeID != nil) {
+        APMCorrelationIdentifier *causedByIdentifier = [[APMCorrelationIdentifier alloc] initWithScope:@"CausedBy" value:spanContext.parentContext.nodeID];
+        [node addCorrelationIdentifier:causedByIdentifier];
+    }
+
     [node parseTags:span.tags];
 
     node.operation = span.operationName;

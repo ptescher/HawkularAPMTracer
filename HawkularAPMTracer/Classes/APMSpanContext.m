@@ -19,11 +19,13 @@
 
 @implementation APMSpanContext
 
-- (instancetype)initWithTraceID:(NSString *)traceID spanID:(NSString *)spanID {
+- (instancetype)initWithTraceID:(NSString *)traceID interactionID:(NSString *)interactionID {
     self = [super init];
     if (self) {
         self.traceID = traceID;
-        self.spanID = spanID;
+        self.interactionID = interactionID;
+        self.spanID = [APMSpan generateID];
+        self.hasBeenInjected = false;
     }
     return self;
 }
