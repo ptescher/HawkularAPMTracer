@@ -29,9 +29,6 @@
 + (void)trackMetrics:(NSURLSessionTaskTransactionMetrics*)metrics parentContext:(id<OTSpanContext>)parentContext {
     id<OTSpan> span = [[OTGlobal sharedTracer] startSpan:@"Metrics" childOf:parentContext tags:nil startTime:metrics.fetchStartDate];
 
-    [span setTag:@"http.url" value:metrics.request.URL.absoluteString];
-    [span setTag:@"http.method" value:metrics.request.HTTPMethod];
-
     [span setTag:@"network.protocol.name" value:metrics.networkProtocolName];
     [span setTag:@"connection.refused" boolValue:metrics.reusedConnection];
     [span setTag:@"connection.proxy" boolValue:metrics.proxyConnection];

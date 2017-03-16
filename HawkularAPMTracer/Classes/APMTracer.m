@@ -67,9 +67,6 @@
     if (parent == nil) {
         return [self startSpan:operationName references:nil tags:tags startTime:startTime];
     }
-    if ([(id)parent isMemberOfClass:[APMSpanContext class]]) {
-        [self.recorder.unfinishedSpanContexts addObject:parent];
-    }
     return [self startSpan:operationName references:@[[OTReference childOf:parent]] tags:tags startTime:startTime];
 }
 
@@ -91,15 +88,34 @@
     return [self inject:spanContext format:format carrier:carrier error: nil];
 }
 
-- (NSString*)relativeSpanIDForSpanContext:(APMSpanContext*)spanContext {
+- (NSUInteger)siblingIndexOfSpanContext:(APMSpanContext*)spanContext {
+    NSPredicate *siblingNodePredicate = [NSPredicate predicateWithFormat:@"spanContext.parentContext == %@", spanContext.parentContext];
+    NSOrderedSet *siblingNodes = [self.recorder.orphanedNodes filteredOrderedSetUsingPredicate:siblingNodePredicate];
+
+    if ([siblingNodes containsObject:spanContext]) {
+        return [siblingNodes indexOfObject:spanContext];
+    }
+
+    NSPredicate *siblingSpanPredicate = [NSPredicate predicateWithFormat:@"parentContext == %@", spanContext.parentContext];
+    NSOrderedSet *sublingUnfinishedSpanContexts = [self.recorder.unfinishedSpanContexts filteredOrderedSetUsingPredicate:siblingSpanPredicate];
+
+    if ([sublingUnfinishedSpanContexts containsObject:spanContext]) {
+        return [sublingUnfinishedSpanContexts indexOfObject:spanContext] + siblingNodes.count;
+    }
+
+    return 0;
+}
+
+- (NSString*)nodeIDForSpanContext:(APMSpanContext*)spanContext {
     if (![self.recorder.unfinishedSpanContexts containsObject:spanContext]) {
         // We haven't seen this span context so we can't generate a relative span ID
         return spanContext.spanID;
     }
 
     if (spanContext.parentContext != nil && [self.recorder.unfinishedSpanContexts containsObject:spanContext.parentContext]) {
-        // TODO: Figure out how to get this from unfinishedSpanContexts and orphanedNodes
-        return [self relativeSpanIDForSpanContext:spanContext.parentContext];
+        NSString *parentRelativeSpanID = [self nodeIDForSpanContext:spanContext.parentContext];
+        NSUInteger siblingIndex = [self siblingIndexOfSpanContext:spanContext];
+        return [NSString stringWithFormat: @"%@:%@", parentRelativeSpanID, @(siblingIndex)];
     }
 
     // Assume we are the root span for a fragment
@@ -118,7 +134,11 @@
 
     if ([format isEqualToString:OTFormatHTTPHeaders] && [carrier isKindOfClass:[NSMutableDictionary class]]) {
         NSMutableDictionary *headers = (NSMutableDictionary*)carrier;
-        headers[@"HWKAPMID"] = [self relativeSpanIDForSpanContext:apmSpanContext];
+        if (apmSpanContext.interactionID == nil) {
+            apmSpanContext.interactionID = [APMSpan generateID];
+        }
+        headers[@"HWKAPMID"] = apmSpanContext.interactionID;
+        headers[@"HWKAPMNODEID"] = [self nodeIDForSpanContext:apmSpanContext];
         headers[@"HWKAPMTRACEID"] = apmSpanContext.traceID;
         headers[@"HWKAPMLEVEL"] = apmSpanContext.level;
         headers[@"HWKAPMTXN"] = apmSpanContext.transaction;
@@ -135,13 +155,15 @@
     if (([format isEqualToString:OTFormatHTTPHeaders] || [format isEqualToString:OTFormatTextMap]) && [carrier isKindOfClass:[NSDictionary class]]) {
         NSDictionary *headers = (NSDictionary*)carrier;
 
-        NSString *spanID = headers[@"HWKAPMID"];
+        NSString *interactionID = headers[@"HWKAPMID"];
+        NSString *nodeID = headers[@"HWKAPMNODEID"];
         NSString *traceID = headers[@"HWKAPMTRACEID"];
         NSString *level = headers[@"HWKAPMLEVEL"];
         NSString *transaction = headers[@"HWKAPMTXN"];
 
         if (traceID != nil) {
-            APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID spanID:spanID];
+            APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID interactionID:interactionID];
+            context.nodeID = nodeID;
             context.transaction = transaction;
             context.level = level;
             return context;

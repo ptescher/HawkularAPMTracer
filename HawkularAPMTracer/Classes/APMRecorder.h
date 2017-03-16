@@ -13,6 +13,7 @@
 @interface APMRecorder : NSObject
 
 @property (readonly, nonnull) NSMutableOrderedSet *unfinishedSpanContexts;
+@property (readonly, nonnull) NSMutableOrderedSet *orphanedNodes;
 
 - (nonnull instancetype)initWithURL:(nonnull NSURL*)baseURL credential:(nonnull NSURLCredential*)credential flushInterval:(NSTimeInterval)flushInterval timeoutInterval:(NSTimeInterval)timeoutInterval;
 
