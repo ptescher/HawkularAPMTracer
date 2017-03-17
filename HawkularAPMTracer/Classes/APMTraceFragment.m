@@ -15,7 +15,8 @@
 
 @property (strong, nonatomic, nonnull) NSString *fragmendID;
 @property (strong, nonatomic, nonnull) APMNode *rootNode;
-@property (strong, nonatomic, nullable) NSString *hostAddress;
+@property (strong, nonatomic, nonnull) NSString *hostAddress;
+@property (strong, nonatomic, nonnull) NSString *hostName;
 @property (readonly, nullable) NSDate *timestamp;
 @property (strong, nonatomic, nullable) NSString *traceID;
 @property (nonatomic) bool isFinished;
@@ -31,6 +32,8 @@
         self.isFinished = false;
         self.fragmendID = fragmendID;
         self.rootNode = node;
+        self.hostName = @"localhost";
+        self.hostAddress = @"127.0.0.1";
     }
     return self;
 }
@@ -43,6 +46,7 @@
     NSMutableDictionary *traceDictionary = [[NSMutableDictionary alloc] initWithCapacity:7];
     traceDictionary[@"fragmentId"] = self.fragmendID;
     traceDictionary[@"hostAddress"] = self.hostAddress;
+    traceDictionary[@"hostName"] = self.hostName;
     traceDictionary[@"nodes"] = @[self.rootNode.nodeDictionary];
     traceDictionary[@"timestamp"] = self.timestamp == nil ? nil : [NSNumber numberWithLong: [self.timestamp timeIntervalSince1970] * 1000000];
     traceDictionary[@"traceId"] = self.traceID;
