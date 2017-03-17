@@ -69,7 +69,13 @@
     self = [super init];
     if (self) {
         self.spanContext = spanContext;
-        self.type = spanContext.hasBeenInjected ? @"Producer" : @"Component";
+        if (spanContext.hasBeenInjected) {
+            self.type = @"Producer";
+        } else if (spanContext.parentContext.hasBeenExtracted) {
+            self.type = @"Consumer";
+        } else {
+            self.type = @"Component";
+        }
         self.correlationIDs = [NSMutableArray<APMCorrelationIdentifier*> new];
         self.issues = [NSArray<APMIssue*> new];
         self.childNodes = [NSMutableArray<APMNode*> new];
