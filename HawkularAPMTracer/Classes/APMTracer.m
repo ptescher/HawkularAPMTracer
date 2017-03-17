@@ -108,7 +108,7 @@
 
 - (NSString*)nodeIDForSpanContext:(APMSpanContext*)spanContext {
     if (![self.recorder.unfinishedSpanContexts containsObject:spanContext]) {
-        // We haven't seen this span context so we can't generate a relative span ID
+        // We haven't seen this span context so we can't generate a node ID
         return spanContext.spanID;
     }
 
@@ -138,7 +138,6 @@
             apmSpanContext.interactionID = [APMSpan generateID];
         }
         headers[@"HWKAPMID"] = apmSpanContext.interactionID;
-        headers[@"HWKAPMNODEID"] = [self nodeIDForSpanContext:apmSpanContext];
         headers[@"HWKAPMTRACEID"] = apmSpanContext.traceID;
         headers[@"HWKAPMLEVEL"] = apmSpanContext.level;
         headers[@"HWKAPMTXN"] = apmSpanContext.transaction;
@@ -156,14 +155,12 @@
         NSDictionary *headers = (NSDictionary*)carrier;
 
         NSString *interactionID = headers[@"HWKAPMID"];
-        NSString *nodeID = headers[@"HWKAPMNODEID"];
         NSString *traceID = headers[@"HWKAPMTRACEID"];
         NSString *level = headers[@"HWKAPMLEVEL"];
         NSString *transaction = headers[@"HWKAPMTXN"];
 
         if (traceID != nil) {
             APMSpanContext *context = [[APMSpanContext alloc] initWithTraceID:traceID interactionID:interactionID];
-            context.nodeID = nodeID;
             context.transaction = transaction;
             context.level = level;
             context.hasBeenExtracted = true;
