@@ -26,6 +26,7 @@
         self.interactionID = interactionID;
         self.spanID = [APMSpan generateID];
         self.hasBeenInjected = false;
+        self.hasBeenExtracted = false;
     }
     return self;
 }
@@ -47,6 +48,7 @@
         self.level = parentContext.level ?: defaultLevel;
         self.transaction = parentContext.transaction;
         self.hasBeenInjected = false;
+        self.hasBeenExtracted = false;
     }
     return self;
 }

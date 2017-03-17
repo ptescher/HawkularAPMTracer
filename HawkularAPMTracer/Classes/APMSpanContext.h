@@ -18,6 +18,7 @@
 @property (strong, nonatomic, nullable) NSString *nodeID;
 @property (strong, nonatomic, nonnull) NSString *level;
 @property (nonatomic) BOOL hasBeenInjected;
+@property (nonatomic) BOOL hasBeenExtracted;
 @property (strong, nonatomic, nullable) APMSpanContext *parentContext;
 @property (strong, nonatomic, nullable) NSString *transaction;
 

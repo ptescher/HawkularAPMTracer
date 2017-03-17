@@ -166,6 +166,7 @@
             context.nodeID = nodeID;
             context.transaction = transaction;
             context.level = level;
+            context.hasBeenExtracted = true;
             return context;
         } else {
             return nil;
