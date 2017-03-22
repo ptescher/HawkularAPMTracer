@@ -79,7 +79,12 @@
 
 - (void)finishWithTime:(NSDate *)finishTime {
     self.endTime = finishTime;
-    [self.tracer.recorder addNodeForSpan:self];
+    
+    @try {
+        [self.tracer.recorder addNodeForSpan:self];
+    } @catch (NSException *exception) {
+        NSLog(@"Exception finishing span: %@", exception);
+    }
 }
 
 - (void)log:(NSDictionary<NSString *,NSObject *> *)fields {

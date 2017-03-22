@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <opentracing/OTSpanContext.h>
 
+static NSUInteger APMRecorderMaxPendingNodes = 1000;
+static NSUInteger APMRecorderMaxUnfinishedSpans = 1000;
+static NSUInteger APMRecorderMaxPendingFragments = 1000;
+
 @class APMTraceFragment, APMSpan;
 @interface APMRecorder : NSObject
 
