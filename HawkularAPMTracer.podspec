@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HawkularAPMTracer'
-  s.version          = '0.2.9'
+  s.version          = '0.2.10'
   s.summary          = 'Opentracing compatible tracer with a Hawkular APM recorder'
 
 
