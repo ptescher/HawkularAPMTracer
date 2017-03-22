@@ -12,6 +12,8 @@
 #import "APMNode.h"
 #import "APMSpan.h"
 
+static NSTimeInterval APMRecorderExpirationTime = 10.0 * 60.0;
+
 @interface APMRecorder () <NSURLSessionDelegate>
 
 @property (strong, nonatomic, nonnull) NSMutableOrderedSet *orphanedNodes;
@@ -34,9 +36,9 @@
         self.sendTimer = [NSTimer scheduledTimerWithTimeInterval:flushInterval repeats:YES block:^(NSTimer * _Nonnull timer) {
             [self send];
         }];
-        self.traceDictionariesToSend = [NSMutableArray<NSDictionary*> new];
-        self.orphanedNodes = [NSMutableOrderedSet new];
-        self.unfinishedSpanContexts = [NSMutableOrderedSet new];
+        self.traceDictionariesToSend = [[NSMutableArray<NSDictionary*> alloc] initWithCapacity:APMRecorderMaxPendingFragments];
+        self.orphanedNodes = [NSMutableOrderedSet orderedSetWithCapacity:APMRecorderMaxPendingNodes];
+        self.unfinishedSpanContexts = [NSMutableOrderedSet orderedSetWithCapacity:APMRecorderMaxUnfinishedSpans];
 
         self.baseURL = baseURL;
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -67,15 +69,26 @@
             } else if (![response isKindOfClass:[NSHTTPURLResponse class]] || ((NSHTTPURLResponse*)response).statusCode != 204 ) {
                 NSLog(@"Got invalid response: %@", response);
             }
+            [self cleanup];
             if (completionHandler) {
                 completionHandler(error);
             }
         }];
         [task resume];
     } else {
+        [self cleanup];
         if (completionHandler) {
             completionHandler(nil);
         }
+    }
+}
+
+- (void)cleanup {
+    NSDate *expirationDate = [NSDate dateWithTimeIntervalSinceNow: -APMRecorderExpirationTime];
+    NSPredicate *expiredNodePredicate = [NSPredicate predicateWithFormat:@"timestamp <= %@", expirationDate];
+    NSOrderedSet *expiredNodes = [self.orphanedNodes filteredOrderedSetUsingPredicate:expiredNodePredicate];
+    for (APMNode *node in expiredNodes) {
+        [self.orphanedNodes removeObject:node];
     }
 }
 
@@ -167,8 +180,13 @@
         return [self addFragment:fragment];
     }
 
-    [self.orphanedNodes addObject:node];
-    return YES;
+    NSAssert(self.orphanedNodes.count < APMRecorderMaxPendingNodes, @"Too many pending nodes");
+    if (self.orphanedNodes.count < APMRecorderMaxPendingNodes) {
+        [self.orphanedNodes addObject:node];
+        return YES;
+    }
+
+    return NO;
 }
 
 

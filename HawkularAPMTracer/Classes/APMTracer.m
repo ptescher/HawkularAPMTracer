@@ -75,12 +75,21 @@
                    tags:(NSDictionary *)tags
               startTime:(NSDate *)startTime {
 
+
     APMSpan *span = [[APMSpan alloc] initWithTracer:self references:references startTime:startTime];
-    span.operationName = operationName;
-    for (NSString *key in tags.allKeys) {
-        [span setTag:key value:tags[key]];
+
+    @try {
+        span.operationName = operationName;
+        for (NSString *key in tags.allKeys) {
+            [span setTag:key value:tags[key]];
+        }
+        if (self.recorder.unfinishedSpanContexts.count < APMRecorderMaxUnfinishedSpans) {
+            [self.recorder.unfinishedSpanContexts addObject:span.context];
+        }
+    } @catch (NSException *exception) {
+        NSLog(@"Exception adding span: %@", exception);
     }
-    [self.recorder.unfinishedSpanContexts addObject:span.context];
+
     return span;
 }
 
