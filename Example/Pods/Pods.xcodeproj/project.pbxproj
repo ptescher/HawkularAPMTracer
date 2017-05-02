@@ -12,11 +12,11 @@
 		168B78CFADB1A91F4F92E8CFE1BCE181 /* NSMutableURLRequest+APMTracing.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B21036F960F71190AB28EDF435C6B38 /* NSMutableURLRequest+APMTracing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C64932FA286C76276A32A4BC4F3C6DE /* OHHTTPStubs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A41F14D8E4D194AA404B2BB175A16DE /* OHHTTPStubs-dummy.m */; };
 		2828C5A8C3FF12A877F8243078BFE26F /* OHHTTPStubsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 15D8E9D57B619D330243D27B4894C50D /* OHHTTPStubsResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		29FEC958E1016915C344A481F00B103C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A6CFDAFEBED2AAEA3F471ED5063A32 /* Foundation.framework */; };
 		3084191BDC83456B1401C24DB3AACF8F /* OHHTTPStubsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDF65BBF986B4F5AB48C2C6E078ACE /* OHHTTPStubsResponse.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		4241EEE517F4F7732F6E8D98E02547D3 /* APMURLSessionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD959FE8FF748B6CF7EBE7713C32C8C /* APMURLSessionDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4347787047A59BB2A5174A6AE3C86201 /* OTReference.h in Headers */ = {isa = PBXBuildFile; fileRef = 223502EDAD53573411741BDAFFBC7C84 /* OTReference.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43A9703A4BEDF7EBCE1236A8F3F8358A /* OHHTTPStubsMethodSwizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = A260C6D19C8FE85D22B3BFF89A9A6156 /* OHHTTPStubsMethodSwizzling.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		4544043B3F83E12258851F1586DD524E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1D3CD12107365077ACE392E70820A2 /* Foundation.framework */; };
 		46DC0F1CB5308B67152B69A30720B406 /* opentracing-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2E1473C11AE66C8C8B67F0A4E3B419 /* opentracing-dummy.m */; };
 		47BA398476FFA4B28CF13D49C28D356C /* APMTraceFragment.m in Sources */ = {isa = PBXBuildFile; fileRef = EED61D59B0B2C843762A08A26E772C7E /* APMTraceFragment.m */; };
 		4EA122DB47E4F1AC12179CBDE61F7568 /* APMTracer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6CE4F9A5C1832DC8734B7398466CC /* APMTracer.m */; };
@@ -31,14 +31,14 @@
 		63B6506A7CD7AA70460DB74F1247BC2A /* APMTracer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB1B78BDF2A68952CA9032CC9EF6528 /* APMTracer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64C91FFBDEDD820655E28F38024FEE22 /* OHHTTPStubsResponse+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BCB6CA94FD2D671E9171CB385EEAAF /* OHHTTPStubsResponse+JSON.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		7008D423B863739550594D7B4FFFD424 /* APMURLSessionTaskTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = B76CC8B2D320681F9BA5E5CE722E4EE0 /* APMURLSessionTaskTracker.m */; };
+		728E6B8D34A4720CB358201572D3A306 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1D3CD12107365077ACE392E70820A2 /* Foundation.framework */; };
 		762AF7BEB049380770CC0291793F08BB /* Pods-HawkularAPMTracer_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABE987BE800FBE65A7EA3D3EB4D5A /* Pods-HawkularAPMTracer_Tests-dummy.m */; };
-		7AF863D60D5AF3B59EF70B0E8EDBF1A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A6CFDAFEBED2AAEA3F471ED5063A32 /* Foundation.framework */; };
 		7B1A1C45179B9C3E98AEB87205DC4658 /* OTTracer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA69E388FF787BB6747572B27A95E944 /* OTTracer.m */; };
+		7D70AD9517711B55173D6130E078838A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BA39BFFA2FDB9F30F5A17609767D6F /* CFNetwork.framework */; };
 		7DD278E23381CA2D7217F497A2C2649A /* APMRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 25B4FE9BA429CA319FA45A40A2DBF785 /* APMRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7FDD4CA495F8D20099B890F49E0859B5 /* NSMutableURLRequest+APMTracing.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FC0C99199AEEDD8B0A73B8E13059D3 /* NSMutableURLRequest+APMTracing.m */; };
 		83A37634F48394BD93F108582501A4C4 /* OHPathHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 215380EBDE5255AC92FAA322A18D07E7 /* OHPathHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A4D01B097A738B1CCA9BEB9F734E3AB /* APMSpan.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A3303A0F63E6E4873B38F934D9C93AD /* APMSpan.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8CC88A2B38759BC8D7C9827A0A3B7518 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A6CFDAFEBED2AAEA3F471ED5063A32 /* Foundation.framework */; };
 		8D0A5C979C47B863303C91B72F717E94 /* OpenTracing-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = B753A8B0A839CE107C5B85DF6CE0320F /* OpenTracing-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8F26517946A7B5AFE47476EBE02441D3 /* opentracing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B0A0794E15505C947870A426900E5B /* opentracing.framework */; };
 		9890E6D0FDF36E4CA8ACA675C86FC6D2 /* OHHTTPStubsMethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CD9338BC201D7E7613FEA80504B2BF /* OHHTTPStubsMethodSwizzling.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -48,19 +48,19 @@
 		B46A4DDB8D7B83F86EAC25E90E191E2F /* OTTracer.h in Headers */ = {isa = PBXBuildFile; fileRef = 01AD58583902828EE2A4D5D0E0161138 /* OTTracer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5CCF58A41B77A034EF2E88DACE68A82 /* OTVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 72897B6594756880A7C1F4A9A7BED494 /* OTVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B71274CE2E5707A2AD5688829FE616D0 /* OHHTTPStubs-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 16038250D3791263716F30FEAF1F6919 /* OHHTTPStubs-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BAC2ED24719F4F9C3F7BDD3F29C3F3C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A6CFDAFEBED2AAEA3F471ED5063A32 /* Foundation.framework */; };
+		B9E9DED62CFEB30A2E024807E5F69DA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1D3CD12107365077ACE392E70820A2 /* Foundation.framework */; };
 		C125C18D35B2917A8CC9BBF28811C91C /* OTSpanContext.h in Headers */ = {isa = PBXBuildFile; fileRef = BD24BDB18F5CC05D5823B2B11FA1B848 /* OTSpanContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5081EE8A20421426E0EF8E58BBEB0E8 /* APMRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = B3356E2490540051DE3256804FE1DC30 /* APMRecorder.m */; };
 		C5ED19E01DFC9993E0C9AB6C85ACAB1D /* NSURLRequest+HTTPBodyTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B68E686EEBE4C233F21F3DA32B43432 /* NSURLRequest+HTTPBodyTesting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C86DFF71F80F40AD1FEAF1B4824A4E1F /* Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F2B7C155C2A00A3953B8C6B6050EA58 /* Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA306BDBD477DE20CD0836C7F5F0BF4B /* OHPathHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDDA08D0140D70575E5CDC534FC41B6 /* OHPathHelpers.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		D06655905EB690BD8ADE27D2BFC5827F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB6552F7FC01D5E1C67315CFEFB589E /* CFNetwork.framework */; };
 		D7FAECE3BF3D3059FEFEF3D9E2432B50 /* APMSpanContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 4512C7A02ABBEFB60473001DCCCFFE1E /* APMSpanContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DB5E3F8616FA15C9D3D3F77D5D896AB0 /* APMNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B90DE1D3DA354552DD4106B9D2240B3 /* APMNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC3BE4B3C6C098A5B9B063DB25FCDF8B /* NSURLRequest+HTTPBodyTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C340E107A4422646FE1C89E084D7E4 /* NSURLRequest+HTTPBodyTesting.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		E051B949D969BCE0CD553D323D63977E /* OHHTTPStubs.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B72C24D1D01F880833D385FAF4A01D /* OHHTTPStubs.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		E2C7D0E80F0C4DA7F1AC131CE7AEDD07 /* APMURLSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF8FDB7F5DA51A300EF360E2D3B8B8E /* APMURLSessionDelegate.m */; };
 		E9DBB6CB46AEB73E44ADBDFA414D5C2E /* OTGlobal.h in Headers */ = {isa = PBXBuildFile; fileRef = 59D778B8807B5C8D5FE0700F3A48F0A9 /* OTGlobal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EBE2AB6F526C81A3DCE044BCF4FC7CBB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1D3CD12107365077ACE392E70820A2 /* Foundation.framework */; };
 		EC3D5F3D03B384CE848F2080C722478D /* OTGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A10B65DCCCECB191D9B637F9CEDBDB7 /* OTGlobal.m */; };
 		EDDE31811E69744111D7FADA28092933 /* APMTraceFragment.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5009C3984FB3F93B46973F1C8252E6 /* APMTraceFragment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FABD761AB2294E8585456326C30A35C9 /* opentracing-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BF5B7F72752B6C7B97C63FE8D62DFD5A /* opentracing-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -100,6 +100,7 @@
 
 /* Begin PBXFileReference section */
 		01AD58583902828EE2A4D5D0E0161138 /* OTTracer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTTracer.h; path = Pod/Classes/OTTracer.h; sourceTree = "<group>"; };
+		04BA39BFFA2FDB9F30F5A17609767D6F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		0704F27D7D6D9AF6BAF7F92DC0B75BDA /* HawkularAPMTracer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HawkularAPMTracer-umbrella.h"; sourceTree = "<group>"; };
 		07B71228A3F2E003DACCAA1D14BCDFF4 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OHHTTPStubs.framework; path = OHHTTPStubs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0809E76E371D04A6F2CC01B490CE7CBB /* OTReference.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OTReference.m; path = Pod/Classes/OTReference.m; sourceTree = "<group>"; };
@@ -128,7 +129,6 @@
 		544B0ABEFEEFD7F20EC24505ABCC7468 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59D778B8807B5C8D5FE0700F3A48F0A9 /* OTGlobal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTGlobal.h; path = Pod/Classes/OTGlobal.h; sourceTree = "<group>"; };
 		5B21036F960F71190AB28EDF435C6B38 /* NSMutableURLRequest+APMTracing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+APMTracing.h"; sourceTree = "<group>"; };
-		69A6CFDAFEBED2AAEA3F471ED5063A32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		72897B6594756880A7C1F4A9A7BED494 /* OTVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTVersion.h; path = Pod/Classes/OTVersion.h; sourceTree = "<group>"; };
 		746D8E87A90629A7E462C5B7EC478B40 /* OHHTTPStubs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OHHTTPStubs.xcconfig; sourceTree = "<group>"; };
 		7AD959FE8FF748B6CF7EBE7713C32C8C /* APMURLSessionDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMURLSessionDelegate.h; sourceTree = "<group>"; };
@@ -136,7 +136,6 @@
 		8572C307CFB150CC87C3FE18681AEB96 /* HawkularAPMTracer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HawkularAPMTracer.xcconfig; sourceTree = "<group>"; };
 		8B90DE1D3DA354552DD4106B9D2240B3 /* APMNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMNode.h; sourceTree = "<group>"; };
 		8BA6CE4F9A5C1832DC8734B7398466CC /* APMTracer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMTracer.m; sourceTree = "<group>"; };
-		8DB6552F7FC01D5E1C67315CFEFB589E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9980585DDAEC9A4D07B57E5379C44942 /* APMURLSessionTaskTracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = APMURLSessionTaskTracker.h; sourceTree = "<group>"; };
 		9BEDF65BBF986B4F5AB48C2C6E078ACE /* OHHTTPStubsResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OHHTTPStubsResponse.m; path = OHHTTPStubs/Sources/OHHTTPStubsResponse.m; sourceTree = "<group>"; };
@@ -154,6 +153,7 @@
 		B753A8B0A839CE107C5B85DF6CE0320F /* OpenTracing-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OpenTracing-Bridging-Header.h"; path = "Pod/Classes/OpenTracing-Bridging-Header.h"; sourceTree = "<group>"; };
 		B76CC8B2D320681F9BA5E5CE722E4EE0 /* APMURLSessionTaskTracker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = APMURLSessionTaskTracker.m; sourceTree = "<group>"; };
 		B7C340E107A4422646FE1C89E084D7E4 /* NSURLRequest+HTTPBodyTesting.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLRequest+HTTPBodyTesting.m"; path = "OHHTTPStubs/Sources/NSURLSession/NSURLRequest+HTTPBodyTesting.m"; sourceTree = "<group>"; };
+		BA1D3CD12107365077ACE392E70820A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		BD24BDB18F5CC05D5823B2B11FA1B848 /* OTSpanContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTSpanContext.h; path = Pod/Classes/OTSpanContext.h; sourceTree = "<group>"; };
 		BDC547C986422275A0A05BA037C12C84 /* OHHTTPStubs+NSURLSessionConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OHHTTPStubs+NSURLSessionConfiguration.m"; path = "OHHTTPStubs/Sources/NSURLSession/OHHTTPStubs+NSURLSessionConfiguration.m"; sourceTree = "<group>"; };
 		BF5B7F72752B6C7B97C63FE8D62DFD5A /* opentracing-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "opentracing-umbrella.h"; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29FEC958E1016915C344A481F00B103C /* Foundation.framework in Frameworks */,
+				B9E9DED62CFEB30A2E024807E5F69DA5 /* Foundation.framework in Frameworks */,
 				8F26517946A7B5AFE47476EBE02441D3 /* opentracing.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,8 +195,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D06655905EB690BD8ADE27D2BFC5827F /* CFNetwork.framework in Frameworks */,
-				7AF863D60D5AF3B59EF70B0E8EDBF1A8 /* Foundation.framework in Frameworks */,
+				7D70AD9517711B55173D6130E078838A /* CFNetwork.framework in Frameworks */,
+				4544043B3F83E12258851F1586DD524E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAC2ED24719F4F9C3F7BDD3F29C3F3C1 /* Foundation.framework in Frameworks */,
+				728E6B8D34A4720CB358201572D3A306 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CC88A2B38759BC8D7C9827A0A3B7518 /* Foundation.framework in Frameworks */,
+				EBE2AB6F526C81A3DCE044BCF4FC7CBB /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +234,15 @@
 				D7BCB6CA94FD2D671E9171CB385EEAAF /* OHHTTPStubsResponse+JSON.m */,
 			);
 			name = JSON;
+			sourceTree = "<group>";
+		};
+		14A0368A32AAEA818BFA69380000152C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				04BA39BFFA2FDB9F30F5A17609767D6F /* CFNetwork.framework */,
+				BA1D3CD12107365077ACE392E70820A2 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		1716886CCB0E921C2D58CA657E2A59BA /* HawkularAPMTracer */ = {
@@ -425,20 +434,11 @@
 			path = "Example/Pods/Target Support Files/HawkularAPMTracer";
 			sourceTree = "<group>";
 		};
-		E5D828744FD399D197010D2B873B8D00 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				8DB6552F7FC01D5E1C67315CFEFB589E /* CFNetwork.framework */,
-				69A6CFDAFEBED2AAEA3F471ED5063A32 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
 		E8D4581FBA1D5F4E82B3B5C7EC5C471D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				12B0A0794E15505C947870A426900E5B /* opentracing.framework */,
-				E5D828744FD399D197010D2B873B8D00 /* iOS */,
+				14A0368A32AAEA818BFA69380000152C /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -606,7 +606,7 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -712,41 +712,11 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1D183F68C06739D563582D723B35F851 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D09050E8DBF764928951DED90914B8A8 /* opentracing.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/opentracing/opentracing-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/opentracing/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/opentracing/opentracing.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = opentracing;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		2475A6FA422C961D2CF9C13AF5C559F2 /* Release */ = {
+		166FD49EDEC5952877C31D0BE0BC0F8F /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 746D8E87A90629A7E462C5B7EC478B40 /* OHHTTPStubs.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -774,10 +744,11 @@
 			};
 			name = Release;
 		};
-		5203F953E8D89E2367E98C5C109D279C /* Debug */ = {
+		178CD14397B4CD9F1CCDF2E32B044611 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8572C307CFB150CC87C3FE18681AEB96 /* HawkularAPMTracer.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -805,10 +776,11 @@
 			};
 			name = Debug;
 		};
-		7F27DBC15EA78CD2BCED1D267B1BB29C /* Debug */ = {
+		23AA86D3D57A9A1FE46F52DFF2346125 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E11918A5A0A3C8AFD32EF209BE607AD4 /* Pods-HawkularAPMTracer_Tests.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -840,50 +812,11 @@
 			};
 			name = Debug;
 		};
-		8DED8AD26D381A6ACFF202E5217EC498 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		99FB034B0B9DF39D8BA8561E5D396B52 /* Debug */ = {
+		2F420FC750D07F0F19859EBECC11AB0F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 746D8E87A90629A7E462C5B7EC478B40 /* OHHTTPStubs.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -911,11 +844,44 @@
 			};
 			name = Debug;
 		};
-		9E1E4E48AF2EAB23169E611BF694090A /* Debug */ = {
+		2FF8D9B935D3F74382EA0AC4DE6A2DFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D09050E8DBF764928951DED90914B8A8 /* opentracing.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/opentracing/opentracing-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/opentracing/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/opentracing/opentracing.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = opentracing;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		345CC476DF4A7516DBD2220CF5035FF3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -923,10 +889,13 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
@@ -955,72 +924,55 @@
 			};
 			name = Debug;
 		};
-		A0773B0FBB3DBD74B90FD73CCD03B257 /* Release */ = {
+		717E77604BFBB04BEAF56608A1CB2EDE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8572C307CFB150CC87C3FE18681AEB96 /* HawkularAPMTracer.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/HawkularAPMTracer/HawkularAPMTracer-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/HawkularAPMTracer/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/HawkularAPMTracer/HawkularAPMTracer.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = HawkularAPMTracer;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		A93A2EDD5FADFCD172BFD87987535FE2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D09050E8DBF764928951DED90914B8A8 /* opentracing.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/opentracing/opentracing-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/opentracing/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/opentracing/opentracing.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = opentracing;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		BC0B9362E4FCA95D5F9A81D4E9F4B2ED /* Release */ = {
+		738332CF738DF517815C4A5338D314DE /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E0DC6BFC9D855F5EA52C8EA4A28EBCC2 /* Pods-HawkularAPMTracer_Tests.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1052,14 +1004,78 @@
 			};
 			name = Release;
 		};
+		DC8C1CE7C8A101F83FF79CFE008D5BA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8572C307CFB150CC87C3FE18681AEB96 /* HawkularAPMTracer.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HawkularAPMTracer/HawkularAPMTracer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HawkularAPMTracer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HawkularAPMTracer/HawkularAPMTracer.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = HawkularAPMTracer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DE8EBF2D168842FC10115403458EAD64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D09050E8DBF764928951DED90914B8A8 /* opentracing.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/opentracing/opentracing-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/opentracing/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/opentracing/opentracing.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = opentracing;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		19142A73CC341F046FCCB0FA32840347 /* Build configuration list for PBXNativeTarget "OHHTTPStubs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				99FB034B0B9DF39D8BA8561E5D396B52 /* Debug */,
-				2475A6FA422C961D2CF9C13AF5C559F2 /* Release */,
+				2F420FC750D07F0F19859EBECC11AB0F /* Debug */,
+				166FD49EDEC5952877C31D0BE0BC0F8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1067,8 +1083,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9E1E4E48AF2EAB23169E611BF694090A /* Debug */,
-				8DED8AD26D381A6ACFF202E5217EC498 /* Release */,
+				345CC476DF4A7516DBD2220CF5035FF3 /* Debug */,
+				717E77604BFBB04BEAF56608A1CB2EDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1076,8 +1092,8 @@
 		3A01509DF644AE921310613F3DBF2849 /* Build configuration list for PBXNativeTarget "opentracing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1D183F68C06739D563582D723B35F851 /* Debug */,
-				A93A2EDD5FADFCD172BFD87987535FE2 /* Release */,
+				DE8EBF2D168842FC10115403458EAD64 /* Debug */,
+				2FF8D9B935D3F74382EA0AC4DE6A2DFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1085,8 +1101,8 @@
 		71A22425BEE018155E9CD05D7942ED35 /* Build configuration list for PBXNativeTarget "HawkularAPMTracer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5203F953E8D89E2367E98C5C109D279C /* Debug */,
-				A0773B0FBB3DBD74B90FD73CCD03B257 /* Release */,
+				178CD14397B4CD9F1CCDF2E32B044611 /* Debug */,
+				DC8C1CE7C8A101F83FF79CFE008D5BA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1094,8 +1110,8 @@
 		D11DF2ECE2EB26573BDF48B7C03B6464 /* Build configuration list for PBXNativeTarget "Pods-HawkularAPMTracer_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7F27DBC15EA78CD2BCED1D267B1BB29C /* Debug */,
-				BC0B9362E4FCA95D5F9A81D4E9F4B2ED /* Release */,
+				23AA86D3D57A9A1FE46F52DFF2346125 /* Debug */,
+				738332CF738DF517815C4A5338D314DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
