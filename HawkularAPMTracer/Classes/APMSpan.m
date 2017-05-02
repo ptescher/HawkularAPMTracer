@@ -69,7 +69,6 @@
         self.tags[@"device.systemName"] = [UIDevice currentDevice].systemName;
         self.tags[@"device.systemVersion"] = [UIDevice currentDevice].systemVersion;
         self.tags[@"device.model"] = [UIDevice currentDevice].model;
-        self.tags[@"device.identifierForVendor"] = [[UIDevice currentDevice].identifierForVendor UUIDString].lowercaseString;
     }
 }
 
